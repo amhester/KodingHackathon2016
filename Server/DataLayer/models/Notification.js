@@ -8,7 +8,11 @@ class Notification {
         this._seen = notificationJson.seen || false;
         this._message = notificationJson.message || '';
         this._link = notificationJson.link || '';
+        this._email = notificationJson.email || '';
     }
+
+    // TODO: Save a contact string instead of email address
+    // TODO: Save a contact type as an enum. E.g. email, text, twitter, etc.
 
     static get NOTIFICATION_TYPES () {
         return {
@@ -26,6 +30,7 @@ class Notification {
     get seen () { return this._seen; }
     get message () { return this._message; }
     get link () { return this._link; }
+    get email () { return this._email; }
 
     set id (val) { this._id = val; }
     set type (val) { this._type = val; }
@@ -33,4 +38,5 @@ class Notification {
     set seen (val) { this._seen = val; }
     set message (val) { this._message = val; }
     set link (val) { this._link = val; }
+    set email (val) { this._email = val; }
 }
