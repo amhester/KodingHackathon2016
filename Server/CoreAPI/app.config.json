@@ -3,5 +3,5 @@
   "host": "localhost",
   "name": "WinWinAPI",
   "version": "0.0.1",
-  "notificationService": "127.0.0.1:8088/notify/1"
+  "notificationEndpoint": "127.0.0.1:8088/notify/1"
 }

@@ -16,11 +16,18 @@ module.exports.register = function( server ) {
             email: req.body.email
         };
 
-        //request('http://www.google.com', function (error, response, body) {
-        //    if (!error && response.statusCode == 200) {
-        //        console.log(body) // Show the HTML for the Google homepage.
-        //    }
-        //})
+        request(
+            { method: 'POST'
+            , uri: 'http://127.0.0.1:8088/notify/1'
+            , json: notification
+            }
+            , function (error, response, body) {
+                if (error) {
+                    console.log("Error: " + error);
+                } else {
+                    console.log(body);
+                }
+            });
 
         res.send(notification);
         next();

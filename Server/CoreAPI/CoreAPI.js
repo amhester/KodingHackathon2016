@@ -5,13 +5,14 @@
 var restify = require('restify');
 var appConfig = require('./app.config.json');
 var uuid = require('node-uuid');
+var logger = console;
 
 
-var accountRoutes = require('./routes/accountRoutes.js');
-var charitiesRoutes = require('./routes/charitiesRoutes.js');
-var goalsRoutes = require('./routes/goalsRoutes.js');
+//var accountRoutes = require('./routes/accountRoutes.js');
+//var charitiesRoutes = require('./routes/charitiesRoutes.js');
+//var goalsRoutes = require('./routes/goalsRoutes.js');
 var notificationRoutes = require('./routes/notificationRoutes.js');
-var transactionRoutes = require('./routes/transactionRoutes.js');
+//var transactionRoutes = require('./routes/transactionRoutes.js');
 
 
 /* ----------------- Other Global Stuff ----------------------------- */
@@ -59,11 +60,11 @@ server.use(restify.CORS());
 
 /* ----------------- Register API Routes Here ----------------------- */
 //Our actual security/permissions api endpoints
-accountRoutes.register(server);
-charitiesRoutes.register(server);
-goalsRoutes.register(server);
+//accountRoutes.register(server);
+//charitiesRoutes.register(server);
+//goalsRoutes.register(server);
 notificationRoutes.register(server);
-transactionRoutes.register(server);
+//transactionRoutes.register(server);
 
 /* ----------------- Start API Here --------------------------------- */
 server.listen(appConfig.port, appConfig.host, function () {
