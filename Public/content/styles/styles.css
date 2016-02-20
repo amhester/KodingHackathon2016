@@ -58,3 +58,8 @@ img.charity-logo {
     margin-right: 20px;
     text-transform: uppercase;
 }
+
+.dashCard {
+    width:600px;
+    margin-left: 20px;
+}
