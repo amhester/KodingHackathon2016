@@ -3,7 +3,8 @@
 
     angular
         .module('DP.Main')
-        .config(config);
+        .config(config)
+        .run(run);
 
     config.$inject = ['$routeProvider'];
     function config(routeProvider) {
@@ -24,9 +25,19 @@
                 templateUrl: 'subviews/profile.html'
             })
             .when('/goals', {
-                controller: 'goalsController',
+                controller: 'todosController',
                 controllerAs: 'vm',
                 templateUrl: 'subviews/goals.html'
+            })
+            .when('/newGoal', {
+                controller: 'goalsController',
+                controllerAs: 'vm',
+                templateUrl: 'subviews/newGoal.html'
+            })
+            .when('/pastGoals', {
+                controller: 'goalsController',
+                controllerAs: 'vm',
+                templateUrl: 'subviews/pastGoals.html'
             })
             .when('/history', {
                 controller: 'historyController',
@@ -35,4 +46,14 @@
             })
             .otherwise('/dashboard');
     }
+
+    run.$inject = ['$rootScope', '$location'];
+    function run(rootScope, location) {
+        var path = function () {
+            return location.path();
+        };
+        rootScope.$watch(path, function (newVal, oldVal) {
+            rootScope.activetab = newVal;
+        });
+    };
 })();
