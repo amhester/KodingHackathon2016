@@ -7,7 +7,7 @@ var Notifications = require('./../DataLayer/services/Notifications');
 var Notification = require('./../DataLayer/models/Notification.js');
 var request = require('request');
 
-var notifications = new NotificationService(appConfig.mongoConfig);
+var notifications = new Notifications(appConfig.mongoConfig);
 var goals = new Goals(appConfig.mongoConfig);
 
 
