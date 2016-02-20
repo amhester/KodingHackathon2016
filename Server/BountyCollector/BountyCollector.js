@@ -6,7 +6,6 @@ var Goal = require('./../DataLayer/models/Goal');
 var Goals = require('./../DataLayer/services/Goals');
 
 (function () {
-
     var scheduledJob = schedule.scheduleJob(appConfig.cronTest, function() {
 
         var goals = new Goals({
@@ -19,16 +18,21 @@ var Goals = require('./../DataLayer/services/Goals');
         goals.onConnected = function() {
             goals
                 .query()
-                .find().toArray()
-                .then(function(err, results) {
-                if (err) {
-                    console.log(err);
-                }
-                console.log(results);
-            });
+                .find().toArray(function(err, results) {
+                    if (err) {
+                        console.log(err);
+                    }
+
+                    var now = new Date().getTime();
+                    results.forEach(function(obj) {
+                        if (obj.expiration < now) {
+                            console.log("expired...");
+                        } else {
+                            console.log("not expired...");
+                        }
+                    });
+                });
         };
-
-
     });
 
     // select from goals table
