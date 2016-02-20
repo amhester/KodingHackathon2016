@@ -7,7 +7,11 @@ class StripePaymentService {
 
     constructor() {}
 
-    createToken(card, cb) {
+
+    /**
+     * tokens
+     * */
+    createCardToken(card, cb) {
         stripe.tokens.create({
             card: {
                 number: card.number,
@@ -20,10 +24,23 @@ class StripePaymentService {
         });
     }
 
+    getToken(tokenId, cb) {
+        stripe.tokens.retrieve(tokenId, function(err, token) {
+            if (!err) {
+                cb(err, token);
+            }
+        });
+
+    }
+
+
+    /**
+     * customers
+     * */
     createCustomer(customer, cb) {
         stripe.customers.create({
             description: customer.description,
-            source: customer.source
+            source: customer.tokenId
         }, function(err, customer) {
             cb(err, customer);
         });
@@ -38,7 +55,7 @@ class StripePaymentService {
     updateCustomer(customerId, customer, cb) {
         stripe.customers.update(customerId, {
             description: customer.description,
-            source: customer.source
+            source: customer.tokedId
         }, function(err, customer) {
             cb(err, customer);
         });
@@ -50,6 +67,10 @@ class StripePaymentService {
         });
     }
 
+
+    /**
+     * charges
+     * */
     charge(charge, cb) {
         stripe.charges.create({
             amount: charge.amount,
@@ -72,11 +93,13 @@ class StripePaymentService {
 
 
 
+/* for testing */
 
+/*
 let service = new StripePaymentService();
 
-service.createToken({
-    number: '4111111111111111',
+service.createCardToken({
+    number: '378282246310005',
     month: 12,
     year: 2017,
     cvc: '123'
@@ -103,3 +126,4 @@ service.createToken({
         console.log(err);
     }
 });
+*/
