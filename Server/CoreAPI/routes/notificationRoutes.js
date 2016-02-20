@@ -6,7 +6,7 @@ var request = require('request');
 module.exports.register = function( server ) {
 
     server.post('/notification', function (req, res, next) {
-        console.log(req.body);
+        console.log('body', req.body);
         let notification = {
             id: req.body.id,
             accountId: req.body.accountId,
@@ -25,10 +25,9 @@ module.exports.register = function( server ) {
                 if (error) {
                     console.log("Error: " + error);
                 } else {
-                    console.log(body);
+                    console.log("this is the response.request.body", response.request.body);
                 }
             });
-
         res.send(notification);
         next();
     });

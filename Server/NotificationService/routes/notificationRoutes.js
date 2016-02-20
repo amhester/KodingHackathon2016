@@ -36,10 +36,9 @@ module.exports.register = function( server ) {
                 console.log(`Notification Error: $(notification)`);
                 return err;
             } else {
-                return notification;
+                res.send(notification);
             }
         });
-        res.send(notification);
         next();
     });
 };
