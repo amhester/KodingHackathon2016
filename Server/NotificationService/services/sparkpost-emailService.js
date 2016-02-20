@@ -8,7 +8,7 @@ class SparkpostEmailService {
         this.sparky = new SparkPost('cb48dfa703792cb83643eec187139cdd9ee335c7');
     }
 
-    sendEmail(recipients) {
+    sendEmail(recipients, fromAddress, subject, message) {
         let _recipients = [];
         for (let i = 0; i < recipients.length; i++) {
             _recipients.push({address: recipients[i]});
@@ -16,14 +16,11 @@ class SparkpostEmailService {
         this.sparky.transmissions.send({
             transmissionBody: {
                 content: {
-                    from: 'testing@sparkpostbox.com',
-                    subject: 'Oh hey!',
-                    html: "<html><body><p>Testing SparkPost - the world's most awesomest email service!</p></body></html>"
+                    from: fromAddress,
+                    subject: subject,
+                    html: message
                 },
                 recipients: _recipients
-                //recipients: [
-                //    {address: 'djragsdale@anderson.edu'}
-                //]
             }
         }, function(err, res) {
             if (err) {
