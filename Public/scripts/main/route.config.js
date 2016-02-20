@@ -25,7 +25,7 @@
                 templateUrl: 'subviews/profile.html'
             })
             .when('/goals', {
-                controller: 'todosController',
+                controller: 'goalsController',
                 controllerAs: 'vm',
                 templateUrl: 'subviews/goals.html'
             })
@@ -53,7 +53,9 @@
             return location.path();
         };
         rootScope.$watch(path, function (newVal, oldVal) {
-            rootScope.activetab = newVal;
+            var pattern = /\/[^\/]*/;
+            var found = newVal.match(pattern);
+            rootScope.activetab = found;
         });
     };
 })();
