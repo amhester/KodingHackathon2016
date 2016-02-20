@@ -15,6 +15,20 @@ class Account {
         this._updatedOn = accountJson.updatedOn || new Date().getTime();
     }
 
+    toJson () {
+        let self = this;
+        return {
+            accountId: self._accountId,
+            email: self._email,
+            passwordHash: self._passwordHash,
+            displayName: self._displayName,
+            defaultCharity: self._defaultCharity,
+            stripeCustomerId: self._stripeCustomerId,
+            createdOn: self._createdOn,
+            updatedOn: self._updatedOn
+        };
+    }
+
     get accountId () { return this._accountId; }
     get email () { return this._email; }
     get passwordHash () { return this._passwordHash; }
