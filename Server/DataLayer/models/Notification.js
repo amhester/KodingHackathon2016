@@ -34,3 +34,5 @@ class Notification {
     set message (val) { this._message = val; }
     set link (val) { this._link = val; }
 }
+
+module.exports = Notification;

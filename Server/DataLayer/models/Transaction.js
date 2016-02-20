@@ -36,3 +36,5 @@ class Transaction {
     set eventType (val) { this._eventType = val; }
     set details (val) { this._details = val; }
 }
+
+module.exports = Transaction;

@@ -23,3 +23,5 @@ class Charity {
     set link (val) { this._link = val; }
     set imageUrl (val) { this._imageUrl = val; }
 }
+
+module.exports = Charity;

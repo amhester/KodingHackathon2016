@@ -48,3 +48,5 @@ class TODO {
     set createdOn (val) { this._status = val; }
     set updatedOn (val) { this._updatedOn = val; }
 }
+
+module.exports = TODO;
