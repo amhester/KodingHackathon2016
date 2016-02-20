@@ -11,12 +11,12 @@
             .when('/login', {
                 controller: 'signInController',
                 controllerAs: 'vm',
-                templateUrl: '/subviews/signIn.html'
+                templateUrl: 'subviews/signIn.html'
             })
             .when('/register', {
                 controller: 'registerController',
                 controllerAs: 'vm',
-                templateUrl: '/subviews/register.html'
+                templateUrl: 'subviews/register.html'
             })
             .otherwise('/login');
     }
