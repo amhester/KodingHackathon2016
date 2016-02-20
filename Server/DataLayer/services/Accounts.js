@@ -1,6 +1,5 @@
 "use strict";
 
-const mongo = require('mongodb').MongoClient;
 const Baseservice = require('./BaseService');
 const Account = require('./../Account.js');
 
@@ -42,3 +41,5 @@ class Accounts extends Baseservice {
         }
     }
 }
+
+module.exports = Accounts;
