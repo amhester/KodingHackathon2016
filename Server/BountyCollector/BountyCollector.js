@@ -7,14 +7,8 @@ var Notifications = require('./../DataLayer/services/Notifications');
 var Notification = require('./../DataLayer/models/Notification.js');
 var request = require('request');
 
-var mongoconfig = {
-    "host": appConfig.mongo.host,
-    "port": appConfig.mongo.port,
-    "store": appConfig.mongo.store,
-    "maxRetries": appConfig.mongo.maxRetries
-}
-var notifications = new NotificationService(mongoconfig);
-var goals = new Goals(mongoconfig);
+var notifications = new NotificationService(appConfig.mongoConfig);
+var goals = new Goals(appConfig.mongoConfig);
 
 
 (function () {
@@ -32,23 +26,23 @@ var goals = new Goals(mongoconfig);
                 results.forEach(function (obj) {
                     if (obj.expiration > now) {
 
-
                         // TODO: create the notification object here.
                         let notification = {
                             id: obj.id,
                             accountId: "",
                             seen: true,
-                            message: "this is the message body....",
+                            message: Notification.NOTIFICATION_TYPES.EXPIRED,
                             link: "",
                             email: "nealhamilton92@gmail.com"
                         };
+                        var notification = new Notification(notification);
 
                         notifications.save(notification, function(err, notification) {
                             if (err) {
                                 console.log(err.message);
                             }
                             request({ method: 'POST',
-                                    uri: 'http://127.0.0.1:8081/notification',
+                                    uri: appConfig.notificationUrl,
                                     json: notification
                                 },
                                 function (error, response, body) {
@@ -58,10 +52,7 @@ var goals = new Goals(mongoconfig);
                                         console.log('response:', body);
                                     }
                                 });
-
                         });
-
-
                     } else {
                         console.log("not expired...");
                     }
@@ -69,6 +60,4 @@ var goals = new Goals(mongoconfig);
             });
         };
     });
-    // create notification
-    // call notification service to send notification out via email
 })();
