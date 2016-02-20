@@ -2,7 +2,5 @@
     "use strict";
 
     angular
-        .module('DP.Directives', [
-            'ngRoute'
-        ]);
+        .module('DP.Directives', []);
 })();
