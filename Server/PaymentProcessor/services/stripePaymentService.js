@@ -14,8 +14,8 @@ class StripePaymentService {
         stripe.tokens.create({
             card: {
                 number: card.number,
-                exp_month: card.month,
-                exp_year: card.year,
+                exp_month: card.exp_month,
+                exp_year: card.exp_year,
                 cvc: card.cvc
             }
         }, function(err, token) {
@@ -70,6 +70,7 @@ class StripePaymentService {
      * charges
      * */
     charge(charge, cb) {
+        console.log(charge);
         stripe.charges.create({
             amount: charge.amount,
             currency: charge.currency,

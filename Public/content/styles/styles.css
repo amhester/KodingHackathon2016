@@ -12,3 +12,8 @@
     margin-top: 50px;
     height:450px;
 }
+
+.goalViewSelectorDirective {
+    margin-left: 15px;
+    width: 300px;
+}
