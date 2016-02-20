@@ -23,10 +23,12 @@ class NotificationService {
     }
 }
 
+module.exports = NotificationService;
+
 module.exports.register = function( server ) {
 
     server.post(root + ':id', function (req, res, next) {
-        console.log(req.body);
+        // console.log(req.body);
         let notification = new Notification(req.body);
         let notifier = NotificationService.NotificationFactory();
         let notify = notifier.sendNotification(notification, function(err, notification) {
