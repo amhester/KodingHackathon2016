@@ -11,7 +11,7 @@ class Goal {
         this._bounty = todoJson.bounty || 0;
         this._charityId = todoJson.charityId || 0;
         this._expiration = todoJson.expiration || new Date().getTime() + (30 * (24 * (60 * (60 * 1000))));
-        this._status = todoJson.status || TODO.TODO_STATUSES.OPEN;
+        this._status = todoJson.status || Goal.GOAL_STATUSES.OPEN;
         this._createdOn = todoJson.createdOn || new Date().getTime();
         this._updatedOn = todoJson.updatedOn || new Date().getTime();
     }
@@ -33,7 +33,7 @@ class Goal {
         };
     }
 
-    static get TODO_STATUSES () {
+    static get GOAL_STATUSES () {
         return {
             OPEN: 1,
             COMPLETED: 2,

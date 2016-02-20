@@ -7,24 +7,7 @@ class Notifications extends Baseservice {
     constructor (config) {
         let self = this;
 
-        self._collectionName = 'notifications';
-        super(config);
-    }
-
-    _insert(notification, cb) {
-        let self = this;
-
-        self._db.notifications.insertOne(notification.toJson(), function (err, result) {
-            cb(err, result);
-        });
-    }
-
-    _update(notification, cb) {
-        let self = this;
-
-        self._db.notifications.updateOne({id: notification.id}, notification.toJson(), function (err, result) {
-            cb(err, result);
-        });
+        super(config, 'notifications');
     }
 
     save (notification, cb) {

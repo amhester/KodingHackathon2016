@@ -4,7 +4,7 @@ var SparkpostEmailService = require('./../services/sparkpost-emailService.js');
 let Notification = require('./../../DataLayer/models/Notification.js');
 
 let service = new SparkpostEmailService();
-let root = '/notify/';
+let root = '/notify';
 
 class NotificationService {
     constructor() {
@@ -23,10 +23,12 @@ class NotificationService {
     }
 }
 
+module.exports = NotificationService;
+
 module.exports.register = function( server ) {
 
-    server.post(root + ':id', function (req, res, next) {
-        console.log(req.body);
+    server.post(root, function (req, res, next) {
+        // console.log(req.body);
         let notification = new Notification(req.body);
         let notifier = NotificationService.NotificationFactory();
         let notify = notifier.sendNotification(notification, function(err, notification) {
