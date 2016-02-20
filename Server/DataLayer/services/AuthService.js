@@ -14,11 +14,17 @@ class AuthService {
     }
 
     register (account, cb) {
+        let self = this;
+        
         if(!account instanceof Account) {
             cb(new Error('parameter is not instance of Account class.'));
         }
 
-        account
+        account.passwordHash = passHash.generate(account.passwordHash);
+
+        self._accounts.save(account, function (err, result) {
+            cb(err, result);
+        });
     }
 
     signIn (email, password, cb) {
