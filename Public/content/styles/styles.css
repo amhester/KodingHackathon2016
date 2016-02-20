@@ -45,7 +45,7 @@ img.charity-logo {
     float: right;
 }
 
-.card .card-content {
+.card .card-content .charity-content {
     float: left;
     clear: both;
 }
