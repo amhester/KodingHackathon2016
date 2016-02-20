@@ -23,8 +23,8 @@
                 controllerAs: 'vm',
                 templateUrl: 'subviews/profile.html'
             })
-            .when('/todos', {
-                controller: 'todosController',
+            .when('/goals', {
+                controller: 'goalsController',
                 controllerAs: 'vm',
                 templateUrl: 'subviews/todos.html'
             })
