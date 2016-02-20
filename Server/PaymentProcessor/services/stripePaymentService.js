@@ -29,6 +29,47 @@ class StripePaymentService {
         });
     }
 
+    getCustomer(id, cb) {
+        stripe.customers.retrieve(id, function(err, customer) {
+            cb(err, customer);
+        });
+    }
+
+    updateCustomer(customerId, customer, cb) {
+        stripe.customers.update(customerId, {
+            description: customer.description,
+            source: customer.source
+        }, function(err, customer) {
+            cb(err, customer);
+        });
+    }
+
+
 }
 
 
+
+
+let service = new StripePaymentService();
+
+service.getToken({
+    number: '4242424242424242',
+    month: 12,
+    year: 2017,
+    cvc: '123'
+}, function(err, token) {
+    if (!err) {
+        service.createCustomer({
+            description: "test customer",
+            source: token.id
+        }, function(err, customer) {
+            if (!err) {
+                console.log(customer);
+            } else {
+                console.log(err);
+            }
+        });
+    } else {
+        console.log(err);
+    }
+});
