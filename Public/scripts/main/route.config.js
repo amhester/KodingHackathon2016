@@ -26,7 +26,7 @@
             .when('/goals', {
                 controller: 'goalsController',
                 controllerAs: 'vm',
-                templateUrl: 'subviews/todos.html'
+                templateUrl: 'subviews/goals.html'
             })
             .when('/history', {
                 controller: 'historyController',
