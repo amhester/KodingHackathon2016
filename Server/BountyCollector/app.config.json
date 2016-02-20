@@ -1,3 +1,11 @@
 {
 
+  "cronTest": "*/2 * * * * *",
+  "cron": "* */15 * * * *",
+  "mongo" : {
+    "host": "localhost",
+    "port": "27017",
+    "store": "",
+    "maxRetries": 5
+  }
 }
