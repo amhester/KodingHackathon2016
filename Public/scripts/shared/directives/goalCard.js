@@ -9,7 +9,7 @@
     function goalCard() {
         return {
             name: 'goalCard',
-            templateUrl: 'templates/goalCard.html',
+            templateUrl: 'templates/goalCard.html'
         };
     }
 })();

@@ -9,7 +9,7 @@
     function goalViewSelector() {
         return {
             name: 'goalViewSelector',
-            templateUrl: 'templates/goalViewSelector.html',
+            templateUrl: 'templates/goalViewSelector.html'
         };
     }
 })();

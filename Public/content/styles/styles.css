@@ -29,3 +29,32 @@
 .datepicker {
    width:150px !important;
 }
+
+/*card styles*/
+.card-header {
+    border-bottom: solid 1px;
+    border-color: #C9C9C9;
+    padding: 0px 0px 12px 20px;
+    margin-bottom: 0px;
+}
+
+img.charity-logo {
+    height: 80px;
+    margin-top: -61px;
+    margin-right: 5%;
+    float: right;
+}
+
+.card .card-content .charity-content {
+    float: left;
+    clear: both;
+}
+
+.card .card-link {
+    padding: 20px 0px 0px 0px;
+}
+
+.card .card-link a {
+    margin-right: 20px;
+    text-transform: uppercase;
+}
