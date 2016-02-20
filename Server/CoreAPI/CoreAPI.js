@@ -1,14 +1,12 @@
 "use strict";
 
+const restify = require('restify');
+const appConfig = require('./app.config.json');
+const uuid = require('node-uuid');
+const logger = console;
+const authMiddleware = require('./middleware/authMiddleware');
 
-//let moduleName = 'DP.services';
-var restify = require('restify');
-var appConfig = require('./app.config.json');
-var uuid = require('node-uuid');
-var logger = console;
-
-
-//var accountRoutes = require('./routes/accountRoutes.js');
+var accountRoutes = require('./routes/accountRoutes.js');
 //var charitiesRoutes = require('./routes/charitiesRoutes.js');
 //var goalsRoutes = require('./routes/goalsRoutes.js');
 var notificationRoutes = require('./routes/notificationRoutes.js');
@@ -57,10 +55,11 @@ server.use(restify.queryParser());
 server.use(restify.gzipResponse());
 server.use(restify.bodyParser());
 server.use(restify.CORS());
+server.use(authMiddleware.authWall);
 
 /* ----------------- Register API Routes Here ----------------------- */
 //Our actual security/permissions api endpoints
-//accountRoutes.register(server);
+accountRoutes.register(server);
 //charitiesRoutes.register(server);
 //goalsRoutes.register(server);
 notificationRoutes.register(server);
@@ -68,7 +67,7 @@ notificationRoutes.register(server);
 
 /* ----------------- Start API Here --------------------------------- */
 server.listen(appConfig.port, appConfig.host, function () {
-    console.log("Core API running, listening on " + server.url);
+    logger.log("Core API running, listening on " + server.url);
 });
 
 /* ----------------- Module Exports (for testing) ------------------- */

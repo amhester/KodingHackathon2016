@@ -1,6 +1,7 @@
 "use strict";
 
 const mongo = require('mongodb').MongoClient;
+const uuid = require('node-uuid');
 
 class BaseService {
     constructor (config, collectionName) {
@@ -54,8 +55,10 @@ class BaseService {
     _insert(o, cb) {
         let self = this;
 
+        o.id = uuid.v4();
+
         self._collection.insertOne(o.toJson(), function (err, result) {
-            cb(err, result);
+            cb(err, o);
         });
     }
 
@@ -74,6 +77,13 @@ class BaseService {
     query () {
         let self = this;
         return self._collection;
+    }
+
+    remove (id, cb) {
+        let self = this;
+        self._collection.deleteOne({id: id}, {}, function (err, result) {
+            cb(err, result);
+        });
     }
 
     open (cb) {
