@@ -29,12 +29,12 @@
                 controllerAs: 'vm',
                 templateUrl: 'subviews/goals.html'
             })
-            .when('/newGoal', {
+            .when('/goals/newGoal', {
                 controller: 'goalsController',
                 controllerAs: 'vm',
                 templateUrl: 'subviews/newGoal.html'
             })
-            .when('/pastGoals', {
+            .when('/goals/pastGoals', {
                 controller: 'goalsController',
                 controllerAs: 'vm',
                 templateUrl: 'subviews/pastGoals.html'
