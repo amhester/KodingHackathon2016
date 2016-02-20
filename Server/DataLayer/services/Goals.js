@@ -7,24 +7,7 @@ class Goals extends Baseservice {
     constructor (config) {
         let self = this;
 
-        self._collectionName = 'goals';
-        super(config);
-    }
-
-    _insert(goal, cb) {
-        let self = this;
-
-        self._db.goals.insertOne(goal.toJson(), function (err, result) {
-            cb(err, result);
-        });
-    }
-
-    _update(goal, cb) {
-        let self = this;
-
-        self._db.goals.updateOne({id: goal.id}, goal.toJson(), function (err, result) {
-            cb(err, result);
-        });
+        super(config, 'goals');
     }
 
     save (goal, cb) {

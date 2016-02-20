@@ -7,24 +7,7 @@ class Accounts extends Baseservice {
     constructor (config) {
         let self = this;
 
-        self._collectionName = 'accounts';
-        super(config);
-    }
-
-    _insert(account, cb) {
-        let self = this;
-
-        self._db.accounts.insertOne(account.toJson(), function (err, result) {
-            cb(err, result);
-        });
-    }
-
-    _update(account, cb) {
-        let self = this;
-
-        self._db.accounts.updateOne({id: account.id}, account.toJson(), function (err, result) {
-            cb(err, result);
-        });
+        super(config, 'accounts');
     }
 
     save (account, cb) {

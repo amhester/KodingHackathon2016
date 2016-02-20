@@ -4,7 +4,7 @@ const mongo = require('mongodb').MongoClient;
 const Account = require('./../Account.js');
 
 class Accounts {
-    constructor (config) {
+    constructor (config, collectionName) {
         let self = this;
 
         self._config = config;
@@ -18,6 +18,8 @@ class Accounts {
         self._attempts = 0;
         self._onConnected = function () {};
         self._db = null;
+        self._collection = null;
+        self._collectionName = collectionName;
 
         self._connect();
     }
@@ -39,17 +41,31 @@ class Accounts {
             }
 
             self._db = db;
-            self._attempts = 0;
-            self._onConnected();
+            self._db.createCollection(self._collectionName, {}, function (cErr, collection) {
+                if(cErr) {
+                    throw cErr;
+                }
+                self._collection = collection;
+                self._attempts = 0;
+                self._onConnected();
+            });
         });
     }
 
-    _insert() {
-        ///TODO: Implement this in each child service
+    _insert(o, cb) {
+        let self = this;
+
+        self._collection.insertOne(o.toJson(), function (err, result) {
+            cb(err, result);
+        });
     }
 
-    _update() {
-        ///TODO: Implement this in each child service
+    _update(o, cb) {
+        let self = this;
+
+        self._collection.updateOne({id: o.id}, o.toJson(), function (err, result) {
+            cb(err, result);
+        });
     }
 
     save () {
@@ -58,7 +74,7 @@ class Accounts {
 
     query () {
         let self = this;
-        return self._db.collection(self._collectionName);
+        return self._collection;
     }
 
     open (cb) {

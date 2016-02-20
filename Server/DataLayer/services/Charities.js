@@ -7,24 +7,7 @@ class Charities extends Baseservice {
     constructor (config) {
         let self = this;
 
-        self._collectionName = 'charities';
-        super(config);
-    }
-
-    _insert(charity, cb) {
-        let self = this;
-
-        self._db.charities.insertOne(charity.toJson(), function (err, result) {
-            cb(err, result);
-        });
-    }
-
-    _update(charity, cb) {
-        let self = this;
-
-        self._db.charities.updateOne({id: charity.id}, charity.toJson(), function (err, result) {
-            cb(err, result);
-        });
+        super(config, 'charities');
     }
 
     save (charity, cb) {
