@@ -15,12 +15,14 @@ if(argv.createDemoAccount) {
         defaultCharity: 1
     });
 
-    _accounts.save(model, function (err, result) {
-        if(err) {
-            console.log(err.message);
-        } else {
-            console.log(result);
-        }
-        process.exit(1);
-    });
+    _accounts.onConnected = function () {
+        _accounts.save(model, function (err, result) {
+            if(err) {
+                console.log(err.message);
+            } else {
+                console.log(result);
+            }
+            process.exit(1);
+        });
+    };
 }
