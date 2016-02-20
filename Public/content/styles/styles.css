@@ -1,0 +1,14 @@
+.center-block {
+    float:none;
+}
+
+/*login card*/
+.loginCard {
+    margin-top: 50px;
+    height:320px;
+}
+
+.registerCard {
+    margin-top: 50px;
+    height:450px;
+}
