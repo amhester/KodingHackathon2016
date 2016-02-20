@@ -3,6 +3,7 @@
 
     angular
         .module('DP.Login', [
-            'ngRoute'
+            'ngRoute',
+            'DP.Directives'
         ]);
 })();
