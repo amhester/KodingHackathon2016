@@ -1,3 +1,7 @@
 {
 
+  "port": 8089,
+  "host": "localhost",
+  "name": "PaymentProcessor",
+  "version": "0.0.1"
 }
