@@ -1,42 +1,25 @@
 <div goal-view-selector></div>
 
 <div class="goalContent" >
-    <!--<div class="goalContent" >-->
         <form name="newGoalForm">
-            <!--<div class="col-md-6 center-block" >-->
                 <div class="card White" >
                     <div class="card-content">
                         <h3>New Goal</h3>
                         <div class="input-field" >
-                            <input id="email" ng-model="goal.name" type="text" class="validate" required>
-                            <label for="email">Goal Name</label>
+                            <input id="goalName" ng-model="goal.name" type="text" class="validate" required>
+                            <label for="goalName">Goal Name</label>
                         </div>
                         <div class="input-field" >
-                            <input id="password" ng-model="goal.description" type="text" class="validate" required>
-                            <label for="password">Goal Description</label>
+                            <input id="goalDescription" ng-model="goal.description" type="text" class="validate" required>
+                            <label for="goalDescription">Goal Description</label>
                         </div>
-                        <input type="date" class="datepicker">
+                        <input id="goalDate" type="date" ng-model="goal.expiration" class="datepicker" required ng-pattern="/^(\d{4})-(\d{2})-(\d{2})$/">
+
                     </div>
 
                     <div class="card-action">
                         <button type="button" ng-disabled="newGoalForm.$invalid" ng-click="createGoal(goal, registerForm)" class="btn btn-primary waves-effect waves-light">Create Goal</button>
                     </div>
                 </div>
-            <!--</div>-->
         </form>
-    <!--</div>-->
 </div>
-
-
-
-
-<!--this._id = todoJson.id || 0;-->
-<!--this._accountId = todoJson.accountId || 0;-->
-<!--this._name = todoJson.name || '';-->
-<!--this._description = todoJson.description || '';-->
-<!--this._bounty = todoJson.bounty || 0;-->
-<!--this._charityId = todoJson.charityId || 0;-->
-<!--this._expiration = todoJson.expiration || new Date().getTime() + (30 * (24 * (60 * (60 * 1000))));-->
-<!--this._status = todoJson.status || TODO.TODO_STATUSES.OPEN;-->
-<!--this._createdOn = todoJson.createdOn || new Date().getTime();-->
-<!--this._updatedOn = todoJson.updatedOn || new Date().getTime();-->
