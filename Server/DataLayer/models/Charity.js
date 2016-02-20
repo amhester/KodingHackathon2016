@@ -11,6 +11,18 @@ class Charity {
         this._imageUrl = charityJson.imageUrl || '';
     }
 
+    toJson () {
+        let self = this;
+
+        return {
+            id: self._id,
+            name: self._name,
+            description: self._description,
+            link: self._link,
+            imageUrl: self._imageUrl
+        };
+    }
+
     get id () { return this._id; }
     get name () { return this._name; }
     get description () { return this._description; }
@@ -23,3 +35,5 @@ class Charity {
     set link (val) { this._link = val; }
     set imageUrl (val) { this._imageUrl = val; }
 }
+
+module.exports = Charity;

@@ -9,5 +9,9 @@
     function signInController(scope, rootScope, http) {
         var vm = this;
 
+        scope.logIn = function(userObj) {
+            console.log(userObj);
+        }
+
     }
 })();

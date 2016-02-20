@@ -9,10 +9,8 @@
     function registerController(scope, rootScope) {
         var vm = this;
 
-        scope.User = {};
-
-        scope.register = function(user) {
-            console.log(user);
+        scope.register = function(userObj) {
+            console.log(userObj);
         }
 
 
