@@ -4,22 +4,45 @@
     <meta charset="UTF-8">
     <title>Login</title>
 
-    <!-- Auth0 -->
-    <!-- We use client cookies to save the user credentials -->
-    <script src="//code.angularjs.org/1.2.16/angular-cookies.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Koding 2016 Hackathon</title>
 
-    <!-- Auth0 Lock script and AngularJS module -->
-    <script src="//cdn.auth0.com/js/lock-8.2.min.js"></script>
-    <!-- angular-jwt and angular-storage -->
-    <script type="text/javascript" src="//cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js"></script>
-    <script type="text/javascript" src="//cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.5.0/angular-route.min.js"></script>
 
-    <script src="//cdn.auth0.com/w2/auth0-angular-4.js"> </script>
+    <!-- Material Design Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <!-- Setting the right viewport -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../lib/MDB_3.3.3/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Material Design Bootstrap -->
+    <link href="../lib/MDB_3.3.3/css/mdb.css" rel="stylesheet">
 </head>
 <body>
 
+    <div class="container">
+        <ng-view></ng-view>
+    </div>
+
+
+    <!-- SCRIPTS -->
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="../lib/MDB_3.3.3/js/jquery.min.js"></script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="../lib/MDB_3.3.3/js/bootstrap.min.js"></script>
+
+    <!-- Material Design Bootstrap -->
+    <script type="text/javascript" src="../lib/MDB_3.3.3/js/mdb.js"></script>
+
+    <script src="../scripts/login/LoginApp.js"></script>
+    <script src="../scripts/login/route.config.js"></script>
 </body>
 </html>
