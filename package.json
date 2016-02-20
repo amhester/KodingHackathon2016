@@ -29,6 +29,7 @@
     "moment": "^2.11.2",
     "mongodb": "^2.1.7",
     "msgpack-lite": "^0.1.16",
+    "node-schedule": "^1.0.0",
     "node-uuid": "^1.4.7",
     "password-hash": "^1.2.2",
     "request": "^2.69.0",
