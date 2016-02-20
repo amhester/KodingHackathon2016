@@ -7,7 +7,7 @@ class StripePaymentService {
 
     constructor() {}
 
-    getToken(card, cb) {
+    createToken(card, cb) {
         stripe.tokens.create({
             card: {
                 "number": card.number,
@@ -44,6 +44,29 @@ class StripePaymentService {
         });
     }
 
+    deleteCustomer(customerId, cb) {
+        stripe.customers.del(customerId, function(err, confirmation) {
+            cb(err, confirmation);
+        });
+    }
+
+    charge(charge, cb) {
+        stripe.charges.create({
+            amount: charge.amount,
+            currency: charge.currency,
+            source: charge.token,
+            description: charge.description
+        }, function(err, charge) {
+            cb(err, charge);
+        });
+    }
+
+    getCharge(chargeId, cb) {
+        stripe.charges.retrieve(chargeId, function(err, charge) {
+            cb(err, charge);
+        });
+    }
+
 
 }
 
@@ -52,23 +75,27 @@ class StripePaymentService {
 
 let service = new StripePaymentService();
 
-service.getToken({
+service.createToken({
     number: '4242424242424242',
     month: 12,
     year: 2017,
     cvc: '123'
 }, function(err, token) {
     if (!err) {
-        service.createCustomer({
-            description: "test customer",
-            source: token.id
-        }, function(err, customer) {
-            if (!err) {
-                console.log(customer);
-            } else {
-                console.log(err);
-            }
-        });
+       service.charge({
+           amount: 1,
+           currency: 'usd',
+           token: token,
+           description: 'test charge'
+       }, function(err, charge) {
+
+           if (!err) {
+               console.log(charge);
+           }
+           else {
+               console.log(err);
+           }
+       });
     } else {
         console.log(err);
     }
