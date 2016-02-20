@@ -29,7 +29,6 @@ class StripePaymentService {
                 cb(err, token);
             }
         });
-
     }
 
 
@@ -91,38 +90,4 @@ class StripePaymentService {
 }
 
 
-
-/* for testing */
-
-/*
-let service = new StripePaymentService();
-
-service.createCardToken({
-    number: '378282246310005',
-    month: 12,
-    year: 2017,
-    cvc: '123'
-}, function(err, token) {
-    if (!err) {
-       service.charge({
-           amount: 50,
-           currency: 'usd',
-           tokenId: token.id,
-           description: 'test charge'
-       }, function(err, charge) {
-
-           if (!err) {
-
-               service.getCharge('ch_17gbQXJ5PmIpog0Pgc4eqmNn', function(err, charge) {
-                  console.log(charge);
-               });
-           }
-           else {
-               console.log(err);
-           }
-       });
-    } else {
-        console.log(err);
-    }
-});
-*/
+module.exports = StripePaymentService;
