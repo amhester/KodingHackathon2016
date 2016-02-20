@@ -28,7 +28,6 @@ module.exports.register = function( server ) {
                     console.log("this is the response.request.body", response.request.body);
                 }
             });
-
         res.send(notification);
         next();
     });
