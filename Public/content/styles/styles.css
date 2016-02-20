@@ -40,9 +40,14 @@
 
 img.charity-logo {
     height: 80px;
-    position:absolute;
-    top:25px;
-    right:10%;
+    margin-top: -61px;
+    margin-right: 5%;
+    float: right;
+}
+
+.card .card-content .charity-content {
+    float: left;
+    clear: both;
 }
 
 .card .card-link {
