@@ -30,25 +30,26 @@ var request = require('request');
                     if (obj.expiration > now) {
                         console.log("expired...");
 
-                        request.post({
-                            url: "http://127.0.0.1:8088/notify/",
-                            form: {
-                                id: obj.id,
-                                type: "",
-                                accountId: "",
-                                seen: "",
-                                message: "",
-                                link: "",
-                                email: ""
-                            }
-                        }, function(err, res, body) {
-                            if (err) {
-                                console.log(err.message);
-                            }
-                            console.log(res);
-                            console.log(body);
-                        });
+                        let notification = {
+                            id: obj.id,
+                            accountId: "",
+                            seen: true,
+                            message: "this is the message body....",
+                            link: "",
+                            email: "nealhamilton92@gmail.com"
+                        };
 
+                        request({ method: 'POST',
+                            uri: 'http://127.0.0.1:8081/notification',
+                            json: notification
+                        },
+                        function (error, response, body) {
+                            if (error) {
+                                console.log("Error: " + error);
+                            } else {
+                                console.log('response:', body);
+                            }
+                        });
 
                     } else {
                         console.log("not expired...");
