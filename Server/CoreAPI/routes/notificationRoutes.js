@@ -16,18 +16,18 @@ module.exports.register = function( server ) {
             email: req.body.email
         };
 
-        request(
-            { method: 'POST'
-            , uri: 'http://127.0.0.1:8088/notify/1'
-            , json: notification
+        request({
+            method: 'POST',
+            uri: appConfig.notificationEndpoint,
+            json: notification
+        }
+        , function (error, response, body) {
+            if (error) {
+                console.log("Error: " + error);
+            } else {
+                console.log("this is the response.request.body", response.request.body);
             }
-            , function (error, response, body) {
-                if (error) {
-                    console.log("Error: " + error);
-                } else {
-                    console.log("this is the response.request.body", response.request.body);
-                }
-            });
+        });
         res.send(notification);
         next();
     });
