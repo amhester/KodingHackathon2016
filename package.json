@@ -1,0 +1,49 @@
+{
+  "name": "kodinghackathon2016",
+  "version": "0.0.1",
+  "description": "A charity based TODO app",
+  "main": "null",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amhester/KodingHackathon2016.git"
+  },
+  "keywords": [
+    "TODO",
+    "charity",
+    "hackathon",
+    "koding"
+  ],
+  "author": "Alex Hester, Neal Hamilton, David Ragsdale, Scott Colegrove, Ryan Hanley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amhester/KodingHackathon2016/issues"
+  },
+  "homepage": "https://github.com/amhester/KodingHackathon2016#readme",
+  "dependencies": {
+    "async": "^1.5.2",
+    "jsonwebtoken": "^5.7.0",
+    "lodash": "^4.5.0",
+    "moment": "^2.11.2",
+    "mongodb": "^2.1.7",
+    "msgpack-lite": "^0.1.16",
+    "node-uuid": "^1.4.7",
+    "password-hash": "^1.2.2",
+    "request": "^2.69.0",
+    "restify": "^4.0.4"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.1",
+    "gulp-csso": "^1.0.1",
+    "gulp-gzip": "^1.2.0",
+    "gulp-if": "^2.0.0",
+    "gulp-tar": "^1.8.0",
+    "gulp-uglify": "^1.5.2",
+    "gulp-util": "^3.0.7",
+    "mocha": "^2.4.5",
+    "supertest": "^1.2.0"
+  }
+}
