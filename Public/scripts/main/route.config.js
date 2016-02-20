@@ -28,6 +28,16 @@
                 controllerAs: 'vm',
                 templateUrl: 'subviews/goals.html'
             })
+            .when('/newGoal', {
+                controller: 'goalsController',
+                controllerAs: 'vm',
+                templateUrl: 'subviews/newGoal.html'
+            })
+            .when('/pastGoals', {
+                controller: 'goalsController',
+                controllerAs: 'vm',
+                templateUrl: 'subviews/pastGoals.html'
+            })
             .when('/history', {
                 controller: 'historyController',
                 controllerAs: 'vm',
