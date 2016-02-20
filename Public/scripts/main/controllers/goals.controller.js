@@ -14,5 +14,9 @@
             console.log(goalObj);
             //TODO: send to backend
         };
+
+        scope.getCurrentGoals = function() {
+
+        };
     }
 })();
