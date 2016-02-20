@@ -1,12 +1,10 @@
 "use strict";
 
 const Baseservice = require('./BaseService');
-const Account = require('./../Account.js');
+const Account = require('./../models/Account.js');
 
 class Accounts extends Baseservice {
     constructor (config) {
-        let self = this;
-
         super(config, 'accounts');
     }
 
