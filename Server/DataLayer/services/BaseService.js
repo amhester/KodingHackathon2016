@@ -1,9 +1,8 @@
 "use strict";
 
 const mongo = require('mongodb').MongoClient;
-const Account = require('./../Account.js');
 
-class Accounts {
+class BaseService {
     constructor (config, collectionName) {
         let self = this;
 
@@ -87,3 +86,5 @@ class Accounts {
         this._db = null;
     }
 }
+
+module.exports = BaseService;

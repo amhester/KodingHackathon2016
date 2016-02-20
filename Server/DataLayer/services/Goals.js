@@ -5,8 +5,6 @@ const Goal = require('./../models/Goal.js');
 
 class Goals extends Baseservice {
     constructor (config) {
-        let self = this;
-
         super(config, 'goals');
     }
 

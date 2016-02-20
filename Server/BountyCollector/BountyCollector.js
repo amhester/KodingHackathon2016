@@ -8,25 +8,25 @@ var Goals = require('./../DataLayer/services/Goals');
 (function () {
 
     var scheduledJob = schedule.scheduleJob(appConfig.cronTest, function() {
-        console.log('recurrence rule has been met... ');
 
-        var goalsList = new Goals({
+        var goals = new Goals({
             "host": appConfig.mongo.host,
             "port": appConfig.mongo.port,
             "store": appConfig.mongo.store,
             "maxRetries": appConfig.mongo.maxRetries
         });
 
-        goalsList.onConnected = function() {
-            console.log('on connect');
-            goalsList.save(new Goal({}), function(err, res) {
+        goals.onConnected = function() {
+            goals
+                .query()
+                .find().toArray()
+                .then(function(err, results) {
                 if (err) {
-                    console.log(err.message);
+                    console.log(err);
                 }
-                console.log('saved...');
+                console.log(results);
             });
         };
-        console.log(goalsList);
 
 
     });
