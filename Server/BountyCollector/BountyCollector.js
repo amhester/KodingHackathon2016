@@ -26,8 +26,7 @@ var request = require('request');
 
                 var now = new Date().getTime();
                 results.forEach(function (obj) {
-                    //if (obj.expiration < now) {
-                    if (obj.expiration > now) {
+                    if (obj.expiration < now) {
                         console.log("expired...");
 
                         let notification = {
