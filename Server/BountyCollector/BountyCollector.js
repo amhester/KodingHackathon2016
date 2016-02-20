@@ -31,8 +31,9 @@ var goals = new Goals(mongoconfig);
                 var now = new Date().getTime();
                 results.forEach(function (obj) {
                     if (obj.expiration > now) {
-                        console.log("expired...");
 
+
+                        // TODO: create the notification object here.
                         let notification = {
                             id: obj.id,
                             accountId: "",
