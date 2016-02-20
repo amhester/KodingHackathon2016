@@ -10,10 +10,10 @@ class StripePaymentService {
     createToken(card, cb) {
         stripe.tokens.create({
             card: {
-                "number": card.number,
-                "exp_month": card.month,
-                "exp_year": card.year,
-                "cvc": card.cvc
+                number: card.number,
+                exp_month: card.month,
+                exp_year: card.year,
+                cvc: card.cvc
             }
         }, function(err, token) {
             cb(err,token);
@@ -54,7 +54,7 @@ class StripePaymentService {
         stripe.charges.create({
             amount: charge.amount,
             currency: charge.currency,
-            source: charge.token,
+            source: charge.tokenId,
             description: charge.description
         }, function(err, charge) {
             cb(err, charge);
@@ -76,21 +76,24 @@ class StripePaymentService {
 let service = new StripePaymentService();
 
 service.createToken({
-    number: '4242424242424242',
+    number: '4111111111111111',
     month: 12,
     year: 2017,
     cvc: '123'
 }, function(err, token) {
     if (!err) {
        service.charge({
-           amount: 1,
+           amount: 50,
            currency: 'usd',
-           token: token,
+           tokenId: token.id,
            description: 'test charge'
        }, function(err, charge) {
 
            if (!err) {
-               console.log(charge);
+
+               service.getCharge('ch_17gbQXJ5PmIpog0Pgc4eqmNn', function(err, charge) {
+                  console.log(charge);
+               });
            }
            else {
                console.log(err);
