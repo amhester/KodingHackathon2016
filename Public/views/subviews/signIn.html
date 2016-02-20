@@ -1,21 +1,23 @@
 <div class="container center-block" >
     <div class="col-md-6 center-block" >
         <div class="card White loginCard" >
-            <div class="card-content">
-                <h4>Login</h4>
-                <div class="input-field">
-                    <input id="email" type="email" class="validate">
-                    <label for="email">Email</label>
+            <form name="loginForm" >
+                <div class="card-content">
+                    <h4>Login</h4>
+                    <div class="input-field">
+                        <input id="email" ng-model="user.email" type="email" class="validate" required>
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="password" ng-model="user.password" type="password" class="validate" required>
+                        <label for="password">Password</label>
+                    </div>
                 </div>
-                <div class="input-field">
-                    <input id="password" type="password" class="validate">
-                    <label for="password">Password</label>
+                <div class="card-action">
+                    <button type="button" ng-disabled="loginForm.$invalid" ng-click="logIn(user)" class="btn btn-primary waves-effect waves-light">Sign in</button>
+                    <a href="#/register">Register</a>
                 </div>
-            </div>
-            <div class="card-action">
-                <a href="#">Forgot Password</a>
-                <a href="#/register">Register</a>
-            </div>
+            </form>
         </div>
     </div>
 </div>

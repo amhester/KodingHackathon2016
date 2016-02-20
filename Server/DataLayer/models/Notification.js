@@ -11,6 +11,20 @@ class Notification {
         this._email = notificationJson.email || '';
     }
 
+    toJson () {
+        let self = this;
+
+        return {
+            id: self._id,
+            type: self._type,
+            accountId: self._accountId,
+            seen: self._seen,
+            message: self._message,
+            link: self._link,
+            email: self._email
+        };
+    }
+
     // TODO: Save a contact string instead of email address
     // TODO: Save a contact type as an enum. E.g. email, text, twitter, etc.
 
@@ -40,3 +54,5 @@ class Notification {
     set link (val) { this._link = val; }
     set email (val) { this._email = val; }
 }
+
+module.exports = Notification;

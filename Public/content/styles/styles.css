@@ -5,10 +5,27 @@
 /*login card*/
 .loginCard {
     margin-top: 50px;
-    height:320px;
+    height:330px;
 }
 
 .registerCard {
     margin-top: 50px;
     height:450px;
+}
+
+/* goal styles */
+.goalViewSelectorDirective {
+    margin-left: 15px;
+    width: 300px;
+}
+
+.goalContent {
+    position: absolute;
+    left:330px;
+    top:72px;
+    width:600px;
+}
+
+.datepicker {
+   width:150px !important;
 }

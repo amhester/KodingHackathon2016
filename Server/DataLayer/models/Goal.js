@@ -1,6 +1,6 @@
 "use strict";
 
-class TODO {
+class Goal {
     constructor (todoJson) {
         let self = this;
 
@@ -14,6 +14,23 @@ class TODO {
         this._status = todoJson.status || TODO.TODO_STATUSES.OPEN;
         this._createdOn = todoJson.createdOn || new Date().getTime();
         this._updatedOn = todoJson.updatedOn || new Date().getTime();
+    }
+
+    toJson () {
+        let self = this;
+
+        return {
+            id: self._id,
+            accountId: self._accountId,
+            name: self._name,
+            description: self._description,
+            bounty: self._bounty,
+            charityId: self._charityId,
+            expiration: self._expiration,
+            status: self._status,
+            createdOn: self._createdOn,
+            updatedOn: self._updatedOn
+        };
     }
 
     static get TODO_STATUSES () {
@@ -48,3 +65,5 @@ class TODO {
     set createdOn (val) { this._status = val; }
     set updatedOn (val) { this._updatedOn = val; }
 }
+
+module.exports = Goal;
