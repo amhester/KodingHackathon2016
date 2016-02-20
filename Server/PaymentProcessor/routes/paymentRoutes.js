@@ -74,6 +74,10 @@ module.exports.register = function( server ) {
        });
     });
 
+
+    /**
+     * charges
+     * */
     server.post(root + 'charge', function(req, res, next) {
         service.charge(req.params, function(err, charge) {
             if (err) {
@@ -82,6 +86,16 @@ module.exports.register = function( server ) {
             res.send(charge);
            next();
         });
+    });
+
+    server.get(root + 'getCharge', function(req, res, next) {
+       service.getCharge(req.params.chargeId, function(err, charge) {
+          if (err) {
+              res.send(500, err.message);
+          }
+           res.send(charge);
+           next();
+       });
     });
 
 
