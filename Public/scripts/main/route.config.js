@@ -11,27 +11,27 @@
             .when('/dashboard', {
                 controller: 'dashboardController',
                 controllerAs: 'vm',
-                templateUrl: '/subviews/dashboard.html'
+                templateUrl: 'subviews/dashboard.html'
             })
             .when('/charities', {
                 controller: 'charitiesController',
                 controllerAs: 'vm',
-                templateUrl: '/subviews/charities.html'
+                templateUrl: 'subviews/charities.html'
             })
             .when('/profile', {
                 controller: 'profileController',
                 controllerAs: 'vm',
-                templateUrl: '/subviews/charities.html'
+                templateUrl: 'subviews/profile.html'
             })
             .when('/todos', {
                 controller: 'todosController',
                 controllerAs: 'vm',
-                templateUrl: '/subviews/charities.html'
+                templateUrl: 'subviews/todos.html'
             })
             .when('/history', {
                 controller: 'historyController',
                 controllerAs: 'vm',
-                templateUrl: '/subviews/charities.html'
+                templateUrl: 'subviews/history.html'
             })
             .otherwise('/dashboard');
     }

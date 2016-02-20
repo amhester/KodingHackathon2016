@@ -21,10 +21,9 @@
 
     <!-- Material Design Bootstrap -->
     <link href="../lib/MDB_3.3.3/css/mdb.css" rel="stylesheet">
-
 </head>
 
-<body>
+<body ng-app="DP.Main">
 
     <header>
         <nav class="navbar blue">
@@ -42,7 +41,9 @@
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                             <ul class="nav navbar-nav">
                                 <li class="active"><a href="#/dashboard" class="waves-effect waves-light">Dashboard <span class="sr-only">(current)</span></a></li>
-                                <li><a href="#" class="waves-effect waves-light">Link</a></li>
+                                <li><a href="#/history" class="waves-effect waves-light">History</a></li>
+                                <li><a href="#/todos" class="waves-effect waves-light">Todo's</a></li>
+                                <li><a href="#/charities" class="waves-effect waves-light">Charities</a></li>
                             </ul>
                         </div>
                     </div>
@@ -51,7 +52,7 @@
 
     <main>
         <div class=”container”>
-
+            <ng-view></ng-view>
         </div>
     </main>
 
@@ -72,7 +73,9 @@
     <script src="../scripts/main/MainApp.js"></script>
     <script src="../scripts/main/route.config.js"></script>
     <script src="../scripts/main/controllers/dashboard.controller.js"></script>
-
+    <script src="../scripts/main/controllers/history.controller.js"></script>
+    <script src="../scripts/main/controllers/todos.controller.js"></script>
+    <script src="../scripts/main/controllers/charities.controller.js"></script>
 
 
 
