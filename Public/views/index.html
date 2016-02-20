@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Koding 2016 Hackathon</title>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.5.0/angular-route.min.js"></script>
+
     <!-- Material Design Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -18,7 +21,6 @@
 
     <!-- Material Design Bootstrap -->
     <link href="../lib/MDB_3.3.3/css/mdb.css" rel="stylesheet">
-    <link href="../lib/MDB_3.3.3/css/style.css" rel="stylesheet">
 
 </head>
 
@@ -39,7 +41,7 @@
 
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                             <ul class="nav navbar-nav">
-                                <li class="active"><a href="#" class="waves-effect waves-light">Link <span class="sr-only">(current)</span></a></li>
+                                <li class="active"><a href="#/dashboard" class="waves-effect waves-light">Dashboard <span class="sr-only">(current)</span></a></li>
                                 <li><a href="#" class="waves-effect waves-light">Link</a></li>
                             </ul>
                         </div>
@@ -66,6 +68,13 @@
 
     <!-- Material Design Bootstrap -->
     <script type="text/javascript" src="../lib/MDB_3.3.3/js/mdb.js"></script>
+
+    <script src="../scripts/main/MainApp.js"></script>
+    <script src="../scripts/main/route.config.js"></script>
+    <script src="../scripts/main/controllers/dashboard.controller.js"></script>
+
+
+
 
 
 </body>
