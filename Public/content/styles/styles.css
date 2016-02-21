@@ -59,6 +59,10 @@
 }
 
 /* goal styles */
+.goalViewSelector {
+    float: left;
+}
+
 .goalViewSelectorDirective {
     margin-top: 0px;
     margin-left: 15px;
