@@ -3,65 +3,63 @@
 var appConfig = require('./../app.config.json');
 var schedule = require('node-schedule');
 var Goals = require('./../DataLayer/services/Goals');
-var Notifications = require('./../DataLayer/services/Notifications');
+var Goal = require('./../DataLayer/models/Goal');
+//var Notifications = require('./../DataLayer/services/Notifications');
 var Notification = require('./../DataLayer/models/Notification.js');
 var db = require('./../DataLayer/DataRepository');
 var request = require('request');
 
-var notifications = new Notifications(appConfig.mongo);
+// var notifications = new Notifications(appConfig.mongo);
 var goals = new Goals(appConfig.mongo);
 
 var notification = null;
 (function () {
-    console.log("Scheduling a job for every 2 seconds.");
-    var scheduledJob = schedule.scheduleJob(appConfig.BountyCollector.cron, function () {
-        console.log("Checking goals.");
+    console.log(`~~~~~~~~~~~~ \n\n DogTheBountyHunter starting hunting down expired notifications @${new Date()} \n\n cron schedule looks like: ${ appConfig.BountyCollector.cron } \n\n ~~~~~~~~~~~~`);
+    var DogTheBountyHunter = schedule.scheduleJob(appConfig.BountyCollector.cron, function () {
 
-        //goals.onConnected = function () {
-            db.Goals
-                .query()
-                .find().toArray(function (err, results) {
-                if (err) {
-                    console.log(err.message);
-                }
-                var now = new Date().getTime();
-                results.forEach(function (obj) {
-                    if (obj.expiration < now) {
+        db.Goals
+            .query()
+            .find().toArray(function (err, results) {
+            if (err) {
+                console.log(err.message);
+            }
+            var now = new Date().getTime();
+            results.forEach(function (obj) {
+                if (obj.expiration < now) {
+                    if (obj.status = Goal.GOAL_STATUSES.OPEN) {
+                        obj.status = Goal.GOAL_STATUSES.EXPIRED;
+                        db.Goals.save(new Goal(obj), function(err, goal) {
+                            if (err) {
+                                console.log(err);
+                            }
+                        });
 
-                        //notification = new Notification({
-                        //    accountId: obj.accountId,
-                        //    seen: false,
-                        //    message: Notification.NOTIFICATION_TYPES.EXPIRED,
-                        //    link: "", // Where do we generate this?
-                        //    email: "nealhamilton92@gmail.com"
-                        //});
-                        // TODO: Make link the real link.
-                        let link = "/act/" + obj.id;
-                        notification = Notification.fromGoal(obj, Notification.NOTIFICATION_TYPES.EXPIRED, false, `Hey...pay up. <a href="$(link)">See goal</a>`, link);
+                        // TODO: generate actual link
+                        let link = "https://169.44.62.169/goal/" + obj.id + "/expired";
 
-                        notifications.save(notification, function(err, notif) {
+                        notification = Notification.fromGoal(obj,
+                            Notification.NOTIFICATION_TYPES.EXPIRED,
+                            false,
+                            'Hey...pay up. <a href="' + link + '">See goal</a>', link);
+
+                        db.Notifications.save(notification, function(err, notif) {
                             if (err) {
                                 console.log(err.message);
                             }
-                            console.log(notif);
                             request({
-                                method: 'POST',
-                                uri: appConfig.BountyCollector.notificationUrl,
-                                json: notif
-                            },
-                            function (err, response, body) {
-                                if (err) {
-                                    console.log(err.message);
-                                } else {
-                                    console.log('response:', body);
-                                }
-                            });
+                                    method: 'POST',
+                                    uri: appConfig.BountyCollector.notificationUrl,
+                                    json: notif.toJson()
+                                },
+                                function (err, response, body) {
+                                    if (err) {
+                                        console.log(err.message);
+                                    }
+                                });
                         });
-                    } else {
-                        console.log("not expired...");
                     }
-                });
+                }
             });
-        //};
+        });
     });
 })();

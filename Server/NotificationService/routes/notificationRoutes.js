@@ -32,13 +32,13 @@ module.exports.register = function( server ) {
         let notifier = NotificationService.NotificationFactory();
         let notify = notifier.sendNotification(notification, function(err, notification) {
             if (err) {
-                console.log(`Notification Error: $(notification)`);
+                console.log("Notification Error: " + notification);
                 return err;
             } else {
                 res.send(notification);
+                next();
             }
         });
-        next();
     });
 };
 
