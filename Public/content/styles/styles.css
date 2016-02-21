@@ -29,6 +29,10 @@
     outline: 1px solid red;
 }
 
+.goals-main-container {
+    postition: relative;
+}
+
 /* goal styles */
 .goalViewSelectorDirective {
     margin-left: 15px;
