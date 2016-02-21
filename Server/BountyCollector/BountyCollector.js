@@ -14,7 +14,7 @@ var goals = new Goals(appConfig.mongo);
 
 var notification = null;
 (function () {
-    console.log(`DogTheBountyHunter starting hunting down expired notifications @${new Date()} every ${ appConfig.BountyCollector.cron } seconds.`);
+    console.log(`~~~~~~~~~~~~ \n\n DogTheBountyHunter starting hunting down expired notifications @${new Date()} \n\n cron schedule looks like: ${ appConfig.BountyCollector.cron } \n\n ~~~~~~~~~~~~`);
     var DogTheBountyHunter = schedule.scheduleJob(appConfig.BountyCollector.cron, function () {
 
         db.Goals
