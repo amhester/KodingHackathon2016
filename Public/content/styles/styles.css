@@ -23,13 +23,16 @@
 .dashCardAction {
     text-align: center !important;
     border-top: 1px solid rgba(160, 160, 160, 0.2);
-    padding: 5px;
     position: relative;
-    top: 100px;
+    top: 10px;
 }
 
 .dashCardPic {
-    
+    width: 180px;
+    height: 130px;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
 }
 
 /*login card*/
