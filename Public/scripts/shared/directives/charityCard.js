@@ -5,7 +5,7 @@
         .module('DP.Main')
         .directive('charityCard', charityCard);
 
-    goalCard.$inject = [];
+    charityCard.$inject = [];
     function charityCard() {
         return {
             restrict: 'E',
