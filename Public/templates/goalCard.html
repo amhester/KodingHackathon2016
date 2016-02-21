@@ -1,7 +1,8 @@
 <div class="card White" >
     <div class="card-content">
-        <h6>{{goal.name}}</h6>
-
+        <h5>{{goal.name}} - {{goal.status}}</h5>
+        {{goal.description}}
+        <h6>{{goal.expiration | date:'MM/dd/yyyy @ h:mma'}}</h6>
     </div>
 
     <div class="card-action">

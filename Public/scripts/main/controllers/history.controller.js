@@ -9,8 +9,8 @@
     function historyController(scope, rootScope) {
         var vm = this;
 
-        let curDate = new Date();
-        let goals = [
+        var curDate = new Date();
+        var goals = [
             {
                 accountId: "0e7a3313-7951-434d-8baf-a369785d8d67",
                 name: "Goal 1 Name",

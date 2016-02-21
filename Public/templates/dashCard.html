@@ -1,8 +1,8 @@
-<div class="card White dashCard" >
-    <div class="card-content">
-        image goes here
-
+<div class="card White dashCard " >
+    <div class="dashCardPic">
+        <img ng-src="{{panel.imageUrl}}" alt="panelImg" />
+    </div>
     <div class="dashCardAction ">
-        <button type="button" ng-click="changeRoute()" class="btn btn-primary waves-effect waves-light">{{ buttonText }}</button>
+        <button type="button" ng-click="changeRoute(panel.route)" class="btn btn-primary waves-effect waves-light">{{ panel.buttonText }}</button>
     </div>
 </div>

@@ -6,8 +6,8 @@
         .config(config)
         .run(run);
 
-    config.$inject = ['$routeProvider'];
-    function config(routeProvider) {
+    config.$inject = ['$routeProvider', '$httpProvider'];
+    function config(routeProvider, httpProvider) {
         routeProvider
             .when('/dashboard', {
                 controller: 'dashboardController',
@@ -49,7 +49,19 @@
                 controllerAs: 'vm',
                 templateUrl: '/main/goalDetails'
             })
+            .when('/preferences', {
+                controller: 'preferencesController',
+                controllerAs: 'vm',
+                templateUrl: 'main/preferences'
+            })
+            .when('/motivation', {
+                controller: 'motivationController',
+                controllerAs: 'vm',
+                templateUrl: '/main/motivation'
+            })
             .otherwise('/dashboard');
+
+        httpProvider.interceptors.push('tokenInjector');
     }
 
     run.$inject = ['$rootScope', '$location'];
