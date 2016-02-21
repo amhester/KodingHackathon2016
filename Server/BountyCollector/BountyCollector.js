@@ -13,16 +13,15 @@ var request = require('request');
 //var goals = new Goals(appConfig.mongo);
 
 var notification = null;
+var g = db.Goals;
 (function () {
     //console.log(`~~~~~~~~~~~~ \n\n DogTheBountyHunter starting hunting down expired notifications @${new Date()} \n\n cron schedule looks like: ${ appConfig.BountyCollector.cron } \n\n ~~~~~~~~~~~~`);
     var DogTheBountyHunter = schedule.scheduleJob(appConfig.BountyCollector.cron, function () {
 
-        let g = null;
         if ((g = db.Goals) != null) {
             g.query()
                 .find().toArray(function (err, results) {
                 if (err) {
-                    console.log('erroring on find().toArray()');
                     console.log(err.message);
                 }
                 var now = new Date().getTime();
