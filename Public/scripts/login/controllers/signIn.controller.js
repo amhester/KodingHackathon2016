@@ -14,7 +14,7 @@
             p.then(function (res) {
                 if(res.status === 200) {
                     localStorageService.set('auth-token', res.data);
-                    location.href = '/KodingHackathon2016/Public/views/index.html';
+                    location.href = '/Public/index.html';
                 }
             }, function (err) {
                 console.error(err);
