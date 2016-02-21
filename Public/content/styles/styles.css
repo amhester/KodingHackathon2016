@@ -68,6 +68,10 @@
    width:150px !important;
 }
 
+.dtp div.dtp-picker {
+    padding: 1em 1em 0em 1em;
+}
+
 /*card styles*/
 .card-header {
     border-bottom: solid 1px;

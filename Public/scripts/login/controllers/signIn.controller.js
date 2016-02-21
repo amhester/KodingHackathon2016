@@ -14,7 +14,7 @@
             p.then(function (res) {
                 if(res.status === 200) {
                     localStorageService.set('auth-token', res.data);
-                    location.href = '/index.html';
+                    location.href = '/main';
                 }
             }, function (err) {
                 console.error(err);
