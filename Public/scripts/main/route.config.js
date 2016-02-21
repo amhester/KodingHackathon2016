@@ -25,7 +25,7 @@
                 templateUrl: 'subviews/profile.html'
             })
             .when('/goals', {
-                controller: 'goalsController',
+                controller: 'currentGoalsController',
                 controllerAs: 'vm',
                 templateUrl: 'subviews/goals.html'
             })
