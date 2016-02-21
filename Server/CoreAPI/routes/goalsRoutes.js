@@ -9,6 +9,7 @@ module.exports.register = function(server) {
         let accountId = req.authContext.id;
         newGoal.accountId = accountId;
 
+        console.log(newGoal);
         db.Goals.save(newGoal, function (err, result) {
             if(err) {
                 res.send(500, err.message);
