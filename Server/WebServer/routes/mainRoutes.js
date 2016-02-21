@@ -36,4 +36,8 @@ module.exports.register = function (app) {
     app.get('/main/profile', function (req, res) {
         res.render('subviews/profile.html');
     });
+
+    app.get('/main/motivation', function (req, res) {
+        res.render('subviews/motivation.html');
+    });
 };

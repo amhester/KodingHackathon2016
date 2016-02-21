@@ -17,17 +17,17 @@
     "maxRetries": 5
   },
   "WebServer": {
-    "host": "169.44.62.169",
-    "port": 8087,
-    "protocol": "https",
+    "host": "127.0.0.1",
+    "port": 8081,
+    "protocol": "http",
     "name": "WinWinServer",
     "version": "0.0.1"
   },
   "CoreAPI": {
     "url": "<protocol>://<host>:<port>",
-    "protocol": "https",
-    "port": 8082,
-    "host": "169.44.62.169",
+    "protocol": "http",
+    "port": 8081,
+    "host": "127.0.0.1",
     "name": "WinWinAPI",
     "version": "0.0.1",
     "appSecret": "1290bd0a-4358-472a-b919-4c670ca66434",
