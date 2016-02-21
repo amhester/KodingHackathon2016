@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('DP.Main')
+        .module('DP.Directives')
         .directive('charityCard', charityCard);
 
     charityCard.$inject = [];

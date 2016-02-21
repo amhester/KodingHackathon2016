@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('DP.Main')
+        .module('DP.Directives')
         .directive('goalViewSelector', goalViewSelector);
 
     goalViewSelector.$inject = [];

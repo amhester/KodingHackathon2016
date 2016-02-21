@@ -3,6 +3,7 @@
 const config = require('./Server/app.config.json');
 const Account = require('./Server/DataLayer/models/Account');
 const Goal = require('./Server/DataLayer/models/Goal');
+const Charity = require('./Server/DataLayer/models/Charity');
 const Notification = require('./Server/DataLayer/models/Notification');
 const db = require('./Server/DataLayer/DataRepository');
 const AuthService = require('./Server/DataLayer/services/AuthService');
@@ -26,6 +27,30 @@ if(argv.createDemoAccount) {
         charityId: 0
     });
 
+    let charity1 = new Charity({
+        id: 0,
+        name: "Red Cross",
+        description: "Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula.",
+        link: "http://www.redcross.org/",
+        imageUrl: "../content/images/redcross.png"
+    })
+
+    let charity2 = new Charity({
+        id: 1,
+        name: "Humane Society",
+        description: "Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula.",
+        link: "http://www.humanesociety.org/",
+        imageUrl: "../content/images/humaneSociety.png"
+    })
+
+    let charity3 = new Charity({
+        id: 2,
+        name: "Anderson University",
+        description: "Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula.",
+        link: "http://www.anderson.edu/",
+        imageUrl: "../content/images/anderson.png"
+    })
+
     let notification = new Notification({
         accountId: "0e7a3313-7951-434d-8baf-a369785d8d67",
         message: "Hello! Win/Win!",
@@ -42,7 +67,7 @@ if(argv.createDemoAccount) {
         //    }
         //    process.exit(1);
         //});
-
+        //
         //db.Goals.save(goal, function(err) {
         //    if (err) {
         //        console.log(err.message);
@@ -50,7 +75,31 @@ if(argv.createDemoAccount) {
         //        console.log(goal);
         //    }
         //});
-
+        //
+        //db.Charities.save(charity1,function(err) {
+        //    if (err) {
+        //        console.log(err.message);
+        //    } else {
+        //        console.log(charity1);
+        //    }
+        //});
+        //
+        //db.Charities.save(charity2,function(err) {
+        //    if (err) {
+        //        console.log(err.message);
+        //    } else {
+        //        console.log(charity2);
+        //    }
+        //});
+        //
+        //db.Charities.save(charity3,function(err) {
+        //    if (err) {
+        //        console.log(err.message);
+        //    } else {
+        //        console.log(charity3);
+        //    }
+        //});
+        //
         //db.Notifications.save(notification, function(err) {
         //    if (err) {
         //        console.log(err.message);
