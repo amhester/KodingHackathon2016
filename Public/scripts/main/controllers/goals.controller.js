@@ -24,6 +24,7 @@
     currentGoalsController.$inject = ['$scope', '$rootScope', 'GoalService'];
     function currentGoalsController(scope, rootScope, GoalService) {
         var vm = this;
+        vm.now = new Date();
         getAll();
 
         function getAll() {
