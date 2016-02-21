@@ -48,6 +48,7 @@
                 accountId: "0e7a3313-7951-434d-8baf-a369785d8d67",
                 name: "Lunch",
                 description: "Eat lunch. Maybe sandwiches.",
+                status: "EXPIRED",
                 bounty: "7",
                 charityId: 0,
                 expiration: curDate.setYear(2019)

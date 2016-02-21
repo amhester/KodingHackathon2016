@@ -49,6 +49,11 @@
                 controllerAs: 'vm',
                 templateUrl: '/main/goalDetails'
             })
+            .when('/preferences', {
+                controller: 'preferencesController',
+                controllerAs: 'vm',
+                templateUrl: 'main/preferences'
+            })
             .otherwise('/dashboard');
     }
 

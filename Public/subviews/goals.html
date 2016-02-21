@@ -1,6 +1,6 @@
 <div goal-view-selector></div>
 
-<div class="goalContent" ng-repeat="goal in vm.goals" ng-switch on="goal">
-   <goal-failed-card></goal-failed-card>
-   <goal-card></goal-card>
+<div class="goalContent" ng-repeat="goal in vm.goals" ng-switch on="goal.status">
+   <goal-failed-card ng-switch-when="EXPIRED"></goal-failed-card>
+   <goal-card ng-switch-default></goal-card>
 </div>
