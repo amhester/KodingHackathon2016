@@ -40,17 +40,17 @@ var notification = null;
                                 console.log(err.message);
                             }
                             request({
-                                    method: 'POST',
-                                    uri: appConfig.notificationUrl,
-                                    json: notif
-                                },
-                                function (err, response, body) {
-                                    if (err) {
-                                        console.log(err.message);
-                                    } else {
-                                        console.log('response:', body);
-                                    }
-                                });
+                                method: 'POST',
+                                uri: appConfig.notificationUrl,
+                                json: notif
+                            },
+                            function (err, response, body) {
+                                if (err) {
+                                    console.log(err.message);
+                                } else {
+                                    console.log('response:', body);
+                                }
+                            });
                         });
                     } else {
                         console.log("not expired...");
