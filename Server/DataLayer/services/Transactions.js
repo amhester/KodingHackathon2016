@@ -12,7 +12,7 @@ class Transactions extends Baseservice {
         let self = this;
 
         if(!transaction instanceof Transaction) {
-            cb(new Error('parameter not an instance of Account class.'));
+            cb(new Error('parameter not an instance of Transaction class.'));
         } else {
             if(transaction.id === 0) {
                 self._insert(transaction, cb);

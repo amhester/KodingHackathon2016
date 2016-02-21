@@ -12,7 +12,7 @@ class Charities extends Baseservice {
         let self = this;
 
         if(!charity instanceof Charity) {
-            cb(new Error('parameter not an instance of Account class.'));
+            cb(new Error('parameter not an instance of Charity class.'));
         } else {
             if(charity.id === 0) {
                 self._insert(charity, cb);

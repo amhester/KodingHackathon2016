@@ -55,7 +55,7 @@ server.use(restify.queryParser());
 server.use(restify.gzipResponse());
 server.use(restify.bodyParser());
 server.use(restify.CORS());
-server.use(authMiddleware.authWall);
+//server.use(authMiddleware.authWall);
 
 /* ----------------- Register API Routes Here ----------------------- */
 //Our actual security/permissions api endpoints
