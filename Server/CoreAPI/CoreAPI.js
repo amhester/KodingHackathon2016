@@ -7,10 +7,10 @@ const logger = console;
 const authMiddleware = require('./middleware/authMiddleware');
 
 var accountRoutes = require('./routes/accountRoutes.js');
-//var charitiesRoutes = require('./routes/charitiesRoutes.js');
-//var goalsRoutes = require('./routes/goalsRoutes.js');
+var charitiesRoutes = require('./routes/charitiesRoutes.js');
+var goalsRoutes = require('./routes/goalsRoutes.js');
 var notificationRoutes = require('./routes/notificationRoutes.js');
-//var transactionRoutes = require('./routes/transactionRoutes.js');
+var transactionRoutes = require('./routes/transactionRoutes.js');
 
 
 /* ----------------- Other Global Stuff ----------------------------- */
@@ -66,10 +66,10 @@ server.use(function enableCors(req, res, next) {
 /* ----------------- Register API Routes Here ----------------------- */
 //Our actual security/permissions api endpoints
 accountRoutes.register(server);
-//charitiesRoutes.register(server);
-//goalsRoutes.register(server);
+charitiesRoutes.register(server);
+goalsRoutes.register(server);
 notificationRoutes.register(server);
-//transactionRoutes.register(server);
+transactionRoutes.register(server);
 
 /* ----------------- Start API Here --------------------------------- */
 server.listen(appConfig.port, appConfig.host, function () {

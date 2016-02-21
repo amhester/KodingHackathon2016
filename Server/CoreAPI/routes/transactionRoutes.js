@@ -1,6 +1,5 @@
 "use strict";
 
-const appConfig = require('./../app.config.json');
 const Transaction = require('./../../DataLayer/models/Transaction');
 const db = require('./../../DataLayer/DataRepository');
 

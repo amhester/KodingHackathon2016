@@ -5,6 +5,7 @@ var schedule = require('node-schedule');
 var Goals = require('./../DataLayer/services/Goals');
 var Notifications = require('./../DataLayer/services/Notifications');
 var Notification = require('./../DataLayer/models/Notification.js');
+var db = require('./../DataLayer/DataRepository');
 var request = require('request');
 
 var notifications = new Notifications(appConfig.mongo);
@@ -12,9 +13,12 @@ var goals = new Goals(appConfig.mongo);
 
 var notification = null;
 (function () {
+    console.log("Scheduling a job for every 2 seconds.");
     var scheduledJob = schedule.scheduleJob(appConfig.BountyCollector.cron, function () {
-        goals.onConnected = function () {
-            goals
+        console.log("Checking goals.");
+
+        //goals.onConnected = function () {
+            db.Goals
                 .query()
                 .find().toArray(function (err, results) {
                 if (err) {
@@ -39,6 +43,7 @@ var notification = null;
                             if (err) {
                                 console.log(err.message);
                             }
+                            console.log(notif);
                             request({
                                 method: 'POST',
                                 uri: appConfig.BountyCollector.notificationUrl,
@@ -57,6 +62,6 @@ var notification = null;
                     }
                 });
             });
-        };
+        //};
     });
 })();
