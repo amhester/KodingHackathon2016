@@ -5,14 +5,13 @@
         .module('DP.Main')
         .controller('goalsController', goalsController);
 
-    goalsController.$inject = ['$scope', '$rootScope'];
-    function goalsController(scope, rootScope) {
+    goalsController.$inject = ['$scope', '$rootScope', 'GoalService'];
+    function goalsController(scope, rootScope, GoalService) {
         var vm = this;
 
-        scope.createGoal = function(goalObj) {
-            goalObj.createdOn = new Date();
-            console.log(goalObj);
-            //TODO: send to backend
+        scope.createGoal = function(goal) {
+            goal.createdOn = new Date();
+            GoalService.post(goal);
         };
 
         scope.getCurrentGoals = function() {
