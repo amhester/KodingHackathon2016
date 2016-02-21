@@ -3,7 +3,8 @@
 
     angular
         .module('DP.Directives')
-        .directive('goalCard', goalCard);
+        .directive('goalCard', goalCard)
+        .directive('goalFailedCard', goalFailedCard);
 
     goalCard.$inject = [];
     function goalCard() {
@@ -12,6 +13,15 @@
             templateUrl: 'templates/goalCard.html'
         };
     }
+
+    goalFailedCard.$inject = [];
+    function goalFailedCard() {
+        return {
+            name: 'goalFailedCard',
+            templateUrl: 'templated/goalFailed.html'
+        }
+    }
+
 })();
 
 
