@@ -18,7 +18,7 @@
     function goalFailedCard() {
         return {
             name: 'goalFailedCard',
-            templateUrl: 'templated/goalFailed.html'
+            templateUrl: 'templates/goalFailed.html'
         }
     }
 
