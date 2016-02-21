@@ -22,13 +22,12 @@ if(config.WebServer.protocol == 'https') {
 }
 
 const publicDir = __dirname + '/../../Public';
-console.log(publicDir);
 
 app.use('/scripts', express.static(publicDir + '/scripts'));
 app.use('/lib', express.static(publicDir + '/lib'));
 app.use('/content', express.static(publicDir + '/content'));
-app.use('/templates', express.static(publicDir + '/views/templates'));
-app.set('views', publicDir + '/views');
+app.use('/templates', express.static(publicDir + '/templates'));
+app.set('views', publicDir);
 app.engine('.html', whiskers.__express);
 
 loginRoutes.register(app);
