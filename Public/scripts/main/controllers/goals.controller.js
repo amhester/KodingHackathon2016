@@ -25,7 +25,7 @@
     currentGoalsController.$inject = ['$scope', '$rootScope', 'GoalService'];
     function currentGoalsController(scope, rootScope, GoalService) {
         var vm = this;
-        getAll();
+        //getAll();
 
         //function getAll() {
         //    var g = GoalService.getAll();
