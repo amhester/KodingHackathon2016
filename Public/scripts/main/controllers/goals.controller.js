@@ -10,16 +10,15 @@
     function goalsController(scope, rootScope, GoalService) {
         var vm = this;
 
+        vm.createGoal = function() {
+            vm.goal.createdOn = new Date();
+            GoalService.post(vm.goal);
+        };
+
         //TODO: Make Directive
         $(document).ready(function(){
-            $('#date').bootstrapMaterialDatePicker({ weekStart : 0, time: false });
-            $.material.init();
+            $('#goalExpiration').bootstrapMaterialDatePicker({ weekStart : 0, time: false });
         })
-
-        vm.createGoal = function(goal) {
-            goal.createdOn = new Date();
-            GoalService.post(goal);
-        };
     }
 
     currentGoalsController.$inject = ['$scope', '$rootScope', 'GoalService'];

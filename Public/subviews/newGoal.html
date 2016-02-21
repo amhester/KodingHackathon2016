@@ -6,23 +6,22 @@
                     <div class="card-content">
                         <h3>New Goal</h3>
                         <div class="input-field" >
-                            <input id="goalName" ng-model="goal.name" type="text" class="validate" required>
+                            <input id="goalName" ng-model="vm.goal.name" type="text" class="validate" required>
                             <label for="goalName">Goal Name</label>
                         </div>
                         <div class="input-field" >
-                            <input id="goalDescription" ng-model="goal.description" type="text" class="validate" required>
+                            <input id="goalDescription" ng-model="vm.goal.description" type="text" class="validate" required>
                             <label for="goalDescription">Goal Description</label>
                         </div>
-                        <!--<input id="goalDate" type="date" ng-model="goal.expiration" class="datepicker" required ng-pattern="/^(\d{4})-(\d{2})-(\d{2})$/">-->
                         <div class="input-field" >
-                            <input id="date" ng-model="goal.expiration" type="text" class="validate" >
-                            <label for="date">Goal Expiration</label>
+                            <input id="goalExpiration" ng-model="vm.goal.expiration" type="text" class="validate" required>
+                            <label for="goalExpiration">Goal Expiration</label>
                         </div>
-
+                        <!--<input id="goalDate" type="date" ng-model="goal.expiration" class="datepicker" required ng-pattern="/^(\d{4})-(\d{2})-(\d{2})$/">-->
                     </div>
 
                     <div class="card-action">
-                        <button type="button" ng-disabled="newGoalForm.$invalid" ng-click="createGoal(goal, registerForm)" class="btn btn-primary waves-effect waves-light">Create Goal</button>
+                        <button type="button" ng-disabled="newGoalForm.$invalid" ng-click="vm.createGoal()" class="btn btn-primary waves-effect waves-light">Create Goal</button>
                     </div>
                 </div>
         </form>
