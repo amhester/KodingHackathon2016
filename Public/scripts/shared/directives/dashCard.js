@@ -10,8 +10,22 @@
         return {
             restrict: 'E',
             replace: true,
-            $scope: {},
-            templateUrl: 'templates/dashCard.html'
+            $scope: {
+                'actionRoute': '=',
+                'image': '=',
+                'buttonText': '='
+            },
+            templateUrl: 'templates/dashCard.html',
+            link: function(scope, elem, attrs, form) {
+
+                scope.buttonText = attrs.buttontext;
+
+                scope.changeRoute = function() {
+                    console.log(attrs.actionroute);
+                }
+            }
         };
+
+
     }
 })();

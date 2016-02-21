@@ -11,7 +11,8 @@
     text-align: center !important;
     margin-left: 20px;
     width: 200px;
-    height: 200px;
+    height: 210px;
+    display: inline-block;
 }
 
 .dashCardText {
@@ -22,7 +23,7 @@
 .dashCardAction {
     text-align: center !important;
     border-top: 1px solid rgba(160, 160, 160, 0.2);
-    padding: 20px;
+    padding: 5px;
     position: relative;
     top: 100px;
 }
