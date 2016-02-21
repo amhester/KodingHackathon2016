@@ -1,7 +1,0 @@
-{
-
-  "port": 8088,
-  "host": "localhost",
-  "name": "NotificationService",
-  "version": "0.0.1"
-}

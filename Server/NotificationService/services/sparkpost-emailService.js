@@ -4,7 +4,6 @@ let SparkPost = require('sparkpost');
 
 class SparkpostEmailService {
     constructor() {
-        console.log('new SparkpostEmailService');
         this.sparky = new SparkPost('cb48dfa703792cb83643eec187139cdd9ee335c7');
     }
 

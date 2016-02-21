@@ -1,18 +1,18 @@
 "use strict";
 
-var appConfig = require('./app.config.json');
+var appConfig = require('./../app.config.json');
 var schedule = require('node-schedule');
 var Goals = require('./../DataLayer/services/Goals');
 var Notifications = require('./../DataLayer/services/Notifications');
 var Notification = require('./../DataLayer/models/Notification.js');
 var request = require('request');
 
-var notifications = new Notifications(appConfig.mongoConfig);
-var goals = new Goals(appConfig.mongoConfig);
+var notifications = new Notifications(appConfig.mongo);
+var goals = new Goals(appConfig.mongo);
 
 var notification = null;
 (function () {
-    var scheduledJob = schedule.scheduleJob(appConfig.cron, function () {
+    var scheduledJob = schedule.scheduleJob(appConfig.BountyCollector.cron, function () {
         goals.onConnected = function () {
             goals
                 .query()
@@ -41,7 +41,7 @@ var notification = null;
                             }
                             request({
                                 method: 'POST',
-                                uri: appConfig.notificationUrl,
+                                uri: appConfig.BountyCollector.notificationUrl,
                                 json: notif
                             },
                             function (err, response, body) {

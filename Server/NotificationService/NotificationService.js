@@ -1,11 +1,9 @@
 "use strict";
 
-
 //let moduleName = 'DP.services';
 var restify = require('restify');
-var appConfig = require('./app.config.json');
+var appConfig = require('./../app.config.json').NotificationService;
 var uuid = require('node-uuid');
-
 
 var routes = require('./routes/notificationRoutes.js');
 
@@ -15,7 +13,6 @@ var server = restify.createServer({
     name: appConfig.name,
     version: appConfig.version
 });
-
 
 process.on('beforeExit', function () {
     ///TODO: add some code to execute before exit (maybe db connection closing?)

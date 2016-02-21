@@ -1,10 +1,10 @@
 "use strict";
 
-var SparkpostEmailService = require('./../services/sparkpost-emailService.js');
-let Notification = require('./../../DataLayer/models/Notification.js');
+const SparkpostEmailService = require('./../services/sparkpost-emailService.js');
+const Notification = require('./../../DataLayer/models/Notification.js');
 
-let service = new SparkpostEmailService();
-let root = '/notify';
+const service = new SparkpostEmailService();
+const root = '/notify';
 
 class NotificationService {
     constructor() {
@@ -28,7 +28,6 @@ module.exports = NotificationService;
 module.exports.register = function( server ) {
 
     server.post(root, function (req, res, next) {
-        // console.log(req.body);
         let notification = new Notification(req.body);
         let notifier = NotificationService.NotificationFactory();
         let notify = notifier.sendNotification(notification, function(err, notification) {

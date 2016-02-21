@@ -1,11 +1,8 @@
 'use strict';
 
-
-
 var restify = require('restify');
-var appConfig = require('./app.config.json');
+var appConfig = require('./../app.config.json').PaymentProcessor;
 var uuid = require('node-uuid');
-
 
 var routes = require('./routes/paymentRoutes.js');
 

@@ -1,7 +1,7 @@
 "use strict";
 
 const restify = require('restify');
-const appConfig = require('./app.config.json');
+const appConfig = require('./../app.config.json').CoreAPI;
 const uuid = require('node-uuid');
 const logger = console;
 const authMiddleware = require('./middleware/authMiddleware');

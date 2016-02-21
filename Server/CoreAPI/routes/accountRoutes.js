@@ -1,13 +1,12 @@
 "use strict";
 
-const appConfig = require('./../app.config.json');
+const appConfig = require('./../../app.config.json');
 const Account = require('./../../DataLayer/models/Account');
-const Accounts = require('./../../DataLayer/services/Accounts');
+const db = require('./../../DataLayer/DataRepository');
 const AuthService = require('./../../DataLayer/services/AuthService');
 const jwt = require('jsonwebtoken');
 
 const auth = new AuthService(appConfig);
-const accounts = new Accounts(appConfig.mongo);
 
 module.exports.register = function(server) {
     server.post('/account', function (req, res, next) {
@@ -32,7 +31,7 @@ module.exports.register = function(server) {
                 res.send(500, err.message);
             } else {
                 if(result) {
-                    res.send(200, jwt.sign({ id: result.id, email: result.email, displayName: result.displayName }, appConfig.appSecret));
+                    res.send(200, jwt.sign({ id: result.id, email: result.email, displayName: result.displayName }, appConfig.CoreAPI.appSecret));
                 } else {
                     res.send(404);
                 }
@@ -42,7 +41,7 @@ module.exports.register = function(server) {
     });
 
     server.get('/account', function (req, res, next) {
-        accounts.query().find().limit(1).next(function (err, doc) {
+        db.Accounts.query().find().limit(1).next(function (err, doc) {
             if(err) {
                 res.send(500, err.message);
             } else {
@@ -59,7 +58,7 @@ module.exports.register = function(server) {
             res.send(404);
         }
 
-        accounts.query().find({id: req.params.id}).limit(1).next(function (err, doc) {
+        db.Accounts.query().find({id: req.params.id}).limit(1).next(function (err, doc) {
             if(err) {
                 res.send(500, err.message);
             } else {
@@ -78,7 +77,7 @@ module.exports.register = function(server) {
 
         let model = new Account(req.params.account);
 
-        accounts.save(model, function (err, result) {
+        db.Accounts.save(model, function (err, result) {
             if(err) {
                 res.send(500, err.message);
             } else {
@@ -93,7 +92,7 @@ module.exports.register = function(server) {
             res.send(404);
         }
 
-        accounts.remove(req.params.id, function (err, result) {
+        db.Accounts.remove(req.params.id, function (err, result) {
             if(err) {
                 res.send(500, err.message);
             } else {

@@ -1,9 +1,7 @@
 "use strict";
 
-const config = require('./Server/CoreAPI/app.config.json');
+const config = require('./Server/app.config.json');
 const Account = require('./Server/DataLayer/models/Account');
-const Accounts = require('./Server/DataLayer/services/Accounts');
-const _accounts = new Accounts(config.mongo);
 const _goals = new Goals(config.mongo);
 const AuthService = require('./Server/DataLayer/services/AuthService');
 const auth = new AuthService(config);

@@ -1,11 +1,56 @@
 {
-  "notificationUrl": "http://127.0.0.1:8081/notification",
   "cron": "*/2 * * * * *",
-  "mongoConfig" : {
-    "url": "mongodb://hackathonUser:password1@ds013738.mongolab.com:13738/hackathon_2016_test"
+  "mongo" : {
+    "url": "mongodb://<username>:<password>@<host>:<port>/<store>",
     "host": "ds013738.mongolab.com",
     "port": "13738",
     "store": "hackathon_2016_test",
+    "credentials": {
+      "username": "hackathonUser",
+      "password": "password1"
+    },
     "maxRetries": 5
+  },
+  "CoreAPI": {
+    "url": "<protocol>://<host>:<port>",
+    "protocol": "http",
+    "port": 8082,
+    "host": "localhost",
+    "name": "WinWinAPI",
+    "version": "0.0.1",
+    "appSecret": "1290bd0a-4358-472a-b919-4c670ca66434"
+  },
+  "NotificationService": {
+    "name": "NotificationService",
+    "version": "0.0.1",
+    "url": "<protocol>://<host>:<port>",
+    "protocol": "http",
+    "host": "127.0.0.1",
+    "port": 8088,
+    "endpoints": {
+      "notification": "/notify"
+    }
+  },
+  "BountyCollector": {
+    "cron": "*/2 * * * * *",
+    "notificationUrl": "http://127.0.0.1:8081/notification"
+  },
+  "PaymentProcessor": {
+    "url": "<protocol>://<host>:<port>",
+    "protocol": "http",
+    "port": 8089,
+    "host": "localhost",
+    "name": "PaymentProcessor",
+    "version": "0.0.1",
+    "endpoints": {
+      "createCardToken": "/paymentService/token",
+      "getToken": "/paymentService/getToken/:tokenId",
+      "createCustomer": "/paymentService/createCustomer",
+      "updateCustomer": "/paymentService/updateCustomer",
+      "getCustomer": "/paymentService/getCustomer/:customerId",
+      "deleteCustomer": "/paymentService/deleteCustomer",
+      "charge": "/paymentService/charge",
+      "getCharge": "/paymentService/getCharge"
+    }
   }
 }

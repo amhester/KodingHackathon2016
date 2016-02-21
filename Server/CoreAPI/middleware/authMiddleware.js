@@ -1,7 +1,7 @@
 "use strict";
 
 const jwt = require('jsonwebtoken');
-const config = require('./../app.config.json');
+const config = require('./../../app.config.json').CoreAPI;
 
 module.exports.authWall = function (req, res, next) {
     let authHeader = req.header('Authorization');

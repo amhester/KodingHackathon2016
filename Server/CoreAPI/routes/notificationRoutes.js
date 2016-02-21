@@ -1,6 +1,6 @@
 "use strict";
 
-var appConfig = require('./../app.config.json');
+var appConfig = require('./../../app.config.json').NotificationService;
 var request = require('request');
 
 module.exports.register = function( server ) {
@@ -18,7 +18,7 @@ module.exports.register = function( server ) {
 
         request({
             method: 'POST',
-            uri: appConfig.notificationEndpoint,
+            uri: appConfig.endpoints.notification,
             json: notification
         }
         , function (error, response, body) {
