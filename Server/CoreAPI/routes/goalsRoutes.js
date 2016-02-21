@@ -5,8 +5,8 @@ const db = require('./../../DataLayer/DataRepository');
 
 module.exports.register = function(server) {
     server.post('/goal', function (req, res, next) {
-        console.log('/goal 1');
-        let newGoal = new Goal(req.params.goal);
+        console.log('/goal 1', req.params);
+        let newGoal = new Goal(req.params);
         console.log('/goal 2');
         let accountId = req.authContext.id;
         newGoal.accountId = accountId;
