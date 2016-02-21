@@ -13,7 +13,12 @@ class BaseService {
         self._host = config.host;
         self._port = config.port;
         self._store = config.store;
-        self._url = self._protocol + self._host + ':' + self._port + '/' + self._store;
+        self._url = config.url
+            .replace(/<username>/, config.credentials.username)
+            .replace(/<password>/, config.credentials.password)
+            .replace(/<host>/, config.host)
+            .replace(/<port>/, config.port)
+            .replace(/<store>/, config.store);
         self._retryLimit = config.maxRetries;
         self._attempts = 0;
         self._onConnected = function () {};
