@@ -5,8 +5,8 @@
         .module('DP.Services')
         .factory('GoalService', GoalService);
 
-    GoalService.$inject = ['$http', '$rootScope'];
-    function GoalService(http, rootScope) {
+    GoalService.$inject = ['$http', '$rootScope', 'serverIp'];
+    function GoalService(http, rootScope, serverIp) {
         return {
             get: getGoal,
             getAll: getGoals,
@@ -16,27 +16,27 @@
         };
 
         function getGoal(id) {
-            var promise = http.get('http://127.0.0.1:8082/goal/' + id);
+            var promise = http.get(serverIp + '/goal/' + id);
             return promise;
         }
 
         function getGoals() {
-            var promise = http.get('http://127.0.0.1:8082/goal');
+            var promise = http.get(serverIp + '/goal');
             return promise;
         }
 
         function post(goal) {
-            var promise = http.post('http://127.0.0.1:8082/goal', goal);
+            var promise = http.post(serverIp + '/goal', goal);
             return promise;
         }
 
         function put(goal) {
-            var promise = http.put('http://127.0.0.1:8082/goal', goal);
+            var promise = http.put(serverIp + '/goal', goal);
             return promise;
         }
 
         function del(id) {
-            var promise = http.del('http://127.0.0.1:8082/goal/' + id);
+            var promise = http.del(serverIp + '/goal' + id);
             return promise;
         }
     }

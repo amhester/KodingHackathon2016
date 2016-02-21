@@ -6,6 +6,7 @@
             'ngRoute',
             'DP.Directives',
             'DP.Services',
+            'DP.Config',
             'LocalStorageModule'
         ]);
 })();
