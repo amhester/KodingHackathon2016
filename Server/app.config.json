@@ -18,7 +18,28 @@
     "host": "localhost",
     "name": "WinWinAPI",
     "version": "0.0.1",
-    "appSecret": "1290bd0a-4358-472a-b919-4c670ca66434"
+    "appSecret": "1290bd0a-4358-472a-b919-4c670ca66434",
+    "endpoints": {
+      "notificationSeen": "/seen/:id",
+      "getNotificationsByAccount": "/notifications/:accountId",
+      "addAccount": "/account",
+      "addToken": "/token",
+      "getAccount": "/account/:id",
+      "updateAccount": "/account",
+      "deleteAccount": "/account/:id",
+      "addTransaction": "/transaction",
+      "getTransactions": "/transaction",
+      "getTransaction": "/transaction/:id",
+      "updateTransaction": "/transaction",
+      "deleteTransaction": "/transaction/:id",
+      "addGoal": "/goal",
+      "getGoals": "/goal",
+      "getGoal": "/goal/:id",
+      "updateGoal": "/goal",
+      "deleteGoal": "/goal/:id",
+      "getCharities": "/charity",
+      "getCharity": "/charity/:id"
+    }
   },
   "NotificationService": {
     "name": "NotificationService",
@@ -33,7 +54,7 @@
   },
   "BountyCollector": {
     "cron": "*/2 * * * * *",
-    "notificationUrl": "http://127.0.0.1:8081/notification"
+    "notificationUrl": "http://127.0.0.1:8088/notify"
   },
   "PaymentProcessor": {
     "url": "<protocol>://<host>:<port>",

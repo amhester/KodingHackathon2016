@@ -5,18 +5,18 @@ const Charity = require('./../../DataLayer/models/Charity');
 const db = require('./../../DataLayer/DataRepository');
 
 module.exports.register = function(server) {
-    server.post('/charity', function (req, res, next) {
-        let newCharity = new Charity(req.params.charity);
-
-        db.Charities.save(newCharity, function (err, result) {
-            if(err) {
-                res.send(500, err.message);
-            } else {
-                res.send(200, result.id);
-            }
-            next();
-        });
-    });
+    //server.post('/charity', function (req, res, next) {
+    //    let newCharity = new Charity(req.params.charity);
+    //
+    //    db.Charities.save(newCharity, function (err, result) {
+    //        if(err) {
+    //            res.send(500, err.message);
+    //        } else {
+    //            res.send(200, result.id);
+    //        }
+    //        next();
+    //    });
+    //});
 
     server.get('/charity', function (req, res, next) {
         db.Charities.query().find().toArray(function (err, docs) {
@@ -41,29 +41,29 @@ module.exports.register = function(server) {
         });
     });
 
-    server.put('/charity', function (req, res, next) {
+    //server.put('/charity', function (req, res, next) {
+    //
+    //    let model = new Charity(req.params.charity);
+    //
+    //    db.Charities.save(model, function (err, result) {
+    //        if(err) {
+    //            res.send(500, err.message);
+    //        } else {
+    //            res.send(200);
+    //        }
+    //        next();
+    //    });
+    //});
 
-        let model = new Charity(req.params.charity);
-
-        db.Charities.save(model, function (err, result) {
-            if(err) {
-                res.send(500, err.message);
-            } else {
-                res.send(200);
-            }
-            next();
-        });
-    });
-
-    server.del('/charity/:id', function (req, res, next) {
-
-        db.Charities.remove(req.params.id, function (err, result) {
-            if(err) {
-                res.send(500, err.message);
-            } else {
-                res.send(200);
-            }
-            next();
-        });
-    });
+    //server.del('/charity/:id', function (req, res, next) {
+    //
+    //    db.Charities.remove(req.params.id, function (err, result) {
+    //        if(err) {
+    //            res.send(500, err.message);
+    //        } else {
+    //            res.send(200);
+    //        }
+    //        next();
+    //    });
+    //});
 };
