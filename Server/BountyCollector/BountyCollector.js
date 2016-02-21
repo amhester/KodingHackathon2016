@@ -24,14 +24,16 @@ var notification = null;
                 results.forEach(function (obj) {
                     if (obj.expiration < now) {
 
-                        notification = new Notification({
-                            id: obj.id,
-                            accountId: "",
-                            seen: true,
-                            message: Notification.NOTIFICATION_TYPES.EXPIRED,
-                            link: "",
-                            email: "nealhamilton92@gmail.com"
-                        });
+                        //notification = new Notification({
+                        //    accountId: obj.accountId,
+                        //    seen: false,
+                        //    message: Notification.NOTIFICATION_TYPES.EXPIRED,
+                        //    link: "", // Where do we generate this?
+                        //    email: "nealhamilton92@gmail.com"
+                        //});
+                        // TODO: Make link the real link.
+                        let link = "/act/" + obj.id;
+                        notification = Notification.fromGoal(obj, Notification.NOTIFICATION_TYPES.EXPIRED, false, `Hey...pay up. <a href="$(link)">See goal</a>`, link);
 
                         notifications.save(notification, function(err, notif) {
                             if (err) {
