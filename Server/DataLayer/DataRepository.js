@@ -38,9 +38,7 @@ mongo.connect(url, function (err, db) {
 });
 
 class DataRepository {
-    constructor () {
-
-    }
+    constructor () {}
 
     static get Accounts () { return _accounts; }
     static get Charities () { return _charities; }
