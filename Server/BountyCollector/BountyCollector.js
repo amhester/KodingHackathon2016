@@ -19,7 +19,6 @@ var notification = null;
 
         let g = null;
         if ((g = db.Goals) != null) {
-            console.log('here...',g);
             g.query()
                 .find().toArray(function (err, results) {
                 if (err) {
