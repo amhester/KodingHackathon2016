@@ -41,9 +41,9 @@ if(config.WebServer.protocol == 'https') {
         console.log('secure web server running...');
     });
 
-    var insecureServer = http.createServer(app).listen(config.WebServer.port, config.WebServer.host, function() {
+    var insecureServer = http.createServer(app).listen(config.WebServer.port - 1, config.WebServer.host, function() {
         console.log('Insecure web server running...');
-    })
+    });
 } else {
     app.listen(config.WebServer.port, config.WebServer.host, function () {
         console.log('web server running...');

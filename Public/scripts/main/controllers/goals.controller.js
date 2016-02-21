@@ -10,6 +10,12 @@
     function goalsController(scope, rootScope, GoalService) {
         var vm = this;
 
+        //TODO: Make Directive
+        $(document).ready(function(){
+            $('#date').bootstrapMaterialDatePicker({ weekStart : 0, time: false });
+            $.material.init();
+        })
+
         vm.createGoal = function(goal) {
             goal.createdOn = new Date();
             GoalService.post(goal);
