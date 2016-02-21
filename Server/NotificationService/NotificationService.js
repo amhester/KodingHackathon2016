@@ -3,16 +3,27 @@
 //let moduleName = 'DP.services';
 var restify = require('restify');
 var appConfig = require('./../app.config.json').NotificationService;
+const sslConfig = require('./../app.config.json').ssl;
 var uuid = require('node-uuid');
 
 var routes = require('./routes/notificationRoutes.js');
 
 
 /* ----------------- Other Global Stuff ----------------------------- */
-var server = restify.createServer({
-    name: appConfig.name,
-    version: appConfig.version
-});
+var server;
+if(appConfig.protocol == 'https') {
+    server = restify.createServer({
+        name: appConfig.name,
+        version: appConfig.version,
+        certificate: fs.readFileSync(sslConfig.cert),
+        key: fs.readFileSync(sslConfig.key)
+    });
+} else {
+    server = restify.createServer({
+        name: appConfig.name,
+        version: appConfig.version
+    });
+}
 
 process.on('beforeExit', function () {
     ///TODO: add some code to execute before exit (maybe db connection closing?)

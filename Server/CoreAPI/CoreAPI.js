@@ -16,15 +16,16 @@ var transactionRoutes = require('./routes/transactionRoutes.js');
 
 
 /* ----------------- Other Global Stuff ----------------------------- */
+var server;
 if(appConfig.protocol == 'https') {
-    var server = restify.createServer({
+    server = restify.createServer({
         name: appConfig.name,
         version: appConfig.version,
         certificate: fs.readFileSync(sslConfig.cert),
         key: fs.readFileSync(sslConfig.key)
     });
 } else {
-    var server = restify.createServer({
+    server = restify.createServer({
         name: appConfig.name,
         version: appConfig.version
     });
