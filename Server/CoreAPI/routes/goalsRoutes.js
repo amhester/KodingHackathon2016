@@ -5,13 +5,10 @@ const db = require('./../../DataLayer/DataRepository');
 
 module.exports.register = function(server) {
     server.post('/goal', function (req, res, next) {
-        console.log('/goal 1', req.params);
         let newGoal = new Goal(req.params);
-        console.log('/goal 2');
         let accountId = req.authContext.id;
         newGoal.accountId = accountId;
 
-        console.log(newGoal);
         db.Goals.save(newGoal, function (err, result) {
             if(err) {
                 res.send(500, err.message);
@@ -48,7 +45,7 @@ module.exports.register = function(server) {
 
     server.put('/goal', function (req, res, next) {
 
-        let model = new Goal(req.params.goal);
+        let model = new Goal(req.params);
 
         db.Goals.save(model, function (err, result) {
             if(err) {
