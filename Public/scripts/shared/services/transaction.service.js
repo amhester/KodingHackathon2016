@@ -16,7 +16,7 @@
         };
 
         function getTransaction(id) {
-            var promise = http.get('http://127.0.0.1:8082/transaction/' + id);
+            var promise = http.get(serverIp + '/transaction/' + id);
             return promise;
         }
 
