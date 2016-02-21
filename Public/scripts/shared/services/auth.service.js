@@ -13,12 +13,12 @@
         };
 
         function signIn(email, password) {
-            var promise = http.post('http://127.0.0.1:8082/token', { email: email, password: password });
+            var promise = http.post('https://127.0.0.1:8082/token', { email: email, password: password });
             return promise;
         }
 
         function register(account) {
-            var promise = http.post('http://127.0.0.1:8082/account', { account: account });
+            var promise = http.post('https://127.0.0.1:8082/account', { account: account });
             return promise;
         }
     }
