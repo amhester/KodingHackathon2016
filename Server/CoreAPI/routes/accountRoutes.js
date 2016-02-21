@@ -40,6 +40,17 @@ module.exports.register = function(server) {
         });
     });
 
+    server.get('/account', function (req, res, next) {
+        db.Accounts.query().find().toArray(function (err, docs) {
+            if(err) {
+                res.send(500, err.message);
+            } else {
+                res.send(200, docs);
+            }
+            next();
+        });
+    });
+
     server.get('/account/:id', function (req, res, next) {
         if(req.params.id !== req.authContext.id) {
             res.send(404);

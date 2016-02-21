@@ -19,8 +19,14 @@
             {
                 id: "2",
                 route: "/goals",
-                imageUrl: "",
+                imageUrl: "../content/images/checky.png",
                 buttonText: "Goals"
+            },
+            {
+                id: "3",
+                route: "/motivation",
+                imageUrl: "../content/images/shia.jpg",
+                buttonText: "Motivate Me"
             }
         ];
         console.log(dashPanels);
