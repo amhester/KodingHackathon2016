@@ -10,7 +10,7 @@
         var vm = this;
 
         scope.logIn = function(userObj) {
-            console.log(userObj);
+            authService.logIn(userObj.email, userObj.password);
         }
 
     }
