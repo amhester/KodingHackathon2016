@@ -10,7 +10,7 @@ var db = require('./../DataLayer/DataRepository');
 var request = require('request');
 
 // var notifications = new Notifications(appConfig.mongo);
-var goals = new Goals(appConfig.mongo);
+//var goals = new Goals(appConfig.mongo);
 
 var notification = null;
 (function () {
