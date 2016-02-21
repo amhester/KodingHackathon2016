@@ -2,15 +2,13 @@
 
 const appConfig = require('./../app.config.json');
 const Charity = require('./../../DataLayer/models/Charity');
-const Charities = require('./../../DataLayer/services/Charities');
-
-const charities = new Charities(appConfig.mongo);
+const db = require('./../../DataLayer/DataRepository');
 
 module.exports.register = function(server) {
     server.post('/charity', function (req, res, next) {
         let newCharity = new Charity(req.params.charity);
 
-        charities.save(newCharity, function (err, result) {
+        db.Charities.save(newCharity, function (err, result) {
             if(err) {
                 res.send(500, err.message);
             } else {
@@ -21,7 +19,7 @@ module.exports.register = function(server) {
     });
 
     server.get('/charity', function (req, res, next) {
-        charities.query().find().toArray(function (err, docs) {
+        db.Charities.query().find().toArray(function (err, docs) {
             if(err) {
                 res.send(500, err.message);
             } else {
@@ -33,7 +31,7 @@ module.exports.register = function(server) {
 
     server.get('/charity/:id', function (req, res, next) {
 
-        charities.query().find({id: req.params.id}).limit(1).next(function (err, doc) {
+        db.Charities.query().find({id: req.params.id}).limit(1).next(function (err, doc) {
             if(err) {
                 res.send(500, err.message);
             } else {
@@ -47,7 +45,7 @@ module.exports.register = function(server) {
 
         let model = new Charity(req.params.charity);
 
-        charities.save(model, function (err, result) {
+        db.Charities.save(model, function (err, result) {
             if(err) {
                 res.send(500, err.message);
             } else {
@@ -59,7 +57,7 @@ module.exports.register = function(server) {
 
     server.del('/charity/:id', function (req, res, next) {
 
-        charities.remove(req.params.id, function (err, result) {
+        db.Charities.remove(req.params.id, function (err, result) {
             if(err) {
                 res.send(500, err.message);
             } else {

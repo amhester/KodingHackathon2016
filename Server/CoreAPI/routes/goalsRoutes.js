@@ -2,15 +2,13 @@
 
 const appConfig = require('./../app.config.json');
 const Goal = require('./../../DataLayer/models/Goal');
-const Goals = require('./../../DataLayer/services/Goals');
-
-const goals = new Goals(appConfig.mongo);
+const db = require('./../../DataLayer/DataRepository');
 
 module.exports.register = function(server) {
     server.post('/goal', function (req, res, next) {
         let newGoal = new Goal(req.params.goal);
 
-        goals.save(newGoal, function (err, result) {
+        db.Goals.save(newGoal, function (err, result) {
             if(err) {
                 res.send(500, err.message);
             } else {
@@ -21,7 +19,7 @@ module.exports.register = function(server) {
     });
 
     server.get('/goal', function (req, res, next) {
-        goals.query().find().toArray(function (err, docs) {
+        db.Goals.query().find().toArray(function (err, docs) {
             if(err) {
                 res.send(500, err.message);
             } else {
@@ -33,7 +31,7 @@ module.exports.register = function(server) {
 
     server.get('/goal/:id', function (req, res, next) {
 
-        goals.query().find({id: req.params.id}).limit(1).next(function (err, doc) {
+        db.Goals.query().find({id: req.params.id}).limit(1).next(function (err, doc) {
             if(err) {
                 res.send(500, err.message);
             } else {
@@ -47,7 +45,7 @@ module.exports.register = function(server) {
 
         let model = new Goal(req.params.goal);
 
-        goals.save(model, function (err, result) {
+        db.Goals.save(model, function (err, result) {
             if(err) {
                 res.send(500, err.message);
             } else {
@@ -59,7 +57,7 @@ module.exports.register = function(server) {
 
     server.del('/goal/:id', function (req, res, next) {
 
-        goals.remove(req.params.id, function (err, result) {
+        db.Goals.remove(req.params.id, function (err, result) {
             if(err) {
                 res.send(500, err.message);
             } else {

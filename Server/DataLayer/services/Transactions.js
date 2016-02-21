@@ -5,8 +5,6 @@ const Transaction = require('./../models/Transaction.js');
 
 class Transactions extends Baseservice {
     constructor (config) {
-        let self = this;
-
         super(config, 'transactions');
     }
 

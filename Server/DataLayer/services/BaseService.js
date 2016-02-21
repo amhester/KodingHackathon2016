@@ -9,24 +9,33 @@ class BaseService {
 
         self._config = config;
 
-        self._protocol = 'mongodb://';
-        self._host = config.host;
-        self._port = config.port;
-        self._store = config.store;
-        self._url = config.url
-            .replace(/<username>/, config.credentials.username)
-            .replace(/<password>/, config.credentials.password)
-            .replace(/<host>/, config.host)
-            .replace(/<port>/, config.port)
-            .replace(/<store>/, config.store);
-        self._retryLimit = config.maxRetries;
-        self._attempts = 0;
-        self._onConnected = function () {};
-        self._db = null;
-        self._collection = null;
-        self._collectionName = collectionName;
+        if(config.db) {
+            self._db = config.db;
+            self._collection = null;
+            self._collectionName = collectionName;
+            self._onConnected = function () {};
 
-        self._connect();
+            self._createCollection();
+        } else {
+            self._protocol = 'mongodb://';
+            self._host = config.host;
+            self._port = config.port;
+            self._store = config.store;
+            self._url = config.url
+                .replace(/<username>/, config.credentials.username)
+                .replace(/<password>/, config.credentials.password)
+                .replace(/<host>/, config.host)
+                .replace(/<port>/, config.port)
+                .replace(/<store>/, config.store);
+            self._retryLimit = config.maxRetries;
+            self._attempts = 0;
+            self._onConnected = function () {};
+            self._db = null;
+            self._collection = null;
+            self._collectionName = collectionName;
+
+            self._connect();
+        }
     }
 
     set onConnected (val) { this._onConnected = val; }
@@ -46,14 +55,20 @@ class BaseService {
             }
 
             self._db = db;
-            self._db.createCollection(self._collectionName, {}, function (cErr, collection) {
-                if(cErr) {
-                    throw cErr;
-                }
-                self._collection = collection;
-                self._attempts = 0;
-                self._onConnected();
-            });
+            self._createCollection();
+        });
+    }
+
+    _createCollection () {
+        let self = this;
+
+        self._db.createCollection(self._collectionName, {}, function (cErr, collection) {
+            if(cErr) {
+                throw cErr;
+            }
+            self._collection = collection;
+            self._attempts = 0;
+            self._onConnected();
         });
     }
 

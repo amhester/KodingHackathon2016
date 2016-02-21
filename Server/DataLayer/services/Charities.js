@@ -5,8 +5,6 @@ const Charity = require('./../models/Charity.js');
 
 class Charities extends Baseservice {
     constructor (config) {
-        let self = this;
-
         super(config, 'charities');
     }
 

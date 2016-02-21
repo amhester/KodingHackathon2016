@@ -1,7 +1,7 @@
 "use strict";
 
 const Account = require('./../models/Account');
-const Accounts = require('./Accounts');
+const db = require('./../DataRepository');
 const passHash = require('password-hash');
 
 class AuthService {
@@ -9,8 +9,6 @@ class AuthService {
         let self = this;
 
         self._config = config;
-
-        self._accounts = new Accounts(config.mongo);
     }
 
     register (account, cb) {
@@ -22,7 +20,7 @@ class AuthService {
 
         account.passwordHash = passHash.generate(account.passwordHash);
 
-        self._accounts.save(account, function (err, result) {
+        db.Accounts.save(account, function (err, result) {
             cb(err, result);
         });
     }
@@ -30,7 +28,7 @@ class AuthService {
     signIn (email, password, cb) {
         let self = this;
 
-        self._accounts.query().find({email: email}).limit(1).next(function (err, doc) {
+        db.Accounts.query().find({email: email}).limit(1).next(function (err, doc) {
             if(err) {
                 cb(err);
             } else {
