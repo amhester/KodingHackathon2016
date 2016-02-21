@@ -4,6 +4,8 @@
     angular
         .module('DP.Main', [
             'ngRoute',
-            'DP.Services'
+            'DP.Directives',
+            'DP.Services',
+            'LocalStorageModule'
         ]);
 })();
