@@ -22,6 +22,7 @@ var notification = null;
             g.query()
                 .find().toArray(function (err, results) {
                 if (err) {
+                    console.log('erroring on find().toArray()');
                     console.log(err.message);
                 }
                 var now = new Date().getTime();
