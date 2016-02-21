@@ -9,32 +9,17 @@
     function charitiesController(scope, rootScope, charityService) {
         var vm = this;
 
-        //vm.charities = charityService.getAll();
+        getAll();
 
-        vm.charities = [
-            {
-                id: 0,
-                name: "Red Cross",
-                description: "Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula.",
-                link: "http://www.redcross.org/",
-                imageUrl: "../content/images/redcross.png"
-            },
+        function getAll() {
+            var p = charityService.getAll();
 
-            {
-                id: 1,
-                name: "Humane Society",
-                description: "Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula.",
-                link: "http://www.humanesociety.org/",
-                imageUrl: "../content/images/humaneSociety.png"
-            },
-
-            {
-                id: 2,
-                name: "Anderson University",
-                description: "Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula.",
-                link: "http://www.anderson.edu/",
-                imageUrl: "../content/images/anderson.png"
-            }
-        ];
+            p.then(function (res) {
+                    vm.charities = res.data;
+                    console.log(res);
+                }, function (err) {
+                    console.error(err);
+                });
+        }
     }
 })();

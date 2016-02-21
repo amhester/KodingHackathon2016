@@ -29,7 +29,6 @@ if(argv.createDemoAccount) {
     });
 
     let charity1 = new Charity({
-        id: 0,
         name: "Red Cross",
         description: "Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula.",
         link: "http://www.redcross.org/",
@@ -37,7 +36,6 @@ if(argv.createDemoAccount) {
     })
 
     let charity2 = new Charity({
-        id: 1,
         name: "Humane Society",
         description: "Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula.",
         link: "http://www.humanesociety.org/",
@@ -45,7 +43,6 @@ if(argv.createDemoAccount) {
     })
 
     let charity3 = new Charity({
-        id: 2,
         name: "Anderson University",
         description: "Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula.",
         link: "http://www.anderson.edu/",
