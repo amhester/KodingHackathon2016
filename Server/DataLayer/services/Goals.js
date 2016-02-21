@@ -9,9 +9,11 @@ class Goals extends Baseservice {
     }
 
     save (goal, cb) {
+
         let self = this;
 
         if(!goal instanceof Goal) {
+
             cb(new Error('parameter not an instance of Goal class.'));
         } else {
             if(goal.id === 0) {
