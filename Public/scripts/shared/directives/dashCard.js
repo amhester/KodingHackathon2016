@@ -9,19 +9,13 @@
     function dashCard() {
         return {
             restrict: 'E',
-            replace: true,
-            $scope: {
-                'actionRoute': '=',
-                'image': '=',
-                'buttonText': '='
-            },
             templateUrl: 'templates/dashCard.html',
             link: function(scope, elem, attrs, form) {
 
-                scope.buttonText = attrs.buttontext;
+                //scope.buttonText = attrs.buttontext;
 
-                scope.changeRoute = function() {
-                    console.log(attrs.actionroute);
+                scope.changeRoute = function(route) {
+                    console.log(route);
                 }
             }
         };

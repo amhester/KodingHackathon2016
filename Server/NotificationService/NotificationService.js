@@ -31,7 +31,7 @@ process.on('beforeExit', function () {
 });
 
 process.on('uncaughtException', function (err) {
-    logger.log(err);
+    console.log(err);
     ///TODO: Cleanup app stuff here
     process.exit(7);
 });
