@@ -2,7 +2,7 @@
 
 var appConfig = require('./../app.config.json');
 var schedule = require('node-schedule');
-var Goals = require('./../DataLayer/services/Goals');
+//var Goals = require('./../DataLayer/services/Goals');
 var Goal = require('./../DataLayer/models/Goal');
 //var Notifications = require('./../DataLayer/services/Notifications');
 var Notification = require('./../DataLayer/models/Notification.js');
