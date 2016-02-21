@@ -6,7 +6,7 @@
   "notificationEndpoint": "127.0.0.1:8088/notify/1",
   "mongo": {
     "host": "127.0.0.1",
-    "port": 2307,
+    "port": 27017,
     "store": "winwin",
     "maxRetries": 5
   },

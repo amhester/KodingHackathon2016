@@ -5,8 +5,6 @@ const Notification = require('./../models/Notification.js');
 
 class Notifications extends Baseservice {
     constructor (config) {
-        let self = this;
-
         super(config, 'notifications');
     }
 
