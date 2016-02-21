@@ -53,14 +53,22 @@
 
 /* goal styles */
 .goalViewSelectorDirective {
+    margin-top: 0px;
     margin-left: 15px;
     width: 300px;
 }
 
+.goalContentList {
+    margin-left: 20px;
+    float: left;
+}
+
 .goalContent {
+    /*
     position: absolute;
     left:330px;
     top:72px;
+    */
     width:600px;
 }
 
