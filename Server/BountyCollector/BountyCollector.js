@@ -14,9 +14,8 @@ var goals = new Goals(appConfig.mongo);
 
 var notification = null;
 (function () {
-    console.log("Scheduling a job for every 2 seconds.");
-    var scheduledJob = schedule.scheduleJob(appConfig.BountyCollector.cron, function () {
-        console.log("Checking goals.");
+    console.log(`DogTheBountyHunter starting hunting down expired notifications @${new Date()} every ${ appConfig.BountyCollector.cron } seconds.`);
+    var DogTheBountyHunter = schedule.scheduleJob(appConfig.BountyCollector.cron, function () {
 
         db.Goals
             .query()
@@ -29,16 +28,11 @@ var notification = null;
                 if (obj.expiration < now) {
                     if (obj.status = Goal.GOAL_STATUSES.OPEN) {
                         obj.status = Goal.GOAL_STATUSES.EXPIRED;
-                        //goals.save(obj, function(err, doc) {
-                        //    if (err) {
-                        //        console.log(err.message);
-                        //    } else { }
-                        //});
-                        //db.Goals.save(obj, function (err) {
-                        //    if (err) {
-                        //        console.log(err.message);
-                        //    } else { }
-                        //});
+                        db.Goals.save(new Goal(obj), function(err, goal) {
+                            if (err) {
+                                console.log(err);
+                            }
+                        });
 
                         // TODO: generate actual link
                         let link = "https://169.44.62.169/goal/" + obj.id + "/expired";
@@ -51,8 +45,7 @@ var notification = null;
                         db.Notifications.save(notification, function(err, notif) {
                             if (err) {
                                 console.log(err.message);
-                        }
-                            console.log("New notification: " + notif);
+                            }
                             request({
                                     method: 'POST',
                                     uri: appConfig.BountyCollector.notificationUrl,
@@ -61,14 +54,10 @@ var notification = null;
                                 function (err, response, body) {
                                     if (err) {
                                         console.log(err.message);
-                                    } else {
-                                        //console.log('response:', body);
                                     }
                                 });
                         });
                     }
-                } else {
-                    console.log("not expired...");
                 }
             });
         });
