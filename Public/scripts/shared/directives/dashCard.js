@@ -5,8 +5,8 @@
         .module('DP.Directives')
         .directive('dashCard', dashCard);
 
-    dashCard.$inject = [];
-    function dashCard() {
+    dashCard.$inject = ['$location'];
+    function dashCard($location) {
         return {
             restrict: 'E',
             templateUrl: 'templates/dashCard.html',
@@ -15,7 +15,7 @@
                 //scope.buttonText = attrs.buttontext;
 
                 scope.changeRoute = function(route) {
-                    console.log(route);
+                    $location.path( route );
                 }
             }
         };
