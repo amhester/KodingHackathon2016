@@ -13,7 +13,7 @@
 
                 if(token) {
                     //config.headers['Access-Control-Allow-Origin'] = '*';
-                    config.headers['x-winwin-woken'] = token;
+                    config.headers['X-WinWin-Token'] = token;
                 }
 
                 return config;
