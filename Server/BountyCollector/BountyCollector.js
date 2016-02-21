@@ -3,13 +3,13 @@
 var appConfig = require('./../app.config.json');
 var schedule = require('node-schedule');
 var Goals = require('./../DataLayer/services/Goals');
-var Goal = require('./../DataLayer/models/Goals');
-var Notifications = require('./../DataLayer/services/Notifications');
+var Goal = require('./../DataLayer/models/Goal');
+//var Notifications = require('./../DataLayer/services/Notifications');
 var Notification = require('./../DataLayer/models/Notification.js');
 var db = require('./../DataLayer/DataRepository');
 var request = require('request');
 
-var notifications = new Notifications(appConfig.mongo);
+// var notifications = new Notifications(appConfig.mongo);
 var goals = new Goals(appConfig.mongo);
 
 var notification = null;
@@ -29,30 +29,40 @@ var notification = null;
                 if (obj.expiration < now) {
                     if (obj.status = Goal.GOAL_STATUSES.OPEN) {
                         obj.status = Goal.GOAL_STATUSES.EXPIRED;
+                        //goals.save(obj, function(err, doc) {
+                        //    if (err) {
+                        //        console.log(err.message);
+                        //    } else { }
+                        //});
+                        //db.Goals.save(obj, function (err) {
+                        //    if (err) {
+                        //        console.log(err.message);
+                        //    } else { }
+                        //});
 
                         // TODO: generate actual link
-                        let link = "/act/" + obj.id;
+                        let link = "https://169.44.62.169/goal/" + obj.id + "/expired";
 
                         notification = Notification.fromGoal(obj,
                             Notification.NOTIFICATION_TYPES.EXPIRED,
                             false,
-                            `Hey...pay up. <a href="$(link)">See goal</a>`, link);
+                            'Hey...pay up. <a href="' + link + '">See goal</a>', link);
 
-                        notifications.save(notification, function(err, notif) {
+                        db.Notifications.save(notification, function(err, notif) {
                             if (err) {
                                 console.log(err.message);
-                            }
-                            console.log(notif);
+                        }
+                            console.log("New notification: " + notif);
                             request({
                                     method: 'POST',
                                     uri: appConfig.BountyCollector.notificationUrl,
-                                    json: notif
+                                    json: notif.toJson()
                                 },
                                 function (err, response, body) {
                                     if (err) {
                                         console.log(err.message);
                                     } else {
-                                        console.log('response:', body);
+                                        //console.log('response:', body);
                                     }
                                 });
                         });
