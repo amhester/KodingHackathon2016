@@ -6,6 +6,27 @@
     float:none;
 }
 
+/* Dashboard Styles */
+.dashCard {
+    text-align: center !important;
+    margin-left: 20px;
+    width: 200px;
+    height: 200px;
+}
+
+.dashCardText {
+    font-weight: bold;
+    color:black !important;
+}
+
+.dashCardAction {
+    text-align: center !important;
+    border-top: 1px solid rgba(160, 160, 160, 0.2);
+    padding: 20px;
+    position: relative;
+    top: 100px;
+}
+
 /*login card*/
 .loginCard {
     margin-top: 50px;
@@ -46,6 +67,10 @@
    width:150px !important;
 }
 
+.dtp div.dtp-picker {
+    padding: 1em 1em 0em 1em;
+}
+
 /*card styles*/
 .card-header {
     border-bottom: solid 1px;
@@ -73,13 +98,4 @@ img.charity-logo {
 .card .card-link a {
     margin-right: 20px;
     text-transform: uppercase;
-}
-
-.dashCard {
-    width:600px;
-    margin-left: 20px;
-}
-
-.dtp div.dtp-picker {
-    padding: 1em 1em 0em 1em;
 }

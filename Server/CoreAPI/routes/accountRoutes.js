@@ -23,6 +23,7 @@ module.exports.register = function(server) {
     });
 
     server.post('/token', function (req, res, next) {
+        console.log(req);
         let email = req.params.email;
         let password = req.params.password;
 

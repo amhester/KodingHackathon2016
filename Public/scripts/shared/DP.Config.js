@@ -3,6 +3,6 @@
 
     angular
         .module('DP.Config', [])
-        .value('serverIp', 'https://169.44.62.169');
+        .value('serverIp', 'https://169.44.62.169:8082');
 
 })();
