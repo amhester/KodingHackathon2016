@@ -29,9 +29,6 @@
     outline: 1px solid red;
 }
 
-.goals-main-container {
-    postition: relative;
-}
 
 /* goal styles */
 .goalViewSelectorDirective {
@@ -40,7 +37,7 @@
 }
 
 .goalContent {
-    position: absolute;
+    position: relative;
     left:330px;
     top:72px;
     width:600px;
