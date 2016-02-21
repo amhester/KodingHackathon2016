@@ -19,7 +19,7 @@
             {
                 id: "2",
                 route: "/goals",
-                imageUrl: "",
+                imageUrl: "../content/images/checky.png",
                 buttonText: "Goals"
             },
             {
