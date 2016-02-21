@@ -54,6 +54,11 @@
                 controllerAs: 'vm',
                 templateUrl: 'main/preferences'
             })
+            .when('/motivation', {
+                controller: 'motivationController',
+                controllerAs: 'vm',
+                templateUrl: '/main/motivation'
+            })
             .otherwise('/dashboard');
 
         httpProvider.interceptors.push('tokenInjector');
