@@ -11,7 +11,7 @@
         var vm = this;
 
         vm.createGoal = function() {
-            vm.goal.createdOn = new Date();
+            vm.goal.createdOn = new Date().getTime();
             GoalService.post(vm.goal);
         };
 

@@ -13,13 +13,16 @@ module.exports.authWall = function (req, res, next) {
     } else if (authHeaderToken) {
         jwt.verify(authHeaderToken, config.appSecret, function (err, payload) {
             if(err) {
+                console.log('authwall err');
                 res.send(403, "Unauthorized Access.");
             } else {
+                console.log('authwall cool');
                 req.authContext = payload;
                 next();
             }
         });
     } else {
+        console.log('authwall no token');
         res.send(403, "Unauthorized Access.");
     }
 };
