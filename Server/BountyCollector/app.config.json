@@ -1,7 +1,6 @@
 {
-  "notificationUrl": "http://127.0.0.1:8081/notification".
-  "cronTest": "*/2 * * * * *",
-  "cron": "* */15 * * * *",
+  "notificationUrl": "http://127.0.0.1:8081/notification",
+  "cron": "*/2 * * * * *",
   "mongoConfig" : {
     "host": "localhost",
     "port": "27017",

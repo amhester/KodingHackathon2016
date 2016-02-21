@@ -10,44 +10,41 @@ var request = require('request');
 var notifications = new Notifications(appConfig.mongoConfig);
 var goals = new Goals(appConfig.mongoConfig);
 
-
+var notification = null;
 (function () {
-    var scheduledJob = schedule.scheduleJob(appConfig.cronTest, function () {
-
+    var scheduledJob = schedule.scheduleJob(appConfig.cron, function () {
         goals.onConnected = function () {
             goals
                 .query()
                 .find().toArray(function (err, results) {
                 if (err) {
-                    console.log(err);
+                    console.log(err.message);
                 }
-
                 var now = new Date().getTime();
                 results.forEach(function (obj) {
-                    if (obj.expiration > now) {
+                    if (obj.expiration < now) {
 
-                        // TODO: create the notification object here.
-                        let notification = {
+                        notification = new Notification({
                             id: obj.id,
                             accountId: "",
                             seen: true,
                             message: Notification.NOTIFICATION_TYPES.EXPIRED,
                             link: "",
                             email: "nealhamilton92@gmail.com"
-                        };
-                        var notification = new Notification(notification);
+                        });
 
-                        notifications.save(notification, function(err, notification) {
+                        notifications.save(notification, function(err, notif) {
                             if (err) {
                                 console.log(err.message);
                             }
-                            request({ method: 'POST',
+                            request({
+                                    method: 'POST',
                                     uri: appConfig.notificationUrl,
-                                    json: notification
+                                    json: notif
                                 },
-                                function (error, response, body) {
-                                    if (error) {
-                                        console.log("Error: " + error);
+                                function (err, response, body) {
+                                    if (err) {
+                                        console.log(err.message);
                                     } else {
                                         console.log('response:', body);
                                     }
