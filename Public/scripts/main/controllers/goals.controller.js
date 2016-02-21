@@ -11,13 +11,14 @@
         var vm = this;
 
         vm.createGoal = function() {
+            vm.goal.expiration = moment(vm.goal.expiration, "MMM Do YYYY, h:mm a" ).format("x");
             vm.goal.createdOn = new Date().getTime();
             GoalService.post(vm.goal);
         };
 
         //TODO: Make Directive
         $(document).ready(function(){
-            $('#goalExpiration').bootstrapMaterialDatePicker({ weekStart : 0, time: false });
+            $('#goalExpiration').bootstrapMaterialDatePicker({ weekStart : 0, time: true, format: "MMM Do YYYY, h:mm a" });
         })
     }
 
