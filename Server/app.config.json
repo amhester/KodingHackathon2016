@@ -18,7 +18,7 @@
   },
   "CoreAPI": {
     "url": "<protocol>://<host>:<port>",
-    "protocol": "http",
+    "protocol": "https",
     "port": 8082,
     "host": "localhost",
     "name": "WinWinAPI",
@@ -50,7 +50,7 @@
     "name": "NotificationService",
     "version": "0.0.1",
     "url": "<protocol>://<host>:<port>",
-    "protocol": "http",
+    "protocol": "https",
     "host": "127.0.0.1",
     "port": 8088,
     "endpoints": {
@@ -63,7 +63,7 @@
   },
   "PaymentProcessor": {
     "url": "<protocol>://<host>:<port>",
-    "protocol": "http",
+    "protocol": "https",
     "port": 8089,
     "host": "localhost",
     "name": "PaymentProcessor",
