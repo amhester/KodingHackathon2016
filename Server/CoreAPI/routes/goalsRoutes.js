@@ -18,8 +18,8 @@ module.exports.register = function(server) {
     });
 
     server.get('/goal', function (req, res, next) {
-        console.log("Requesting goals on account");
-        db.Goals.query().find().toArray(function (err, docs) {
+        let accountId = req.authContext.id;
+        db.Goals.query().find({accountId: accountId}).toArray(function (err, docs) {
             if(err) {
                 res.send(500, err.message);
             } else {
