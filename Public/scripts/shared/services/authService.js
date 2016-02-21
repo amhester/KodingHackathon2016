@@ -15,14 +15,11 @@
         function logIn(email, password) {
             let args = {
                 method: 'POST',
-                url: 'http://127.0.0.1:8082/token'({
-                    email: email,
-                    password: password
-                })};
+                url: 'http://127.0.0.1:8082/token',
+                daa: { email: email, password: password }
+            };
 
-            return $http(args)
-
-                //data: params};
+            return $http(args);
         }
     }
 })();
