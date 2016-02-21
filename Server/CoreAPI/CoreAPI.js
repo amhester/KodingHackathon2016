@@ -49,19 +49,22 @@ server.on('NotFound', function (req, res, error, cb) {
 });
 
 /* ----------------- Register API Middleware Here ------------------- */
+/*server.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Cache-Control, Pragma, Origin, Authorization, x-winwin-token, Content-Type, X-Requested-With, Accept");
+    res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
+    next();
+});*/
+restify.CORS.ALLOW_HEADERS.push('Accept-Encoding');
+restify.CORS.ALLOW_HEADERS.push('Accept-Language');
+restify.CORS.ALLOW_HEADERS.push('x-winwin-token');
+server.pre(restify.CORS());
 server.use(restify.acceptParser(server.acceptable));
 server.use(restify.dateParser());
 server.use(restify.queryParser());
 server.use(restify.gzipResponse());
 server.use(restify.bodyParser());
-server.use(restify.CORS());
-server.use(function enableCors(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Cache-Control, Pragma, Origin, Authorization, X-WinWin-Token, Content-Type, X-Requested-With, Accept");
-    res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
-    next();
-});
-//server.use(authMiddleware.authWall);
+server.use(authMiddleware.authWall);
 
 /* ----------------- Register API Routes Here ----------------------- */
 //Our actual security/permissions api endpoints

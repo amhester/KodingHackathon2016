@@ -12,8 +12,10 @@
         scope.logIn = function(userObj) {
             var p = authService.signIn(userObj.email, userObj.password);
             p.then(function (res) {
-                console.log(res);
-                localStorageService.set('auth-token', res.data);
+                if(res.status === 200) {
+                    localStorageService.set('auth-token', res.data);
+                    location.href = '/KodingHackathon2016/Public/views/index.html';
+                }
             }, function (err) {
                 console.error(err);
             });
