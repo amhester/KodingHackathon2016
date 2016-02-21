@@ -2,28 +2,38 @@
 
 var appConfig = require('./../../app.config.json').NotificationService;
 var request = require('request');
-var Repository = require('./../../DataLayer/DataRepository.js');
+var db = require('./../../DataLayer/DataRepository.js');
 
 module.exports.register = function( server ) {
 
     // Mark notification as seen
-
-    // Get notifications on account
-    server.get('/notifications/:accountId', function (req, res, next) {
-        console.log("Requesting notifications on account.");
-        // Grab for account req.params.accountId
-        let notifications = Repository.Notifications;
-        //let accountNotifications = notifications.query().find({ accountId:req.params.accountId }).toArray();
-        let accountNotifications = notifications.query().find().toArray( function(err, docs) {
+    server.put('/seen/:id', function (req, res, next) {
+        console.log("Marking notification as seen for id " + req.params.id + ".");
+        db.Notifications.query().findOneAndUpdate({ id:req.params.id }
+        , {$set: { seen : true }}
+        , function(err, doc) {
             if (err) {
                 console.log(err.message);
             } else {
-                console.log(docs);
-                res.send(docs);
+                console.log(doc);
+                res.send(doc);
+                next();
             }
         });
-        //console.log(accountNotifications);
-        //res.send(accountNotifications);
+    });
+
+    // Get notifications on account
+    server.get('/notifications/:accountId', function (req, res, next) {
+        console.log("Requesting notifications on account " + req.params.accountId + ".");
+        db.Notifications.query().find({ accountId:req.params.accountId }).toArray( function(err, docs) {
+            if (err) {
+                console.log(err.message);
+            } else {
+                //console.log(docs);
+                res.send(docs);
+                next();
+            }
+        });
     });
 
     server.post('/notification', function (req, res, next) {
@@ -47,9 +57,9 @@ module.exports.register = function( server ) {
                 console.log("Error: " + error);
             } else {
                 console.log("this is the response.request.body", response.request.body);
+                res.send(response.request.body);
+                next();
             }
         });
-        res.send(notification);
-        next();
     });
 };
