@@ -55,6 +55,12 @@ server.use(restify.queryParser());
 server.use(restify.gzipResponse());
 server.use(restify.bodyParser());
 server.use(restify.CORS());
+server.use(function enableCors(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Cache-Control, Pragma, Origin, Authorization, X-WinWin-Token, Content-Type, X-Requested-With, Accept");
+    res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
+    next();
+});
 //server.use(authMiddleware.authWall);
 
 /* ----------------- Register API Routes Here ----------------------- */

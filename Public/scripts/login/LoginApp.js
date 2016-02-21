@@ -5,6 +5,7 @@
         .module('DP.Login', [
             'ngRoute',
             'DP.Directives',
-            'DP.Services'
+            'DP.Services',
+            'LocalStorageModule'
         ]);
 })();

@@ -2,5 +2,5 @@
     "use strict";
 
     angular
-        .module('DP.Services', []);
+        .module('DP.Services', ['LocalStorageModule']);
 })();

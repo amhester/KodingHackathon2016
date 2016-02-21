@@ -5,8 +5,8 @@
         .module('DP.Login')
         .config(config);
 
-    config.$inject = ['$routeProvider'];
-    function config(routeProvider) {
+    config.$inject = ['$routeProvider', '$httpProvider'];
+    function config(routeProvider, httpProvider) {
         routeProvider
             .when('/login', {
                 controller: 'signInController',
@@ -19,5 +19,7 @@
                 templateUrl: 'subviews/register.html'
             })
             .otherwise('/login');
+
+        httpProvider.interceptors.push('tokenInjector');
     }
 })();
