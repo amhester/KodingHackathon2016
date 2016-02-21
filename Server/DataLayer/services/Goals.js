@@ -15,7 +15,7 @@ class Goals extends Baseservice {
         console.log(goal);
 
         if(!goal instanceof Goal) {
-            console.log('erroring out...')''
+            console.log('erroring out...');
             cb(new Error('parameter not an instance of Goal class.'));
         } else {
             console.log('not in error');
