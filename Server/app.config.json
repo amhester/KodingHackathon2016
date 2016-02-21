@@ -66,7 +66,7 @@
   },
   "BountyCollector": {
     "cron": "*/2 * * * * *",
-    "notificationUrl": "http://169.44.62.169:8088/notify"
+    "notificationUrl": "https://169.44.62.169:8088/notify"
   },
   "PaymentProcessor": {
     "url": "<protocol>://<host>:<port>",
