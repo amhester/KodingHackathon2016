@@ -4,6 +4,7 @@
     angular
         .module('DP.Login', [
             'ngRoute',
-            'DP.Directives'
+            'DP.Directives',
+            'DP.Services'
         ]);
 })();
