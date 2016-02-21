@@ -14,9 +14,9 @@
 
                 //scope.buttonText = attrs.buttontext;
 
-                // scope.changeRoute = function() {
-                //     console.log(attrs.actionroute);
-                // }
+                scope.changeRoute = function(route) {
+                    console.log(route);
+                }
             }
         };
 

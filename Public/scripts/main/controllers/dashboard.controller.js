@@ -21,6 +21,12 @@
                 route: "/goals",
                 imageUrl: "",
                 buttonText: "Goals"
+            },
+            {
+                id: "3",
+                route: "/motivation",
+                imageUrl: "",
+                buttonText: "Motivate Me"
             }
         ];
         console.log(dashPanels);

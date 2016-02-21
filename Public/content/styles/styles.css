@@ -100,3 +100,7 @@ img.charity-logo {
     margin-right: 20px;
     text-transform: uppercase;
 }
+
+.inline-block {
+    display: inline-block;
+}
