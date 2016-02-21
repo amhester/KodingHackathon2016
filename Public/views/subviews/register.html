@@ -1,25 +1,25 @@
 <div class="container center-block" >
     <form name="registerForm">
-        <div class="col-md-6 center-block" >
+        <div class="col-md-6 total-center" >
             <div class="card White registerCard" >
                 <div class="card-content">
                     <h3>Register</h3>
                     <div class="input-field" >
-                        <input id="email" ng-model="user.email" type="email" class="validate" required>
+                        <input id="email" ng-model="vm.user.email" type="email" class="validate" required>
                         <label for="email">Email</label>
                     </div>
                     <div class="input-field" >
-                        <input id="password" ng-model="user.password" type="password" class="validate" required>
+                        <input id="password" ng-model="vm.user.passwordHash" type="password" class="validate" required>
                         <label for="password">Password</label>
                     </div>
                     <div class="input-field" >
-                        <input id="passwordConfirm" input-match="user.password" ng-model="user.passwordMatch" type="password" class="validate" required>
+                        <input id="passwordConfirm" input-match="vm.user.passwordHash" ng-model="vm.user.passwordMatch" type="password" class="validate" required>
                         <label for="passwordConfirm">Confirm Password</label>
                     </div>
                 </div>
 
                 <div class="card-action">
-                    <button type="button" ng-disabled="registerForm.$invalid" ng-click="register(user, registerForm)" class="btn btn-primary waves-effect waves-light">Register</button>
+                    <button type="button" ng-disabled="registerForm.$invalid" ng-click="vm.register(registerForm)" class="btn btn-primary waves-effect waves-light">Register</button>
                     <a href="#/login">Cancel</a>
                 </div>
             </div>

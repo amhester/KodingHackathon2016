@@ -37,12 +37,14 @@ mongo.connect(url, function (err, db) {
     _transactions = new Transactions({db:_db});
 });
 
-const DataRepository = {
-    Accounts: _accounts,
-    Charities: _charities,
-    Goals: _goals,
-    Notifications: _notifications,
-    Transactions: _transactions
-};
+class DataRepository {
+    constructor () {}
+
+    static get Accounts () { return _accounts; }
+    static get Charities () { return _charities; }
+    static get Goals () { return _goals; }
+    static get Notifications () { return _notifications; }
+    static get Transactions () { return _transactions; }
+}
 
 module.exports = DataRepository;

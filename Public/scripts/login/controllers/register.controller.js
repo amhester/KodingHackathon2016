@@ -5,14 +5,21 @@
         .module('DP.Login')
         .controller('registerController', registerController);
 
-    registerController.$inject = ['$scope', '$rootScope'];
-    function registerController(scope, rootScope) {
+    registerController.$inject = ['$scope', '$rootScope', 'AuthService'];
+    function registerController(scope, rootScope, authService) {
         var vm = this;
 
-        scope.register = function(userObj) {
-            console.log(userObj);
+        vm.user = {};
+        vm.register = register;
+
+        function register() {
+            authService
+                .register(vm.user)
+                .then(function (res) {
+                    console.log(res);
+                }, function (err) {
+                    console.error(err);
+                });
         }
-
-
     }
 })();

@@ -1,3 +1,7 @@
+#LoginPage {
+    background-image: url("../images/login_background.jpg");
+}
+
 .center-block {
     float:none;
 }
@@ -6,6 +10,14 @@
 .loginCard {
     margin-top: 50px;
     height:330px;
+}
+
+.total-center {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 800px;
 }
 
 .registerCard {
