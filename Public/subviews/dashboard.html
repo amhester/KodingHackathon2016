@@ -1,16 +1,8 @@
 <div>
 (show several mini cards with icons that will do different things like take you to create new goal/ profile)
 <br />
-    <dash-card
-        actionRoute="/goals"
-        image=""
-        buttonText="Goals">
-    </dash-card>
-
-    <dash-card
-        actionRoute="/profile"
-        image=""
-        buttonText="Profile">
-    </dash-card>
+    <div ng-repeat="panel in vm.dashPanels | orderBy: 'id'">
+        <dash-card></dash-card>
+    </div>
 
 </div>
