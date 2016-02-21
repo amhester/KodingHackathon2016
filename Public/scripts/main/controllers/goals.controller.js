@@ -32,7 +32,7 @@
             var g = GoalService.getAll();
 
             g.then(function (res) {
-                vm.charities = res.data;
+                vm.goals = res.data;
                 console.log(res);
             }, function (err) {
                 console.error(err);
