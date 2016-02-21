@@ -5,8 +5,8 @@
         .module('DP.Services')
         .factory('AccountService', AccountService);
 
-    AccountService.$inject = ['$http', '$rootScope'];
-    function AccountService(http, rootScope) {
+    AccountService.$inject = ['$http', '$rootScope', 'serverIp'];
+    function AccountService(http, rootScope, serverIp) {
         return {
             get: getAccount,
             put: put,
@@ -14,17 +14,17 @@
         };
 
         function getAccount(id) {
-            var promise = http.get('http://127.0.0.1:8082/account/' + id);
+            var promise = http.get(serverIp + '/account/' + id);
             return promise;
         }
 
         function put(account) {
-            var promise = http.put('http://127.0.0.1:8082/account', account);
+            var promise = http.put(serverIp + '/account', account);
             return promise;
         }
 
         function del(id) {
-            var promise = http.del('http://127.0.0.1:8082/account/' + id);
+            var promise = http.del(serverIp + '/account/' + id);
             return promise;
         }
     }

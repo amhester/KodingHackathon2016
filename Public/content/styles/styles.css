@@ -25,6 +25,10 @@
     height:450px;
 }
 
+.goalFailed:hover {
+    outline: 1px solid red;
+}
+
 /* goal styles */
 .goalViewSelectorDirective {
     margin-left: 15px;
