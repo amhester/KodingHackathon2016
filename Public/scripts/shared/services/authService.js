@@ -5,8 +5,8 @@
         .module('DP.Services')
         .service('authService', authService);
 
-    authService.$inject = ['$scope', '$rootScope', '$http'];
-    function authService(scope, rootScope, $http) {
+    authService.$inject = ['$scope', '$rootScope', '$http', 'serverIp'];
+    function authService(scope, rootScope, $http, serverIp) {
         var vm = this;
 
         var service = {};
@@ -15,7 +15,7 @@
         function logIn(email, password) {
             var args = {
                 method: 'POST',
-                url: 'http://127.0.0.1:8082/token',
+                url: serverIp + '/token',
                 data: {
                     email: email,
                     password: password

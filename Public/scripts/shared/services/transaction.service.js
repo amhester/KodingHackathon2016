@@ -5,8 +5,8 @@
         .module('DP.Services')
         .factory('TransactionService', TransactionService);
 
-    TransactionService.$inject = ['$http', '$rootScope'];
-    function TransactionService(http, rootScope) {
+    TransactionService.$inject = ['$http', '$rootScope', 'serverIp'];
+    function TransactionService(http, rootScope, serverIp) {
         return {
             get: getTransaction,
             getAll: getTransactions,
@@ -21,22 +21,22 @@
         }
 
         function getTransactions() {
-            var promise = http.get('http://127.0.0.1:8082/transaction');
+            var promise = http.get(serverIp + '/transaction');
             return promise;
         }
 
         function post(transaction) {
-            var promise = http.post('http://127.0.0.1:8082/transaction', transaction);
+            var promise = http.post(serverIp + '/transaction', transaction);
             return promise;
         }
 
         function put(transaction) {
-            var promise = http.put('http://127.0.0.1:8082/transaction', transaction);
+            var promise = http.put(serverIp + '/transaction', transaction);
             return promise;
         }
 
         function del(id) {
-            var promise = http.del('http://127.0.0.1:8082/transaction/' + id);
+            var promise = http.del(serverIp + '/transaction/' + id);
             return promise;
         }
     }
