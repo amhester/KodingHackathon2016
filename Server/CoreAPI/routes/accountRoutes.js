@@ -40,19 +40,6 @@ module.exports.register = function(server) {
         });
     });
 
-    server.get('/account', function (req, res, next) {
-        db.Accounts.query().find().limit(1).next(function (err, doc) {
-            if(err) {
-                res.send(500, err.message);
-            } else {
-                let model = new Account(doc).toJson();
-                delete model['passwordHash'];
-                res.send(200, model);
-            }
-            next();
-        });
-    });
-
     server.get('/account/:id', function (req, res, next) {
         if(req.params.id !== req.authContext.id) {
             res.send(404);

@@ -4,7 +4,7 @@ const config = require('./Server/app.config.json');
 const Account = require('./Server/DataLayer/models/Account');
 const Goal = require('./Server/DataLayer/models/Goal');
 const Notification = require('./Server/DataLayer/models/Notification');
-const Repository = require('./Server/DataLayer/DataRepository');
+const db = require('./Server/DataLayer/DataRepository');
 const AuthService = require('./Server/DataLayer/services/AuthService');
 const auth = new AuthService(config);
 const argv = require('yargs').argv;
@@ -18,48 +18,46 @@ if(argv.createDemoAccount) {
         defaultCharity: 1
     });
 
-    let Goals = Repository.Goals;
-
     let goal = new Goal({
-        accountId: 0,
+        accountId: "0e7a3313-7951-434d-8baf-a369785d8d67",
         name: "HHHHEEEEEYYYY",
         description: "This isn't cool.",
         bounty: "7",
         charityId: 0
     });
 
-
-    let Notifications = Repository.Notifications;
-
     let notification = new Notification({
+        accountId: "0e7a3313-7951-434d-8baf-a369785d8d67",
         message: "Hello! Win/Win!",
         link: "mylink.winwinapp.com",
         email: "djragsdale@anderson.edu"
     });
 
     setTimeout(function () {
-        auth.register(model, function (err, result) {
-            if(err) {
-                console.log(err.message);
-            } else {
-                console.log(result);
-            }
-            process.exit(1);
-        });
+        //auth.register(model, function (err, result) {
+        //    if(err) {
+        //        console.log(err.message);
+        //    } else {
+        //        console.log(result);
+        //    }
+        //    process.exit(1);
+        //});
 
-        Goals.save(goal, function(err) {
-            if (err) {
-                console.log(err.message);
-            }
-        });
+        //db.Goals.save(goal, function(err) {
+        //    if (err) {
+        //        console.log(err.message);
+        //    } else {
+        //        console.log(goal);
+        //    }
+        //});
 
-        Notifications.save(notification, function(err) {
-            if (err) {
-                console.log(err.message);
-            } else {
+        //db.Notifications.save(notification, function(err) {
+        //    if (err) {
+        //        console.log(err.message);
+        //    } else {
+        //        console.log(notification);
+        //    }
+        //});
 
-            }
-        });
-
-    }, 8000);
+    }, 3000);
 }
