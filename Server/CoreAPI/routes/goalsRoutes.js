@@ -1,6 +1,5 @@
 "use strict";
 
-const appConfig = require('./../app.config.json');
 const Goal = require('./../../DataLayer/models/Goal');
 const db = require('./../../DataLayer/DataRepository');
 
@@ -19,6 +18,7 @@ module.exports.register = function(server) {
     });
 
     server.get('/goal', function (req, res, next) {
+        console.log("Requesting goals on account");
         db.Goals.query().find().toArray(function (err, docs) {
             if(err) {
                 res.send(500, err.message);

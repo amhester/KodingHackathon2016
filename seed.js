@@ -21,9 +21,10 @@ if(argv.createDemoAccount) {
     let goal = new Goal({
         accountId: "0e7a3313-7951-434d-8baf-a369785d8d67",
         name: "HHHHEEEEEYYYY",
-        description: "This isn't cool.",
+        description: "So 2009...",
         bounty: "7",
-        charityId: 0
+        charityId: 0,
+        expiration: Date.now()
     });
 
     let notification = new Notification({
