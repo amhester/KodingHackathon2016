@@ -13,7 +13,7 @@
         };
 
         function signIn(email, password) {
-            var promise = http.get(serverIp + '/token', { email: email, password: password });
+            var promise = http.post(serverIp + '/token', { email: email, password: password });
             return promise;
         }
 
