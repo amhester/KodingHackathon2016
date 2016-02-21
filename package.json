@@ -24,6 +24,7 @@
   "homepage": "https://github.com/amhester/KodingHackathon2016#readme",
   "dependencies": {
     "async": "^1.5.2",
+    "express": "^4.13.4",
     "jsonwebtoken": "^5.7.0",
     "lodash": "^4.5.0",
     "moment": "^2.11.2",
@@ -36,6 +37,7 @@
     "restify": "^4.0.4",
     "sparkpost": "^1.1.0",
     "stripe": "^4.4.0",
+    "whiskers": "^0.3.3",
     "yargs": "^4.1.0"
   },
   "devDependencies": {

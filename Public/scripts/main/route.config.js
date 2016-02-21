@@ -12,42 +12,42 @@
             .when('/dashboard', {
                 controller: 'dashboardController',
                 controllerAs: 'vm',
-                templateUrl: 'subviews/dashboard.html'
+                templateUrl: '/main/dashboard'
             })
             .when('/charities', {
                 controller: 'charitiesController',
                 controllerAs: 'vm',
-                templateUrl: 'subviews/charities.html'
+                templateUrl: '/main/charities'
             })
             .when('/profile', {
                 controller: 'profileController',
                 controllerAs: 'vm',
-                templateUrl: 'subviews/profile.html'
+                templateUrl: '/main/profile'
             })
             .when('/goals', {
                 controller: 'goalsController',
                 controllerAs: 'vm',
-                templateUrl: 'subviews/goals.html'
+                templateUrl: '/main/goals'
             })
             .when('/goals/newGoal', {
                 controller: 'goalsController',
                 controllerAs: 'vm',
-                templateUrl: 'subviews/newGoal.html'
+                templateUrl: '/main/newGoal'
             })
             .when('/goals/pastGoals', {
                 controller: 'goalsController',
                 controllerAs: 'vm',
-                templateUrl: 'subviews/pastGoals.html'
+                templateUrl: '/main/pastGoals'
             })
             .when('/history', {
                 controller: 'historyController',
                 controllerAs: 'vm',
-                templateUrl: 'subviews/history.html'
+                templateUrl: '/main/history'
             })
             .when('/goals/goalDetails:goalId?', {
                 controller: 'goalsController',
                 controllerAs: 'vm',
-                templateUrl: 'subviews/goalDetails.html'
+                templateUrl: '/main/goalDetails'
             })
             .otherwise('/dashboard');
     }
@@ -62,5 +62,5 @@
             var found = newVal.match(pattern);
             rootScope.activetab = found;
         });
-    };
+    }
 })();

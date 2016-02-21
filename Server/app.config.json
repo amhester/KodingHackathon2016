@@ -15,6 +15,13 @@
     },
     "maxRetries": 5
   },
+  "WebServer": {
+    "host": "127.0.0.1",
+    "port": 8081,
+    "protocol": "http",
+    "name": "WinWinServer",
+    "version": "0.0.1"
+  },
   "CoreAPI": {
     "url": "<protocol>://<host>:<port>",
     "protocol": "http",
