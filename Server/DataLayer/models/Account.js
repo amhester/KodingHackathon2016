@@ -4,9 +4,9 @@ class Account {
     constructor (accountJson) {
         let self = this;
 
-        this._accountId = accountJson.accountId || 0;
+        this._id = accountJson.id || 0;
         this._email = accountJson.email || '';
-        this._passwordHash = null;
+        this._passwordHash = accountJson.passwordHash || '';
         this._displayName = accountJson.displayName || '';
         this._defaultCharity = accountJson.defaultCharity || 0;
         this._stripeCustomerId = accountJson.stripeCustomerId || 0;
@@ -18,7 +18,7 @@ class Account {
     toJson () {
         let self = this;
         return {
-            accountId: self._accountId,
+            id: self._id,
             email: self._email,
             passwordHash: self._passwordHash,
             displayName: self._displayName,
@@ -29,7 +29,7 @@ class Account {
         };
     }
 
-    get accountId () { return this._accountId; }
+    get id () { return this._id; }
     get email () { return this._email; }
     get passwordHash () { return this._passwordHash; }
     get displayName () { return this._displayName; }
@@ -38,7 +38,7 @@ class Account {
     get createdOn () { return this._createdOn; }
     get updatedOn () { return this._updatedOn; }
 
-    set accountId (val) { this._accountId = val; }
+    set id (val) { this._id = val; }
     set email (val) { this._email = val; }
     set passwordHash (val) { this._passwordHash = val; }
     set displayName (val) { this._passwordHash = val; }

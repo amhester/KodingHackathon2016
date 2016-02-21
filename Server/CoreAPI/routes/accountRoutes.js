@@ -31,7 +31,24 @@ module.exports.register = function(server) {
             if(err) {
                 res.send(500, err.message);
             } else {
-                res.send(200, jwt.sign({ id: result.id, email: result.email, displayName: result.displayName }, appConfig.appSecret));
+                if(result) {
+                    res.send(200, jwt.sign({ id: result.id, email: result.email, displayName: result.displayName }, appConfig.appSecret));
+                } else {
+                    res.send(404);
+                }
+            }
+            next();
+        });
+    });
+
+    server.get('/account', function (req, res, next) {
+        accounts.query().find().limit(1).next(function (err, doc) {
+            if(err) {
+                res.send(500, err.message);
+            } else {
+                let model = new Account(doc).toJson();
+                delete model['passwordHash'];
+                res.send(200, model);
             }
             next();
         });

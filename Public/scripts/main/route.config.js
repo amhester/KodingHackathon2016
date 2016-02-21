@@ -44,6 +44,11 @@
                 controllerAs: 'vm',
                 templateUrl: 'subviews/history.html'
             })
+            .when('/goals/goalDetails:goalId?', {
+                controller: 'goalsController',
+                controllerAs: 'vm',
+                templateUrl: 'subviews/goalDetails.html'
+            })
             .otherwise('/dashboard');
     }
 

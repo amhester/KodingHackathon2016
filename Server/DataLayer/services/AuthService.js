@@ -28,6 +28,8 @@ class AuthService {
     }
 
     signIn (email, password, cb) {
+        let self = this;
+
         self._accounts.query().find({email: email}).limit(1).next(function (err, doc) {
             if(err) {
                 cb(err);
