@@ -6,8 +6,10 @@ const db = require('./../../DataLayer/DataRepository');
 module.exports.register = function(server) {
     server.post('/goal', function (req, res, next) {
         let newGoal = new Goal(req.params.goal);
+        let accountId = req.authContext.id;
+        newGoal.accountId = accountId;
 
-        db.Goals.save(newGoal, function (err, result) {
+        db.Goals.save(newGoal.toJson(), function (err, result) {
             if(err) {
                 res.send(500, err.message);
             } else {
