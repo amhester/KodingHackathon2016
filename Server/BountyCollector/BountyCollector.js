@@ -22,6 +22,7 @@ var g = db.Goals;
             g.query()
                 .find().toArray(function (err, results) {
                 if (err) {
+                    console.log('1');
                     console.log(err.message);
                 }
                 var now = new Date().getTime();
@@ -31,6 +32,7 @@ var g = db.Goals;
                             obj.status = Goal.GOAL_STATUSES.EXPIRED;
                             db.Goals.save(new Goal(obj), function (err, goal) {
                                 if (err) {
+                                    console.log('2');
                                     console.log(err);
                                 }
                             });
@@ -45,6 +47,7 @@ var g = db.Goals;
 
                             db.Notifications.save(notification, function (err, notif) {
                                 if (err) {
+                                    console.log('3');
                                     console.log(err.message);
                                 }
                                 request({
@@ -54,6 +57,7 @@ var g = db.Goals;
                                     },
                                     function (err, response, body) {
                                         if (err) {
+                                            console.log('4');
                                             console.log(err.message);
                                         }
                                     });
