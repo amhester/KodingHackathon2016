@@ -1,4 +1,5 @@
 {
+  "stripeApiKey" : "sk_test_TRhxySsqxowHHDwGOlx7WTcz"
   "ssl": {
     "key": "/etc/apache2/ssl/169_44_62_169.key",
     "cert": "/etc/apache2/ssl/169_44_62_169.crt"
