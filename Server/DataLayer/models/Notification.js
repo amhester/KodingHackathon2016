@@ -24,6 +24,23 @@ class Notification {
         };
     }
 
+    static fromGoal (goal, notificationType, seen, message, link) {
+        let newNotification = {
+            id: 0,
+            type: notificationType,
+            accountId: goal.accountId,
+            seen: seen,
+            message: message,
+            link: link,
+            email: "djragsdale@anderson.edu"
+        };
+
+        // TODO: query for email
+
+
+        return new Notification(newNotification);
+    }
+
     get id () { return this._id; }
     get type () { return this._type; }
     get accountId () { return this._accountId; }
