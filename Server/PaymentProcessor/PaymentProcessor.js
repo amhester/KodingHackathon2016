@@ -4,6 +4,7 @@ var restify = require('restify');
 var appConfig = require('./../app.config.json').PaymentProcessor;
 const sslConfig = require('./../app.config.json').ssl;
 var uuid = require('node-uuid');
+const fs = require('fs');
 
 var routes = require('./routes/paymentRoutes.js');
 

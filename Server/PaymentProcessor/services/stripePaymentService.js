@@ -1,6 +1,7 @@
 'use strict';
 
-var stripe = require('stripe')('sk_test_TRhxySsqxowHHDwGOlx7WTcz');
+var appConfig = require('./../../app.config');
+var stripe = require('stripe')(appConfig.stripeApiKey);
 
 class StripePaymentService {
 

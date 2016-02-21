@@ -1,6 +1,6 @@
 'use strict';
 
-var StripePaymentService = require('./../services/StripePaymentService');
+var StripePaymentService = require('./../services/stripePaymentService');
 
 let service = new StripePaymentService();
 let root = '/paymentService/';

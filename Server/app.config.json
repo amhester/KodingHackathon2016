@@ -1,4 +1,5 @@
 {
+  "stripeApiKey" : "sk_test_TRhxySsqxowHHDwGOlx7WTcz",
   "ssl": {
     "key": "/etc/apache2/ssl/169_44_62_169.key",
     "cert": "/etc/apache2/ssl/169_44_62_169.crt"
@@ -24,7 +25,7 @@
   },
   "CoreAPI": {
     "url": "<protocol>://<host>:<port>",
-    "protocol": "http",
+    "protocol": "https",
     "port": 8082,
     "host": "localhost",
     "name": "WinWinAPI",
@@ -56,7 +57,7 @@
     "name": "NotificationService",
     "version": "0.0.1",
     "url": "<protocol>://<host>:<port>",
-    "protocol": "http",
+    "protocol": "https",
     "host": "127.0.0.1",
     "port": 8088,
     "endpoints": {
@@ -69,7 +70,7 @@
   },
   "PaymentProcessor": {
     "url": "<protocol>://<host>:<port>",
-    "protocol": "http",
+    "protocol": "https",
     "port": 8089,
     "host": "localhost",
     "name": "PaymentProcessor",

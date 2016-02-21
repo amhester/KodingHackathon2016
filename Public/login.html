@@ -20,12 +20,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <!-- Bootstrap core CSS -->
-    <link href="../lib/MDB_3.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="lib/MDB_3.3.3/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Material Design Bootstrap -->
-    <link href="../lib/MDB_3.3.3/css/mdb.css" rel="stylesheet">
+    <link href="lib/MDB_3.3.3/css/mdb.css" rel="stylesheet">
 
-    <link href="../content/styles/styles.css" rel="stylesheet" >
+    <link href="content/styles/styles.css" rel="stylesheet" >
 </head>
 <body id="LoginPage" ng-app="DP.Login">
 
@@ -37,35 +37,37 @@
     <!-- SCRIPTS -->
 
     <!-- JQuery -->
-    <script type="text/javascript" src="../lib/MDB_3.3.3/js/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/MDB_3.3.3/js/jquery.min.js"></script>
 
     <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="../lib/MDB_3.3.3/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/MDB_3.3.3/js/bootstrap.min.js"></script>
 
     <!-- Material Design Bootstrap -->
-    <script type="text/javascript" src="../lib/MDB_3.3.3/js/mdb.js"></script>
+    <script type="text/javascript" src="lib/MDB_3.3.3/js/mdb.js"></script>
 
     <!-- ls -->
-    <script type="text/javascript" src="../lib/angular-local-storage.min.js"></script>
+    <script type="text/javascript" src="lib/angular-local-storage.min.js"></script>
 
     <!-- Services -->
-    <script src='../scripts/shared/services/DP.Services.js'></script>
-    <script src='../scripts/shared/services/auth.service.js'></script>
-    <script src='../scripts/shared/services/token.injector.js'></script>
+    <script src="scripts/shared/DP.Config.js"></script>
+
+    <script src='scripts/shared/services/DP.Services.js'></script>
+    <script src='scripts/shared/services/auth.service.js'></script>
+    <script src='scripts/shared/services/token.injector.js'></script>
 
     <!-- directives -->
-    <script src="../scripts/shared/directives/DP.Directives.js"></script>
-    <script src="../scripts/shared/directives/inputMatch.js"></script>
+    <script src="scripts/shared/directives/DP.Directives.js"></script>
+    <script src="scripts/shared/directives/inputMatch.js"></script>
 
     <!-- Modules -->
-    <script src="../scripts/login/LoginApp.js"></script>
+    <script src="scripts/login/LoginApp.js"></script>
 
     <!-- routing -->
-    <script src="../scripts/login/route.config.js"></script>
+    <script src="scripts/login/route.config.js"></script>
 
     <!-- controllers -->
-    <script src="../scripts/login/controllers/register.controller.js"></script>
-    <script src="../scripts/login/controllers/signIn.controller.js"></script>
+    <script src="scripts/login/controllers/register.controller.js"></script>
+    <script src="scripts/login/controllers/signIn.controller.js"></script>
 
 </body>
 </html>

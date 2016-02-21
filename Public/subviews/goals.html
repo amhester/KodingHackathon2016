@@ -1,0 +1,6 @@
+<div goal-view-selector></div>
+
+<div class="goalContent" ng-repeat="goal in vm.goals">
+   <goal-card ng-hide="goal.status <>"></goal-card>
+   <goal-failed-card></goal-failed-card>
+</div>

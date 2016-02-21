@@ -25,7 +25,7 @@
                 templateUrl: '/main/profile'
             })
             .when('/goals', {
-                controller: 'goalsController',
+                controller: 'currentGoalsController',
                 controllerAs: 'vm',
                 templateUrl: '/main/goals'
             })
