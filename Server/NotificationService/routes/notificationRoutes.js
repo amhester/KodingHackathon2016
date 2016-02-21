@@ -28,6 +28,7 @@ module.exports = NotificationService;
 module.exports.register = function( server ) {
 
     server.post(root, function (req, res, next) {
+        console.log('notification endpoint hit.');
         let notification = new Notification(req.body);
         let notifier = NotificationService.NotificationFactory();
         let notify = notifier.sendNotification(notification, function(err, notification) {
