@@ -25,7 +25,7 @@
             {
                 id: "3",
                 route: "/motivation",
-                imageUrl: "",
+                imageUrl: "../content/images/shia.jpg",
                 buttonText: "Motivate Me"
             }
         ];
