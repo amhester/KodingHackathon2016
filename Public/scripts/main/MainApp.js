@@ -3,6 +3,7 @@
 
     angular
         .module('DP.Main', [
-            'ngRoute'
+            'ngRoute',
+            'DP.Services'
         ]);
 })();
