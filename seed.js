@@ -2,7 +2,9 @@
 
 const config = require('./Server/app.config.json');
 const Account = require('./Server/DataLayer/models/Account');
-const _goals = new Goals(config.mongo);
+const Goal = require('./Server/DataLayer/models/Goal');
+const Notification = require('./Server/DataLayer/models/Notification');
+const Repository = require('./Server/DataLayer/DataRepository');
 const AuthService = require('./Server/DataLayer/services/AuthService');
 const auth = new AuthService(config);
 const argv = require('yargs').argv;
@@ -16,17 +18,23 @@ if(argv.createDemoAccount) {
         defaultCharity: 1
     });
 
-    let goalModel = new Goal({
-        id: 0,
-        accountId: 1,
+    let Goals = Repository.Goals;
+
+    let goal = new Goal({
+        accountId: 0,
         name: "HHHHEEEEEYYYY",
         description: "This isn't cool.",
         bounty: "7",
-        charityId: 0,
-        expiration: new Date(Date.now()).setYear(2015),
-        status: "B",
-        createdOn: new Date(Date.now()),
-        updatedOn: new Date(Date.now())
+        charityId: 0
+    });
+
+
+    let Notifications = Repository.Notifications;
+
+    let notification = new Notification({
+        message: "Hello! Win/Win!",
+        link: "mylink.winwinapp.com",
+        email: "djragsdale@anderson.edu"
     });
 
     setTimeout(function () {
@@ -39,13 +47,19 @@ if(argv.createDemoAccount) {
             process.exit(1);
         });
 
-        _goals.save(goalModel, function (err, result) {
+        Goals.save(goal, function(err) {
+            if (err) {
+                console.log(err.message);
+            }
+        });
+
+        Notifications.save(notification, function(err) {
             if (err) {
                 console.log(err.message);
             } else {
-                console.log(result);
+
             }
-            process.exit(1);
         });
-    }, 3000);
+
+    }, 8000);
 }

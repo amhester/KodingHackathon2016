@@ -12,7 +12,7 @@ class Notifications extends Baseservice {
         let self = this;
 
         if(!notification instanceof Notification) {
-            cb(new Error('parameter not an instance of Account class.'));
+            cb(new Error('parameter not an instance of Notification class.'));
         } else {
             if(notification.id === 0) {
                 self._insert(notification, cb);
