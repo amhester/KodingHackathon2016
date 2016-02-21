@@ -13,12 +13,12 @@
         };
 
         function signIn(email, password) {
-            var promise = http.post(serverIp + '/token', { email: email, password: password });
+            var promise = http.get(serverIp + '/token', { email: email, password: password });
             return promise;
         }
 
         function register(account) {
-            var promise = http.post(serverIp + '/account', { account: account });
+            var promise = http.get(serverIp + '/account', { account: account });
             return promise;
         }
     }
