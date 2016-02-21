@@ -53,6 +53,7 @@ process.on('SIGINT', function () {
 
 //Catches responses after a route is done handling the request
 server.on('after', function (req, res, route, error) {
+    console.log('next');
 });
 
 server.on('NotFound', function (req, res, error, cb) {
