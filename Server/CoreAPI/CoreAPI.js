@@ -2,9 +2,11 @@
 
 const restify = require('restify');
 const appConfig = require('./../app.config.json').CoreAPI;
+const sslConfig = require('./../app.config.json').ssl;
 const uuid = require('node-uuid');
 const logger = console;
 const authMiddleware = require('./middleware/authMiddleware');
+const fs = require('fs');
 
 var accountRoutes = require('./routes/accountRoutes.js');
 var charitiesRoutes = require('./routes/charitiesRoutes.js');
@@ -14,11 +16,19 @@ var transactionRoutes = require('./routes/transactionRoutes.js');
 
 
 /* ----------------- Other Global Stuff ----------------------------- */
-var server = restify.createServer({
-    name: appConfig.name,
-    version: appConfig.version
-});
-
+if(appConfig.protocol == 'https') {
+    var server = restify.createServer({
+        name: appConfig.name,
+        version: appConfig.version,
+        certificate: fs.readFileSync(sslConfig.cert),
+        key: fs.readFileSync(sslConfig.key)
+    });
+} else {
+    var server = restify.createServer({
+        name: appConfig.name,
+        version: appConfig.version
+    });
+}
 
 process.on('beforeExit', function () {
     ///TODO: add some code to execute before exit (maybe db connection closing?)

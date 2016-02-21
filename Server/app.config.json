@@ -1,4 +1,8 @@
 {
+  "ssl": {
+    "key": "",
+    "cert": ""
+  },
   "cron": "*/2 * * * * *",
   "mongo" : {
     "url": "mongodb://<username>:<password>@<host>:<port>/<store>",
