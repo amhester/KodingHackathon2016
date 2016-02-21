@@ -49,11 +49,6 @@
                 controllerAs: 'vm',
                 templateUrl: '/main/goalDetails'
             })
-            .when('/motivation', {
-                controller: 'motivationController',
-                controllerAs: 'vm',
-                templateUrl: '/main/motivation'
-            })
             .otherwise('/dashboard');
     }
 
