@@ -116,6 +116,7 @@ img.charity-logo {
 }
 
 .card .card-link a {
+    color: #ffab40;
     margin-right: 20px;
     text-transform: uppercase;
 }
@@ -128,4 +129,28 @@ img.charity-logo {
 .navbar-right i {
     font-size: 18px;
     padding-bottom: 0px;
+}
+
+.dashBoard > .dashCard-action{
+    padding: 20px;
+    background-color: #f3f3f3;
+}
+
+.dashCard-action a {
+    margin-right: 20px;
+    -webkit-transition: color 0.3s ease;
+    -moz-transition: color 0.3s ease;
+    -o-transition: color 0.3s ease;
+    -ms-transition: color 0.3s ease;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+}
+
+.dashBoard > .collection-item {
+    background-color: #f3f3f3;
+}
+
+.project-title {
+    font-family: Impact, Charcoal, sans-serif;
+    font-size: 25px;
 }

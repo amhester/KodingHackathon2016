@@ -1,8 +1,44 @@
-<div>
-<br />
-
-    <div class="inline-block" ng-repeat="panel in vm.dashPanels | orderBy: 'id'">
-        <dash-card></dash-card>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="collection z-depth-1 dashBoard">
+                <a href="#/goals" class="collection-item blue"><h4 class="white-text">Upcoming Goals</h4></a>
+                <div class="collection-item">
+                    <div ng-repeat="goal in vm.goals | orderBy: 'expiration' | limitTo: 3">
+                        <goal-card></goal-card>
+                    </div>
+                </div>
+                <div class="dashCard-action">
+                    <a href="#/goals">All Goals</a>
+                    <a href="#/goals/newGoal">New Goal</a>
+                </div>
+            </div>
+        </div>
+        <div class="row col-md-7">
+                <div class="collection z-depth-1 dashBoard">
+                    <a href="#/charities" class="collection-item blue"><h4 class="white-text">Highlighted Charity</h4></a>
+                    <div class="collection-item">
+                        <div ng-repeat="charity in vm.charities | limitTo: 1">
+                            <charity-card></charity-card>
+                        </div>
+                    </div>
+                    <div class="dashCard-action">
+                        <a href="#/charities">All Charities</a>
+                    </div>
+                </div>
+        </div>
+        <div class="row col-md-4">
+                <div class="collection z-depth-1 dashBoard">
+                    <a href="#/charities" class="collection-item blue"><h4 class="white-text">Extras</h4></a>
+                    <div class="collection-item">
+                        <div>
+                            <a href="#/motivation" class="btn btn-default btn-lg btn-block">Goal Motivation</a>
+                        </div>
+                    </div>
+                </div>
+        </div>
     </div>
-
+    <!--<div class="inline-block" ng-repeat="panel in vm.dashPanels | orderBy: 'id'">
+        <dash-card></dash-card>
+    </div>-->
 </div>
