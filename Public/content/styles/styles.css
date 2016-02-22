@@ -123,3 +123,9 @@ img.charity-logo {
 .inline-block {
     display: inline-block;
 }
+
+/*top nav icon link*/
+.navbar-right i {
+    font-size: 18px;
+    padding-bottom: 0px;
+}
