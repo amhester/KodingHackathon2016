@@ -13,14 +13,14 @@
             {
                 id: "1",
                 route: "/profile",
-                imageUrl: "",
+                imageUrl: "../content/images/profile.png",
                 buttonText: "Profile"
             },
             {
                 id: "2",
-                route: "/goals",
+                route: "/goals/newGoal",
                 imageUrl: "../content/images/checky.png",
-                buttonText: "Goals"
+                buttonText: "Create Goal"
             },
             {
                 id: "3",

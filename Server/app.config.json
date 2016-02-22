@@ -58,7 +58,7 @@
     "version": "0.0.1",
     "url": "<protocol>://<host>:<port>",
     "protocol": "https",
-    "host": "127.0.0.1",
+    "host": "169.44.62.169",
     "port": 8088,
     "endpoints": {
       "notification": "/notify"
