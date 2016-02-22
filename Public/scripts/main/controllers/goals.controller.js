@@ -7,14 +7,15 @@
         .controller('goalController', goalController)
         .controller('currentGoalsController', currentGoalsController);
 
-    goalsController.$inject = ['$scope', '$rootScope', 'GoalService'];
-    function goalsController(scope, rootScope, GoalService) {
+    goalsController.$inject = ['$scope', '$rootScope', '$location', 'GoalService'];
+    function goalsController(scope, rootScope, location, GoalService) {
         var vm = this;
 
         vm.createGoal = function() {
             vm.goal.expiration = moment(vm.goal.expiration, "MMM Do YYYY, h:mm a" ).format("x");
             vm.goal.createdOn = new Date().getTime();
             GoalService.post(vm.goal);
+            location.path("/goals");
         };
 
         //TODO: Make Directive
