@@ -12,7 +12,7 @@ class SparkpostEmailService {
         for (let i = 0; i < recipients.length; i++) {
             _recipients.push({address: recipients[i]});
         }
-        this.sparky.transmissions.send({
+       /* this.sparky.transmissions.send({
             transmissionBody: {
                 content: {
                     from: fromAddress,
@@ -23,7 +23,7 @@ class SparkpostEmailService {
             }
         }, function(err, res) {
             callback(err, res);
-        });
+        });*/
     }
 }
 
