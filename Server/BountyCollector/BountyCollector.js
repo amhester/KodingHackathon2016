@@ -52,36 +52,38 @@ var g = db.Goals;
                                     console.log('2');
                                     console.log(err);
                                 }
+
+
+                                // TODO: generate actual link
+                                let link = "https://169.44.62.169/goal/" + obj.id + "/expired";
+
+                                notification = Notification.fromGoal(obj,
+                                    Notification.NOTIFICATION_TYPES.EXPIRED,
+                                    false,
+                                    'Hey...pay up. <a href="' + link + '">See goal</a>', link);
+
+                                db.Notifications.save(notification, function (err, notif) {
+                                    if (err) {
+                                        console.log('3');
+                                        console.log(err.message);
+                                    } else {
+                                        /*let notificationService = new NotificationService();
+                                         notificationService.sendNotification(
+                                         notif,
+                                         function(err, res) {
+                                         if (err) {
+                                         console.log('4');
+                                         console.log(err.message);
+                                         }
+                                         console.log('notification sent');
+                                         }
+                                         );*/
+                                        console.log(notif);
+                                        console.log('faux notification sent...');
+                                    }
+                                });
                             });
 
-                            // TODO: generate actual link
-                            let link = "https://169.44.62.169/goal/" + obj.id + "/expired";
-
-                            notification = Notification.fromGoal(obj,
-                                Notification.NOTIFICATION_TYPES.EXPIRED,
-                                false,
-                                'Hey...pay up. <a href="' + link + '">See goal</a>', link);
-
-                            db.Notifications.save(notification, function (err, notif) {
-                                if (err) {
-                                    console.log('3');
-                                    console.log(err.message);
-                                } else {
-                                    /*let notificationService = new NotificationService();
-                                    notificationService.sendNotification(
-                                        notif,
-                                        function(err, res) {
-                                            if (err) {
-                                                console.log('4');
-                                                console.log(err.message);
-                                            }
-                                            console.log('notification sent');
-                                        }
-                                    );*/
-                                    console.log(notif);
-                                    console.log('faux notification sent...');
-                                }
-                            });
                         }
                     }
                 });
