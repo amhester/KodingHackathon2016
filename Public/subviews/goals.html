@@ -3,6 +3,9 @@
 <div class="goalContentList">
    <div class="goalContent" ng-repeat="goal in vm.goals | orderBy:expiration" ng-switch on="goal.status">
       <goal-failed-card ng-switch-when="3" ></goal-failed-card>
+      <goal-failed-card ng-switch-when="EXPIRED" ></goal-failed-card>
+      <goal-completed-card ng-switch-when="2" ></goal-completed-card>
+      <goal-completed-card ng-switch-when="COMPLETED" ></goal-completed-card>
       <goal-card ng-switch-default></goal-card>
    </div>
 </div>
