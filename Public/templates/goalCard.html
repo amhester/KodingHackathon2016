@@ -1,11 +1,12 @@
 <div class="card White" >
     <div class="card-content">
-        <h5>{{goal.name}} - {{goal.status}}</h5>
+        <h5>{{goal.name}}</h5>
         {{goal.description}}
         <h6>{{goal.expiration | date:'MM/dd/yyyy @ h:mma'}}</h6>
     </div>
 
     <div class="card-action">
         <a href="#/goals/goalDetails">View Details</a>
+        <a href="#/goals/complete">COMPLETED!</a>
     </div>
 </div>

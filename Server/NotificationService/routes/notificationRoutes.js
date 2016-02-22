@@ -13,9 +13,17 @@ class NotificationService {
     sendNotification(notification, callback) {
         // This will be called in the callback from the datastore notification adding a notification object
 
-        var emailSend = service.sendEmail([notification.email], "testing@sparkpostbox.com", "WinWin Notification for " + notification.email, notification.message, callback);
-        //callback (emailSend.err, emailSend.response);
-        return emailSend;
+        service.sendEmail([notification.email],
+            "testing@sparkpostbox.com",
+            "WinWin Notification for " + notification.email,
+            notification.message,
+            function(err, res) {
+                if (err) {
+                    console.log('error sending email in notification service');
+                    console.log(err.message);
+                }
+                callback(err, res);
+        });
     }
 
     static NotificationFactory() {
@@ -28,6 +36,7 @@ module.exports = NotificationService;
 module.exports.register = function( server ) {
 
     server.post(root, function (req, res, next) {
+        console.log('notification endpoint hit.');
         let notification = new Notification(req.body);
         let notifier = NotificationService.NotificationFactory();
         let notify = notifier.sendNotification(notification, function(err, notification) {

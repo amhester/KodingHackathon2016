@@ -4,7 +4,7 @@ let SparkPost = require('sparkpost');
 
 class SparkpostEmailService {
     constructor() {
-        this.sparky = new SparkPost('cb48dfa703792cb83643eec187139cdd9ee335c7');
+        this.sparky = new SparkPost('b8edcdc174f7cd94f255a2cce078d16583fa6d7a');
     }
 
     sendEmail(recipients, fromAddress, subject, message, callback) {
@@ -24,7 +24,6 @@ class SparkpostEmailService {
         }, function(err, res) {
             callback(err, res);
         });
-        return { response: "" };
     }
 }
 
