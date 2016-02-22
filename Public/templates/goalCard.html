@@ -7,7 +7,7 @@
 
     <div class="card-action">
         <a href="#/goal/{{goal.id}}">View Details</a>
-        <button type="button" ng-click="vm.markComplete(goal.id)" class="btn btn-primary waves-effect waves-light">COMPLETED!</button>
-        <a data-ng-click="vm.removeGoal(goal.id)"> Remove </a>
+        <button type="button" ng-show="vm.markComplete" ng-click="vm.markComplete(goal.id)" class="btn btn-primary waves-effect waves-light">COMPLETED!</button>
+        <a data-ng-show="vm.removeGoal" data-ng-click="vm.removeGoal(goal.id)"> Remove </a>
     </div>
 </div>
