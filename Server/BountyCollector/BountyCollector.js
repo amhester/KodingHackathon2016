@@ -32,6 +32,9 @@ var g = db.Goals;
                 results.forEach(function (obj) {
                     console.log('foreach:', obj);
                     if (obj.expiration < now) {
+                        console.log('status vs enum of open');
+                        console.log(obj.status);
+                        console.log(Goal.GOAL_STATUSES.OPEN);
                         if (obj.status == Goal.GOAL_STATUSES.OPEN) {
                             db.Goals.save(new Goal({
                                     accountId: obj.accountId,
@@ -47,7 +50,6 @@ var g = db.Goals;
                                 if (err) {
                                     console.log('2');
                                     console.log(err);
-
                                 }
                             });
 
