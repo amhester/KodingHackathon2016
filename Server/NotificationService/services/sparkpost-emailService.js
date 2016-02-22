@@ -24,7 +24,6 @@ class SparkpostEmailService {
         }, function(err, res) {
             callback(err, res);
         });
-        return { response: "" };
     }
 }
 

@@ -60,6 +60,7 @@ var g = db.Goals;
                                             console.log('4');
                                             console.log(err.message);
                                         }
+                                        console.log(res);
                                     }
                                 );
 
