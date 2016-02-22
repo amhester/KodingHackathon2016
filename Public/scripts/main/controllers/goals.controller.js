@@ -23,8 +23,8 @@
         })
     }
 
-    goalController.$inject = ['$scope', '$rootScope', 'GoalService', '$routeParams'];
-    function goalController(scope, rootScope, GoalService, routeParams) {
+    goalController.$inject = ['$scope', '$rootScope', 'GoalService', '$routeParams', '$location'];
+    function goalController(scope, rootScope, GoalService, routeParams, location) {
         var vm = this;
         get(routeParams.id);
 
@@ -37,6 +37,37 @@
             }, function (err) {
                 console.error(err);
             });
+        }
+
+        vm.markComplete = function(id) {
+            var g = GoalService.get(id);
+
+            g.then(function (res) {
+                var obj = res.data;
+                obj.status = "COMPLETED"; // 2
+                //console.log(obj);
+
+                GoalService.put(obj).then(function (res) {
+                    console.log(res);
+                    location.path('/goals');
+                }, function (err) {
+                    //console.log("trying to save updated goal.");
+                    console.error(err);
+                });
+            }, function (err) {
+                console.error(err);
+            });
+        }
+
+        vm.removeGoal = function(id) {
+            //$location.path('/goal/' + id);
+            //console.log(id);
+            GoalService.del(id).then(function (res) {
+                    console.log(res);
+                    location.path('/goals');
+                }, function (err) {
+                    console.error(err);
+                });
         }
     }
 
@@ -51,6 +82,37 @@
             g.then(function (res) {
                 vm.goals = res.data;
                 console.log(res);
+            }, function (err) {
+                console.error(err);
+            });
+        }
+
+        vm.markComplete = function(id) {
+            var g = GoalService.get(id);
+
+            g.then(function (res) {
+                var obj = res.data;
+                obj.status = "COMPLETED"; // 2
+                //console.log(obj);
+
+                GoalService.put(obj).then(function (res) {
+                    console.log(res);
+                    location.path('/goals');
+                }, function (err) {
+                    //console.log("trying to save updated goal.");
+                    console.error(err);
+                });
+            }, function (err) {
+                console.error(err);
+            });
+        }
+
+        vm.removeGoal = function(id) {
+            //$location.path('/goal/' + id);
+            //console.log(id);
+            GoalService.del(id).then(function (res) {
+                console.log(res);
+                location.path('/goals');
             }, function (err) {
                 console.error(err);
             });
