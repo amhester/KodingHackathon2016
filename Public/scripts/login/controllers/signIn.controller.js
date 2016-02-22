@@ -19,7 +19,19 @@
             }, function (err) {
                 console.error(err);
             });
-        }
+        };
+
+        scope.demo = function() {
+            var p = authService.signIn('foo@bar.com', 'password');
+            p.then(function (res) {
+                if(res.status === 200) {
+                    localStorageService.set('auth-token', res.data);
+                    location.href = '/main';
+                }
+            }, function (err) {
+                console.error(err);
+            });
+        };
 
     }
 })();
