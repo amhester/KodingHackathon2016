@@ -72,8 +72,8 @@
         }
     }
 
-    currentGoalsController.$inject = ['$scope', '$rootScope', 'GoalService'];
-    function currentGoalsController(scope, rootScope, GoalService) {
+    currentGoalsController.$inject = ['$scope', '$rootScope', 'GoalService', '$location'];
+    function currentGoalsController(scope, rootScope, GoalService, location) {
         var vm = this;
         getAll();
 
