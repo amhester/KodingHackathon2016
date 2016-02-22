@@ -37,6 +37,7 @@ var g = db.Goals;
                         console.log(Goal.GOAL_STATUSES.OPEN);
                         if (obj.status == Goal.GOAL_STATUSES.OPEN) {
                             db.Goals.save(new Goal({
+                                    id: obj.id,
                                     accountId: obj.accountId,
                                     name: obj.name,
                                     description: obj.description,
