@@ -36,7 +36,7 @@
         }
 
         function del(id) {
-            var promise = http.del(serverIp + '/goal' + id);
+            var promise = http.delete(serverIp + '/goal/' + id);
             return promise;
         }
     }
