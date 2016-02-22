@@ -786,7 +786,7 @@
 			}
 			this.$element.val(moment(this.currentDate).locale(this.params.lang).format(this.params.format));
 			this.$element.trigger('change', this.currentDate);
-			angular.element(this.$element).triggerHandler('input')
+			angular.element(this.$element).triggerHandler('input');
 		},
 		toggleButtons: function(date)
 		{

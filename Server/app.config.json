@@ -58,21 +58,21 @@
     "version": "0.0.1",
     "url": "<protocol>://<host>:<port>",
     "protocol": "https",
-    "host": "127.0.0.1",
+    "host": "169.44.62.169",
     "port": 8088,
     "endpoints": {
       "notification": "/notify"
     }
   },
   "BountyCollector": {
-    "cron": "*/2 * * * * *",
-    "notificationUrl": "http://169.44.62.169:8088/notify"
+    "cron": "*/45 * * * * *",
+    "notificationUrl": "https://169.44.62.169:8088/notify"
   },
   "PaymentProcessor": {
     "url": "<protocol>://<host>:<port>",
     "protocol": "https",
     "port": 8089,
-    "host": "localhost",
+    "host": "169.44.62.169",
     "name": "PaymentProcessor",
     "version": "0.0.1",
     "endpoints": {
