@@ -9,6 +9,10 @@ module.exports.register = function (app) {
         res.render('subviews/dashboard.html');
     });
 
+    app.get('/main/about', function (req, res) {
+        res.render('subviews/about.html');
+    });
+
     app.get('/main/charities', function (req, res) {
         res.render('subviews/charities.html');
     });

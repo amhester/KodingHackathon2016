@@ -39,6 +39,11 @@
                 controllerAs: 'vm',
                 templateUrl: '/main/pastGoals'
             })
+            .when('/about', {
+                controller: 'aboutController',
+                controllerAs: 'vm',
+                templateUrl: '/main/about'
+            })
             .when('/history', {
                 controller: 'historyController',
                 controllerAs: 'vm',
