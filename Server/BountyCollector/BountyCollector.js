@@ -8,6 +8,7 @@ var Goal = require('./../DataLayer/models/Goal');
 var Notification = require('./../DataLayer/models/Notification.js');
 var db = require('./../DataLayer/DataRepository');
 var request = require('request');
+var NotificationService = require('./../NotificationService/routes/notificationRoutes');
 
 // var notifications = new Notifications(appConfig.mongo);
 //var goals = new Goals(appConfig.mongo);
@@ -26,11 +27,26 @@ var g = db.Goals;
                     console.log(err.message);
                 }
                 var now = new Date().getTime();
+
+                console.log('number of results in bounty collector:', results.length);
                 results.forEach(function (obj) {
+                    console.log('foreach:', obj);
                     if (obj.expiration < now) {
-                        if (obj.status = Goal.GOAL_STATUSES.OPEN) {
-                            obj.status = Goal.GOAL_STATUSES.EXPIRED;
-                            db.Goals.save(new Goal(obj), function (err, goal) {
+                        console.log('status vs enum of open');
+                        console.log(obj.status);
+                        console.log(Goal.GOAL_STATUSES.OPEN);
+                        if (obj.status == Goal.GOAL_STATUSES.OPEN) {
+                            db.Goals.save(new Goal({
+                                    accountId: obj.accountId,
+                                    name: obj.name,
+                                    description: obj.description,
+                                    bounty: obj.bounty,
+                                    charityId: obj.charityId,
+                                    expiration: obj.expiration,
+                                    status: Goal.GOAL_STATUSES.EXPIRED,
+                                    createdOn: obj.createdOn,
+                                    updatedOn: new Date()
+                            }), function (err, goal) {
                                 if (err) {
                                     console.log('2');
                                     console.log(err);
@@ -49,18 +65,21 @@ var g = db.Goals;
                                 if (err) {
                                     console.log('3');
                                     console.log(err.message);
-                                }
-                                request({
-                                        method: 'POST',
-                                        uri: appConfig.BountyCollector.notificationUrl,
-                                        json: notif.toJson()
-                                    },
-                                    function (err, response, body) {
-                                        if (err) {
-                                            console.log('4');
-                                            console.log(err.message);
+                                } else {
+                                    /*let notificationService = new NotificationService();
+                                    notificationService.sendNotification(
+                                        notif,
+                                        function(err, res) {
+                                            if (err) {
+                                                console.log('4');
+                                                console.log(err.message);
+                                            }
+                                            console.log('notification sent');
                                         }
-                                    });
+                                    );*/
+                                    console.log(notif);
+                                    console.log('faux notification sent...');
+                                }
                             });
                         }
                     }
