@@ -52,8 +52,8 @@ var g = db.Goals;
                                     console.log(err.message);
                                 }
 
-                                let NotificationService = new NotificationService();
-                                NotificationService.sendNotification(
+                                let notificationService = new NotificationService();
+                                notificationService.sendNotification(
                                     notification,
                                     function(err, res) {
                                         if (err) {
