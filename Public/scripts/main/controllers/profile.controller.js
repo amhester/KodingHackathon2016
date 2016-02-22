@@ -20,9 +20,7 @@
         function init() {
             getAccount();
             setTimeout(function () {
-                vm.domCard = new Skeuocard($('#skeuocard'), {
 
-                });
             }, 500);
         }
 
@@ -30,7 +28,8 @@
             AccountService
                 .get()
                 .then(function (res) {
-                    _user = res.data;
+                    _user.email = res.data.email;
+                    _user.displayName = res.data.displayName;
                     vm.user = res.data;
                 }, function (err) {
                     toastr.error('Failed to get account :(');
