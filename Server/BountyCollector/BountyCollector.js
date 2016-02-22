@@ -30,8 +30,17 @@ var g = db.Goals;
                 results.forEach(function (obj) {
                     if (obj.expiration < now) {
                         if (obj.status = Goal.GOAL_STATUSES.OPEN) {
-                            obj.status = Goal.GOAL_STATUSES.EXPIRED;
-                            db.Goals.save(new Goal(obj), function (err, goal) {
+                            db.Goals.save(new Goal({
+                                    accountId: obj.accountId,
+                                    name: obj.name,
+                                    description: obj.description,
+                                    bounty: obj.bounty,
+                                    charityId: obj.charityId,
+                                    expiration: obj.expiration,
+                                    status: Goal.GOAL_STATUSES.EXPIRED,
+                                    createdOn: obj.createdOn,
+                                    updatedOn: new Date()
+                            }), function (err, goal) {
                                 if (err) {
                                     console.log('2');
                                     console.log(err);
