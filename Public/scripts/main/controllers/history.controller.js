@@ -8,7 +8,21 @@
     historyController.$inject = ['$scope', '$rootScope'];
     function historyController(scope, rootScope) {
         var vm = this;
+        getOld();
 
+        function getOld() {
+            var g = GoalService.getAll();
+
+
+
+            g.then(function (res) {
+                vm.goals = res.data;
+                console.log(res);
+            }, function (err) {
+                console.error(err);
+            });
+        }
+        /*
         var curDate = new Date();
         var goals = [
             {
@@ -46,5 +60,6 @@
         ];
         console.log(goals);
         vm.goals = goals;
+        */
     }
 })();

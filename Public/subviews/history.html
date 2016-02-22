@@ -2,6 +2,6 @@
     <h2>History</h2>
 </div>
 
-<div class="historyContent" ng-repeat="goal in vm.goals | orderBy: 'expiration'">
+<div class="historyContent" ng-repeat="goal in vm.goals | orderBy: '-expiration'">
     <history-card></history-card>
 </div>
