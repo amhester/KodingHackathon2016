@@ -21,7 +21,7 @@
         }
 
         function put(account) {
-            var promise = http.put(serverIp + '/account', account);
+            var promise = http.put(serverIp + '/account', { account: account });
             return promise;
         }
 

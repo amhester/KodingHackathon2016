@@ -15,7 +15,11 @@
                         <label for="goalDescription">Goal Description</label>
                     </div>
                     <div class="input-field" >
-                        <input id="goalExpiration" ng-model="vm.goal.expiration" type="text" class="validate" >
+                        <input id="goalBounty" ng-model="vm.goal.bounty" type="text" class="validate" required>
+                        <label for="goalBounty">Goal Bounty Amount</label>
+                    </div>
+                    <div class="input-field" >
+                        <input id="goalExpiration" ng-model="vm.goal.expiration" type="text" class="validate">
                         <label for="goalExpiration">Goal Expiration</label>
                     </div>
                 </div>
