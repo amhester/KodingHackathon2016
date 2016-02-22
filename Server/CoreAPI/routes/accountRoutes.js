@@ -5,6 +5,7 @@ const Account = require('./../../DataLayer/models/Account');
 const db = require('./../../DataLayer/DataRepository');
 const AuthService = require('./../../DataLayer/services/AuthService');
 const jwt = require('jsonwebtoken');
+const request = require('request');
 
 const auth = new AuthService(appConfig);
 
@@ -23,6 +24,7 @@ module.exports.register = function(server) {
     });
 
     server.post('/token', function (req, res, next) {
+        console.log(req.params);
         let email = req.params.email;
         let password = req.params.password;
 
@@ -41,11 +43,11 @@ module.exports.register = function(server) {
     });
 
     server.get('/account', function (req, res, next) {
-        db.Accounts.query().find().toArray(function (err, docs) {
+        db.Accounts.query().find({id: req.authContext.id}).limit(1).next(function (err, doc) {
             if(err) {
                 res.send(500, err.message);
             } else {
-                res.send(200, docs);
+                res.send(200, doc);
             }
             next();
         });
@@ -98,5 +100,13 @@ module.exports.register = function(server) {
             }
             next();
         });
+    });
+
+    server.post('/card', function (req, res, next) {
+
+    });
+
+    server.del('/card', function (req, res, next) {
+
     });
 };
