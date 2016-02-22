@@ -72,7 +72,7 @@
     "url": "<protocol>://<host>:<port>",
     "protocol": "https",
     "port": 8089,
-    "host": "localhost",
+    "host": "169.44.62.169",
     "name": "PaymentProcessor",
     "version": "0.0.1",
     "endpoints": {
