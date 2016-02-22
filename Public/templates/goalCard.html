@@ -4,7 +4,7 @@
         {{goal.description}}
         <h6>{{goal.expiration | date:'MM/dd/yyyy @ h:mma'}}</h6>
     </div>
-    {{goal.status}}
+
     <div class="card-action">
         <a href="#/goal/{{goal.id}}">View Details</a>
         <button type="button" ng-click="vm.markComplete(goal.id)" class="btn btn-primary waves-effect waves-light">COMPLETED!</button>
