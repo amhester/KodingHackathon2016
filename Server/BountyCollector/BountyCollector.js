@@ -8,6 +8,7 @@ var Goal = require('./../DataLayer/models/Goal');
 var Notification = require('./../DataLayer/models/Notification.js');
 var db = require('./../DataLayer/DataRepository');
 var request = require('request');
+var NotificationService = require('./../NotificationService/routes/notificationRoutes');
 
 // var notifications = new Notifications(appConfig.mongo);
 //var goals = new Goals(appConfig.mongo);
@@ -50,6 +51,19 @@ var g = db.Goals;
                                     console.log('3');
                                     console.log(err.message);
                                 }
+
+                                let NotificationService = new NotificationService();
+                                NotificationService.sendNotification(
+                                    notification,
+                                    function(err, res) {
+                                        if (err) {
+                                            console.log('4');
+                                            console.log(err.message);
+                                        }
+                                    }
+                                );
+
+                                /*
                                 request({
                                         method: 'POST',
                                         uri: appConfig.BountyCollector.notificationUrl,
@@ -60,7 +74,7 @@ var g = db.Goals;
                                             console.log('4');
                                             console.log(err.message);
                                         }
-                                    });
+                                    });*/
                             });
                         }
                     }
