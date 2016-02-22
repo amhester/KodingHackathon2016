@@ -47,6 +47,7 @@ var g = db.Goals;
                                 if (err) {
                                     console.log('2');
                                     console.log(err);
+
                                 }
                             });
 
