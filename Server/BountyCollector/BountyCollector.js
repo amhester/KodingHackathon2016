@@ -28,7 +28,7 @@ var g = db.Goals;
                 }
                 var now = new Date().getTime();
 
-                console.log('number of results in bounty collector:', results.size());
+                console.log('number of results in bounty collector:', results.length);
                 results.forEach(function (obj) {
                     console.log('foreach:', obj);
                     if (obj.expiration < now) {
