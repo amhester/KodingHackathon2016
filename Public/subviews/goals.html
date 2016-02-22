@@ -1,7 +1,7 @@
 <div goal-view-selector class="goalViewSelector"></div>
 
 <div class="goalContentList">
-   <div class="goalContent" ng-repeat="goal in vm.goals | orderBy:expiration" ng-switch on="goal.status">
+   <div class="goalContent" ng-repeat="goal in vm.goals | orderBy: 'expiration'" ng-switch on="goal.status">
       <goal-failed-card ng-switch-when="3" ></goal-failed-card>
       <goal-failed-card ng-switch-when="EXPIRED" ></goal-failed-card>
       <goal-completed-card ng-switch-when="2" ></goal-completed-card>
