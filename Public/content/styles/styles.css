@@ -131,7 +131,7 @@ img.charity-logo {
     padding-bottom: 0px;
 }
 
-.dashCard-action {
+.dashBoard > .dashCard-action{
     padding: 20px;
     background-color: #f3f3f3;
 }
@@ -146,7 +146,7 @@ img.charity-logo {
     text-transform: uppercase;
 }
 
-.collection .collection-item {
+.dashBoard > .collection-item {
     background-color: #f3f3f3;
 }
 

@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-5">
-            <div class="collection z-depth-1">
+            <div class="collection z-depth-1 dashBoard">
                 <a href="#/goals" class="collection-item blue"><h4 class="white-text">Upcoming Goals</h4></a>
                 <div class="collection-item">
                     <div ng-repeat="goal in vm.goals | orderBy: 'expiration' | limitTo: 3">
@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="row col-md-7">
-                <div class="collection z-depth-1">
+                <div class="collection z-depth-1 dashBoard">
                     <a href="#/charities" class="collection-item blue"><h4 class="white-text">Highlighted Charity</h4></a>
                     <div class="collection-item">
                         <div ng-repeat="charity in vm.charities | limitTo: 1">
@@ -28,7 +28,7 @@
                 </div>
         </div>
         <div class="row col-md-4">
-                <div class="collection z-depth-1">
+                <div class="collection z-depth-1 dashBoard">
                     <a href="#/charities" class="collection-item blue"><h4 class="white-text">Extras</h4></a>
                     <div class="collection-item">
                         <div>
