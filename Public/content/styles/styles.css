@@ -35,6 +35,11 @@
     overflow: hidden;
 }
 
+.dashCard-header {
+
+}
+
+
 /*login card*/
 .loginCard {
     margin-top: 50px;
@@ -128,4 +133,19 @@ img.charity-logo {
 .navbar-right i {
     font-size: 18px;
     padding-bottom: 0px;
+}
+
+.dashCard-action {
+    padding: 20px;
+}
+
+.dashCard-action a {
+    color: #ffab40;
+    margin-right: 20px;
+    -webkit-transition: color 0.3s ease;
+    -moz-transition: color 0.3s ease;
+    -o-transition: color 0.3s ease;
+    -ms-transition: color 0.3s ease;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
 }
