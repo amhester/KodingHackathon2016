@@ -11,7 +11,7 @@
             restrict: 'E',
             replace: true,
             $scope: {},
-            templateUrl: 'templates/charityCard.html'
+            templateUrl: 'templates/CharityCard.html'
         };
     }
 })();

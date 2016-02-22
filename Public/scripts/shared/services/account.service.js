@@ -10,11 +10,13 @@
         return {
             get: getAccount,
             put: put,
-            del: del
+            del: del,
+            saveCard: saveCard,
+            removeCard: removeCard
         };
 
-        function getAccount(id) {
-            var promise = http.get(serverIp + '/account/' + id);
+        function getAccount() {
+            var promise = http.get(serverIp + '/account');
             return promise;
         }
 
@@ -25,6 +27,16 @@
 
         function del(id) {
             var promise = http.del(serverIp + '/account/' + id);
+            return promise;
+        }
+
+        function saveCard(card) {
+            var promise = http.post(serverIp + '/stripe', { card: card });
+            return promise;
+        }
+
+        function removeCard(accountId) {
+            var promise = http.del(serverIp + '/stripe/' + accountId);
             return promise;
         }
     }

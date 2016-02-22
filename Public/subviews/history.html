@@ -1,7 +1,12 @@
-<div>
-    <h2>History</h2>
-</div>
-
-<div class="historyContent" ng-repeat="goal in vm.goals | orderBy: 'expiration'">
-    <history-card></history-card>
+<div class="goalContentList">
+    <div class="goalContent">
+        <div class="card White" >
+            <div class="card-content">
+                <h3>History</h3>
+            </div>
+        </div>
+    </div>
+    <div class="goalContent" ng-repeat="goal in vm.ryans | orderBy: '-expiration'">
+        <history-card></history-card>
+    </div>
 </div>

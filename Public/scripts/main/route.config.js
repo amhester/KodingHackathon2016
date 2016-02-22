@@ -44,15 +44,15 @@
                 controllerAs: 'vm',
                 templateUrl: '/main/history'
             })
-            .when('/goals/goalDetails:goalId?', {
-                controller: 'goalsController',
+            .when('/goal/:id', {
+                controller: 'goalController',
                 controllerAs: 'vm',
                 templateUrl: '/main/goalDetails'
             })
             .when('/preferences', {
                 controller: 'preferencesController',
                 controllerAs: 'vm',
-                templateUrl: 'main/preferences'
+                templateUrl: '/main/preferences'
             })
             .when('/motivation', {
                 controller: 'motivationController',

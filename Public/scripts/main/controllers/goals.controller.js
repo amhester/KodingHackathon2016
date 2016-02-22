@@ -4,6 +4,7 @@
     angular
         .module('DP.Main')
         .controller('goalsController', goalsController)
+        .controller('goalController', goalController)
         .controller('currentGoalsController', currentGoalsController);
 
     goalsController.$inject = ['$scope', '$rootScope', 'GoalService'];
@@ -20,6 +21,23 @@
         $(document).ready(function(){
             $('#goalExpiration').bootstrapMaterialDatePicker({ weekStart : 0, time: true, format: "MMM Do YYYY, h:mm a" });
         })
+    }
+
+    goalController.$inject = ['$scope', '$rootScope', 'GoalService', '$routeParams'];
+    function goalController(scope, rootScope, GoalService, routeParams) {
+        var vm = this;
+        get(routeParams.id);
+
+        function get(id) {
+            var g = GoalService.get(id);
+
+            g.then(function (res) {
+                vm.alex = res.data;
+                console.log(res);
+            }, function (err) {
+                console.error(err);
+            });
+        }
     }
 
     currentGoalsController.$inject = ['$scope', '$rootScope', 'GoalService'];

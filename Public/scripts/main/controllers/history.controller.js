@@ -5,10 +5,25 @@
         .module('DP.Main')
         .controller('historyController', historyController);
 
-    historyController.$inject = ['$scope', '$rootScope'];
-    function historyController(scope, rootScope) {
+    historyController.$inject = ['$scope', '$rootScope', 'GoalService'];
+    function historyController(scope, rootScope, GoalService) {
         var vm = this;
+        getOld();
 
+        function getOld() {
+            var g = GoalService.getAll();
+
+            g.then(function (res) {
+                vm.ryans = res.data
+                    .filter(function(item) {
+                        return item.expiration < Date.now()
+                    });
+                console.log(res);
+            }, function (err) {
+                console.error(err);
+            });
+        }
+        /*
         var curDate = new Date();
         var goals = [
             {
@@ -46,5 +61,6 @@
         ];
         console.log(goals);
         vm.goals = goals;
+        */
     }
 })();
