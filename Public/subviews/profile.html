@@ -14,7 +14,7 @@
                 <div id="Preferences">
                     <h4>Preferences</h4>
                     <label style="display: block">Default Charity</label>
-                    <select id="DefaultCharity" class="browser-default" ng-model="vm.user.defaultCharity"><option>test</option></select>
+                    <select id="DefaultCharity" class="browser-default" ng-options="c.key as c.val for c in vm.charities" ng-model="vm.user.defaultCharity"></select>
                 </div>
                 <!--
                 <div id="CreditCardForm">
