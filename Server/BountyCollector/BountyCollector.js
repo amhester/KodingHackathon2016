@@ -30,11 +30,8 @@ var g = db.Goals;
 
                 console.log('number of results in bounty collector:', results.length);
                 results.forEach(function (obj) {
-                    console.log('foreach:', obj);
                     if (obj.expiration < now) {
-                        console.log('status vs enum of open');
-                        console.log(obj.status);
-                        console.log(Goal.GOAL_STATUSES.OPEN);
+                        console.log('expiration is less than now...', obj.status);
                         if (obj.status == Goal.GOAL_STATUSES.OPEN) {
                             db.Goals.save(new Goal({
                                     id: obj.id,
@@ -55,9 +52,9 @@ var g = db.Goals;
 
 
                                 // TODO: generate actual link
-                                let link = "https://169.44.62.169/goal/" + obj.id + "/expired";
+                                let link = "https://169.44.62.169/goal/" + goal.id + "/expired";
 
-                                notification = Notification.fromGoal(obj,
+                                notification = Notification.fromGoal(goal,
                                     Notification.NOTIFICATION_TYPES.EXPIRED,
                                     false,
                                     'Hey...pay up. <a href="' + link + '">See goal</a>', link);
