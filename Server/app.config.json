@@ -4,7 +4,6 @@
     "key": "/etc/apache2/ssl/169_44_62_169.key",
     "cert": "/etc/apache2/ssl/169_44_62_169.crt"
   },
-  "cron": "* */30 * * * *",
   "mongo" : {
     "url": "mongodb://<username>:<password>@<host>:<port>/<store>",
     "host": "ds013738.mongolab.com",
