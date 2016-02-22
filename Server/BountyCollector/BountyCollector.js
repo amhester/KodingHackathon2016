@@ -50,19 +50,21 @@ var g = db.Goals;
                                 if (err) {
                                     console.log('3');
                                     console.log(err.message);
+                                } else {
+                                    let notificationService = new NotificationService();
+                                    notificationService.sendNotification(
+                                        notif,
+                                        function(err, res) {
+                                            if (err) {
+                                                console.log('4');
+                                                console.log(err.message);
+                                            }
+                                            console.log('notification sent');
+                                        }
+                                    );
                                 }
 
-                                let notificationService = new NotificationService();
-                                notificationService.sendNotification(
-                                    notification,
-                                    function(err, res) {
-                                        if (err) {
-                                            console.log('4');
-                                            console.log(err.message);
-                                        }
-                                        console.log(res);
-                                    }
-                                );
+
 
                                 /*
                                 request({
