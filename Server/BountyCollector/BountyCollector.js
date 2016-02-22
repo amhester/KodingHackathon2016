@@ -31,7 +31,6 @@ var g = db.Goals;
                 console.log('number of results in bounty collector:', results.length);
                 results.forEach(function (obj) {
                     if (obj.expiration < now) {
-                        console.log('expiration is less than now...', obj.status);
                         if (obj.status == Goal.GOAL_STATUSES.OPEN) {
                             db.Goals.save(new Goal({
                                     id: obj.id,
@@ -64,7 +63,7 @@ var g = db.Goals;
                                         console.log('3');
                                         console.log(err.message);
                                     } else {
-                                        /*let notificationService = new NotificationService();
+                                        let notificationService = new NotificationService();
                                          notificationService.sendNotification(
                                          notif,
                                          function(err, res) {
@@ -74,9 +73,7 @@ var g = db.Goals;
                                          }
                                          console.log('notification sent');
                                          }
-                                         );*/
-                                        console.log(notif);
-                                        console.log('faux notification sent...');
+                                         );
                                     }
                                 });
                             });
