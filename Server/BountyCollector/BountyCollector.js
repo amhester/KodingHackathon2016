@@ -16,7 +16,7 @@ var NotificationService = require('./../NotificationService/routes/notificationR
 var notification = null;
 var g = db.Goals;
 (function () {
-    //console.log(`~~~~~~~~~~~~ \n\n DogTheBountyHunter starting hunting down expired notifications @${new Date()} \n\n cron schedule looks like: ${ appConfig.BountyCollector.cron } \n\n ~~~~~~~~~~~~`);
+    console.log(`~~~~~~~~~~~~ \n\n DogTheBountyHunter starting hunting down expired notifications @${new Date()} \n\n cron schedule looks like: ${ appConfig.BountyCollector.cron } \n\n ~~~~~~~~~~~~`);
     var DogTheBountyHunter = schedule.scheduleJob(appConfig.BountyCollector.cron, function () {
 
         if ((g = db.Goals) != null) {
@@ -28,7 +28,7 @@ var g = db.Goals;
                 }
                 var now = new Date().getTime();
 
-                console.log('number of results in bounty collector:', results.length);
+               // console.log('number of results in bounty collector:', results.length);
                 results.forEach(function (obj) {
                     if (obj.expiration < now) {
                         if (obj.status == Goal.GOAL_STATUSES.OPEN) {
