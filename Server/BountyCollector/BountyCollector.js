@@ -65,14 +65,14 @@ var g = db.Goals;
                                     } else {
                                         let notificationService = new NotificationService();
                                          notificationService.sendNotification(
-                                         notif,
-                                         function(err, res) {
-                                         if (err) {
-                                         console.log('4');
-                                         console.log(err.message);
-                                         }
-                                         console.log('notification sent');
-                                         }
+                                            notif,
+                                            function(err, res) {
+                                                if (err) {
+                                                    console.log('4');
+                                                    console.log(err.message);
+                                                }
+                                                console.log('notification sent');
+                                            }
                                          );
                                     }
                                 });
