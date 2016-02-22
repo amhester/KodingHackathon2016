@@ -27,9 +27,12 @@ var g = db.Goals;
                     console.log(err.message);
                 }
                 var now = new Date().getTime();
+
+                console.log('number of results in bounty collector:', results.size());
                 results.forEach(function (obj) {
+                    console.log('foreach:', obj);
                     if (obj.expiration < now) {
-                        if (obj.status = Goal.GOAL_STATUSES.OPEN) {
+                        if (obj.status == Goal.GOAL_STATUSES.OPEN) {
                             db.Goals.save(new Goal({
                                     accountId: obj.accountId,
                                     name: obj.name,
@@ -60,7 +63,7 @@ var g = db.Goals;
                                     console.log('3');
                                     console.log(err.message);
                                 } else {
-                                    let notificationService = new NotificationService();
+                                    /*let notificationService = new NotificationService();
                                     notificationService.sendNotification(
                                         notif,
                                         function(err, res) {
@@ -70,23 +73,10 @@ var g = db.Goals;
                                             }
                                             console.log('notification sent');
                                         }
-                                    );
+                                    );*/
+                                    console.log(notif);
+                                    console.log('faux notification sent...');
                                 }
-
-
-
-                                /*
-                                request({
-                                        method: 'POST',
-                                        uri: appConfig.BountyCollector.notificationUrl,
-                                        json: notif.toJson()
-                                    },
-                                    function (err, response, body) {
-                                        if (err) {
-                                            console.log('4');
-                                            console.log(err.message);
-                                        }
-                                    });*/
                             });
                         }
                     }
